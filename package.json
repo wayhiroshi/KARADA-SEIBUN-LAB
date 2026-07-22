@@ -1,0 +1,12 @@
+{
+  "name": "karada-seibun-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "import:storyboard": "node scripts/import-storyboard.mjs",
+    "prepare:images": "node scripts/prepare-images.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-site.mjs"
+  }
+}

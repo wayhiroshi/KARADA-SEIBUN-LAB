@@ -1,0 +1,15 @@
+.DS_Store
+.codex/
+node_modules/
+dist/
+
+# 制作原稿・原画・設定資料は公開リポジトリへ入れない
+/assets/
+/generated/
+/tools/
+/manga_storyboard.md
+/generation_report_S01-S17.md
+
+# 公開用に生成した軽量画像だけは public/ 以下で管理する
+!/public/
+!/public/**
