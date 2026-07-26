@@ -6,6 +6,7 @@
   "scripts": {
     "import:storyboard": "node scripts/import-storyboard.mjs",
     "prepare:images": "node scripts/prepare-images.mjs",
+    "forecast:rewards": "node scripts/forecast-rewards.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-site.mjs"
   }
