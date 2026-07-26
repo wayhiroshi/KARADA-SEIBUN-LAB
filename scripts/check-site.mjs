@@ -87,7 +87,7 @@ const publishedImageSources = allHtml.flatMap((html) =>
 );
 expect(
   publishedImageSources.every((src) =>
-    src.startsWith("/assets/episodes/001/") || src === "/assets/brand/uehi-hiroshi.png"
+    src.startsWith("/assets/episodes/001/") || src === "/assets/brand/uehi-hiroshi-v2.png"
   ),
   "Unexpected image source found; official product images must not be published before approval"
 );
@@ -110,7 +110,7 @@ for (const panel of panels) {
 }
 
 try {
-  await access(path.join(root, "public", "assets", "brand", "uehi-hiroshi.png"));
+  await access(path.join(root, "public", "assets", "brand", "uehi-hiroshi-v2.png"));
 } catch {
   failures.push("Author illustration is missing");
 }
