@@ -26,6 +26,7 @@ npm run check
 ## 運用資料
 
 - [フォーデイズショッピングモール招待コードの仕組みと運用メモ](docs/fordays-shopping-mall-invitation-code.md)
+- [SNSアカウント開設セットと初月4週間計画](docs/social-account-launch-kit.md)
 - [核酸啓蒙・SNS販売 年間運用計画](docs/online-growth-plan.md)
 - [初年度コンテンツカレンダー](docs/content-calendar-year1.md)
 - [SNS投稿テンプレート](docs/social-post-templates.md)
