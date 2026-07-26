@@ -1,0 +1,13 @@
+month,start_date,end_date,target_orders,hours,source_units,reach,saves,profile_visits,invite_clicks,orders,gross_sales,sales_bonus,pv_bonus,refunds,compliance_incidents,notes
+M1,,,0,,,,,,,,,,,,,
+M2,,,1,,,,,,,,,,,,,
+M3,,,2,,,,,,,,,,,,,
+M4,,,4,,,,,,,,,,,,,
+M5,,,6,,,,,,,,,,,,,
+M6,,,8,,,,,,,,,,,,,
+M7,,,10,,,,,,,,,,,,,
+M8,,,12,,,,,,,,,,,,,
+M9,,,14,,,,,,,,,,,,,
+M10,,,17,,,,,,,,,,,,,
+M11,,,21,,,,,,,,,,,,,
+M12,,,25,,,,,,,,,,,,,

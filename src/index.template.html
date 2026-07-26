@@ -3,29 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
+  <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="theme-color" content="#f6f0e3">
   <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="author" content="{{AUTHOR_NAME}}">
+  <link rel="canonical" href="{{CANONICAL}}">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="{{SITE_NAME}}">
   <meta property="og:title" content="{{PAGE_TITLE}}">
   <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta property="og:image" content="https://karada-seibun-lab.way-hiroshi-66.workers.dev/assets/episodes/001/S01-C01-1254.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <title>{{PAGE_TITLE}}</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
   <script src="/app.js" defer></script>
+  <script type="application/ld+json">{{STRUCTURED_DATA}}</script>
 </head>
-<body>
+<body class="manga-page">
+  <a class="skip-link" href="#top">本文へ移動</a>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="{{SITE_NAME}} トップへ">
+    <a class="brand" href="/" aria-label="{{SITE_NAME}} トップへ">
       <span class="brand-mark" aria-hidden="true">葉</span>
       <span>
         <strong>{{SITE_NAME}}</strong>
-        <small>{{SITE_TAGLINE}}</small>
+        <small>by {{AUTHOR_NAME}}</small>
       </span>
     </a>
-    <span class="edition-badge">{{STATUS}}</span>
+    <nav class="global-nav" aria-label="サイト内メニュー">
+      <a href="/articles/">核酸と成分</a>
+      <a href="/manga/001/" aria-current="page">漫画</a>
+      <a href="/about/">植井寛について</a>
+      <a href="/editorial-policy/">編集方針</a>
+    </nav>
   </header>
 
   <main id="top">
@@ -58,13 +71,19 @@
         <h2 id="editorial-note-title">この漫画について</h2>
         <p>体内の仕組みや成分の働きを理解しやすくするため、物流センターや工場に置き換えて単純化した物語表現です。特定の商品による効果や減量を保証するものではありません。</p>
         <p>健康づくりは、主食・主菜・副菜を基本にしたバランスのよい食生活が基本です。通院中、服薬中、妊娠・授乳中など、体調に不安がある場合は医療機関へ相談してください。</p>
+        <p><a href="/editorial-policy/">編集・広告方針を読む</a></p>
       </section>
     </article>
   </main>
 
   <footer class="site-footer">
-    <strong>{{SITE_NAME}}</strong>
+    <strong>{{SITE_NAME}} <span>by {{AUTHOR_NAME}}</span></strong>
     <p>{{SITE_TAGLINE}}</p>
+    <nav aria-label="フッターメニュー">
+      <a href="/articles/">記事一覧</a>
+      <a href="/about/">著者情報</a>
+      <a href="/editorial-policy/">編集方針</a>
+    </nav>
     <p class="copyright">© 2026 {{SITE_NAME}}. All rights reserved.</p>
     <a href="#top">ページの先頭へ戻る</a>
   </footer>

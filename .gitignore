@@ -2,6 +2,7 @@
 .codex/
 node_modules/
 dist/
+.wrangler/
 
 # 制作原稿・原画・設定資料は公開リポジトリへ入れない
 /assets/
@@ -9,6 +10,12 @@ dist/
 /tools/
 /manga_storyboard.md
 /generation_report_S01-S17.md
+
+# フォーデイズ公式素材はローカル利用に限定し、公開リポジトリへ入れない
+/private-assets/
+
+# 売上・報酬・作業時間などの実績値は公開しない
+/private-ops/
 
 # 公開用に生成した軽量画像だけは public/ 以下で管理する
 !/public/
