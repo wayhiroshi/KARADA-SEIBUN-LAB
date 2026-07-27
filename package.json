@@ -6,6 +6,7 @@
   "scripts": {
     "import:storyboard": "node scripts/import-storyboard.mjs",
     "prepare:images": "node scripts/prepare-images.mjs",
+    "render:logos": "node scripts/render-logo-concepts.mjs",
     "render:social": "node scripts/render-social.mjs",
     "forecast:rewards": "node scripts/forecast-rewards.mjs",
     "build": "node scripts/build.mjs",
