@@ -117,7 +117,7 @@ for (const post of content.posts) {
               ${slide.body ? `<div class="body">${renderLines(slide.body)}</div>` : ""}
               ${points}
             </main>
-            <footer>植井寛（ペンネーム）｜@karada_seibun_lab</footer>
+            <footer>植井寛｜@karada_seibun_lab</footer>
           </div>
         </body>
       </html>`,
