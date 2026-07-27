@@ -6,6 +6,9 @@ const dist = path.join(root, "dist");
 const episode = JSON.parse(await readFile(path.join(root, "content", "episodes", "001.json"), "utf8"));
 const site = JSON.parse(await readFile(path.join(root, "content", "site.json"), "utf8"));
 const articles = JSON.parse(await readFile(path.join(root, "content", "articles.json"), "utf8"));
+const fixedSocialPosts = JSON.parse(
+  await readFile(path.join(root, "content", "social", "fixed-posts.json"), "utf8"),
+);
 const panels = episode.scenes.flatMap((scene) => scene.panels);
 const scriptLines = panels.flatMap((panel) => panel.script);
 const failures = [];
@@ -115,6 +118,28 @@ try {
   failures.push("Author illustration is missing");
 }
 
+let socialSlides = 0;
+for (const post of fixedSocialPosts.posts) {
+  for (const [index] of post.slides.entries()) {
+    socialSlides += 1;
+    const slidePath = path.join(
+      root,
+      "public",
+      "assets",
+      "social",
+      "fixed",
+      post.id,
+      `${String(index + 1).padStart(2, "0")}.png`,
+    );
+    try {
+      await access(slidePath);
+    } catch {
+      failures.push(`Missing social slide: ${slidePath}`);
+    }
+  }
+}
+expect(socialSlides === 19, `Expected 19 fixed social slides, got ${socialSlides}`);
+
 if (failures.length) {
   console.error("Site check failed:");
   for (const failure of failures) console.error(`- ${failure}`);
@@ -128,6 +153,7 @@ console.log(JSON.stringify({
   panels: panels.length,
   scriptLines: scriptLines.length,
   webpFiles: publicImages.length,
+  fixedSocialSlides: socialSlides,
   imageMiB: Number((imageBytes / 1024 / 1024).toFixed(1)),
   indexedPaths: 1 + 1 + articles.length + 1 + 1 + 1
 }, null, 2));
