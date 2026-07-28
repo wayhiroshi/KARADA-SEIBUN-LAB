@@ -26,6 +26,9 @@ const content = JSON.parse(
 const portrait = (
   await readFile(path.join(root, "public", "assets", "brand", "uehi-hiroshi-v2.png"))
 ).toString("base64");
+const brandMark = (
+  await readFile(path.join(root, "public", "assets", "brand", "karada-seibun-lab-mark.svg"))
+).toString("base64");
 const outputRoot = path.join(root, "public", "assets", "social", "fixed");
 
 await rm(outputRoot, { recursive: true, force: true });
@@ -80,8 +83,8 @@ for (const post of content.posts) {
               font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
             }
             .canvas { position: relative; width: 100%; height: 100%; padding: 76px 76px 62px; }
-            .brand { display: flex; align-items: center; gap: 16px; font-size: 28px; font-weight: 700; letter-spacing: .06em; }
-            .brand-mark { width: 18px; height: 44px; border-radius: 999px; background: #d9785d; box-shadow: 15px 8px 0 #567361; transform: rotate(25deg); }
+            .brand { display: flex; align-items: center; gap: 16px; color: #001b41; font-size: 28px; font-weight: 700; letter-spacing: .06em; }
+            .brand-mark { display: block; width: 52px; height: 52px; object-fit: contain; }
             .page { margin-left: auto; color: #6d766f; font-size: 24px; letter-spacing: .08em; }
             header { display: flex; align-items: center; }
             main { display: flex; flex-direction: column; justify-content: center; min-height: 1050px; padding: 60px 4px 30px; }
@@ -106,7 +109,7 @@ for (const post of content.posts) {
         <body class="accent-${escapeHtml(slide.accent || "default")}">
           <div class="canvas">
             <header>
-              <div class="brand"><span class="brand-mark"></span>からだ成分ラボ</div>
+              <div class="brand"><img class="brand-mark" src="data:image/svg+xml;base64,${brandMark}" alt="">からだ成分ラボ</div>
               <div class="page">${index + 1} / ${post.slides.length}</div>
             </header>
             ${number}

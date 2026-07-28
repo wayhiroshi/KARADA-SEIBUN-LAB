@@ -90,7 +90,9 @@ const publishedImageSources = allHtml.flatMap((html) =>
 );
 expect(
   publishedImageSources.every((src) =>
-    src.startsWith("/assets/episodes/001/") || src === "/assets/brand/uehi-hiroshi-v2.png"
+    src.startsWith("/assets/episodes/001/")
+    || src === "/assets/brand/uehi-hiroshi-v2.png"
+    || src === "/assets/brand/karada-seibun-lab-mark.svg"
   ),
   "Unexpected image source found; official product images must not be published before approval"
 );
@@ -116,6 +118,19 @@ try {
   await access(path.join(root, "public", "assets", "brand", "uehi-hiroshi-v2.png"));
 } catch {
   failures.push("Author illustration is missing");
+}
+
+for (const asset of [
+  "karada-seibun-lab-logo.svg",
+  "karada-seibun-lab-mark.svg",
+  "karada-seibun-lab-logo-1200.png",
+  "karada-seibun-lab-avatar-1024.png",
+]) {
+  try {
+    await access(path.join(root, "public", "assets", "brand", asset));
+  } catch {
+    failures.push(`Brand asset is missing: ${asset}`);
+  }
 }
 
 let socialSlides = 0;

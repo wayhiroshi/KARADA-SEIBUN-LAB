@@ -20,3 +20,13 @@ dist/
 # 公開用に生成した軽量画像だけは public/ 以下で管理する
 !/public/
 !/public/**
+
+# ブランド制作原本・不採用案はローカル保管し、公開しない
+/AdobeStock_315685537.ai
+/logo.ai
+/docs/logo-directions-v2.md
+/docs/logo-directions-v3.md
+/public/assets/brand/logo-directions-v2/
+/public/assets/brand/logo-directions-v3/
+/scripts/render-logo-directions-v2.mjs
+/scripts/render-logo-directions-v3.mjs

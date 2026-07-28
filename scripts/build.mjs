@@ -34,7 +34,7 @@ function siteHeader(currentPath) {
   return `
     <header class="site-header">
       <a class="brand" href="/" aria-label="${escapeHtml(site.siteName)} トップへ">
-        <span class="brand-mark" aria-hidden="true">葉</span>
+        <img class="brand-mark" src="/assets/brand/karada-seibun-lab-mark.svg" width="52" height="52" alt="" aria-hidden="true">
         <span>
           <strong>${escapeHtml(site.siteName)}</strong>
           <small>${escapeHtml(site.byline)}</small>

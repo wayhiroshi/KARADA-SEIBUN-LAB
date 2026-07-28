@@ -6,8 +6,9 @@
   "scripts": {
     "import:storyboard": "node scripts/import-storyboard.mjs",
     "prepare:images": "node scripts/prepare-images.mjs",
+    "prepare:brand": "node scripts/prepare-brand-assets.mjs",
     "render:logos": "node scripts/render-logo-concepts.mjs",
-    "render:social": "node scripts/render-social.mjs",
+    "render:social": "node scripts/prepare-brand-assets.mjs && node scripts/render-social.mjs",
     "forecast:rewards": "node scripts/forecast-rewards.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-site.mjs"
