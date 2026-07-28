@@ -2,6 +2,7 @@
 .codex/
 node_modules/
 dist/
+.wrangler/
 
 # 制作原稿・原画・設定資料は公開リポジトリへ入れない
 /assets/
@@ -10,6 +11,22 @@ dist/
 /manga_storyboard.md
 /generation_report_S01-S17.md
 
+# フォーデイズ公式素材はローカル利用に限定し、公開リポジトリへ入れない
+/private-assets/
+
+# 売上・報酬・作業時間などの実績値は公開しない
+/private-ops/
+
 # 公開用に生成した軽量画像だけは public/ 以下で管理する
 !/public/
 !/public/**
+
+# ブランド制作原本・不採用案はローカル保管し、公開しない
+/AdobeStock_315685537.ai
+/logo.ai
+/docs/logo-directions-v2.md
+/docs/logo-directions-v3.md
+/public/assets/brand/logo-directions-v2/
+/public/assets/brand/logo-directions-v3/
+/scripts/render-logo-directions-v2.mjs
+/scripts/render-logo-directions-v3.mjs
