@@ -1,0 +1,218 @@
+[
+  {
+    "slug": "salacia",
+    "name": "サラシア",
+    "reading": "さらしあ",
+    "shortLabel": "SALACIA",
+    "kind": "植物素材",
+    "group": "plant",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-22",
+    "firstLabel": "漫画 第2話「ランチ前の準備チーム」",
+    "firstPath": "/manga/002/",
+    "summary": "複数の種を含む、植物の属名です。",
+    "lead": "健康食品で見かける「サラシア」は、一つの化学成分ではなく、サラシア属に属する植物をまとめた呼び方です。",
+    "visualTitle": "一つではなく、植物のグループ",
+    "visualItems": ["属名", "複数の植物種", "つる性植物"],
+    "facts": [
+      ["何の名前？", "生物の分類で、近い植物をまとめる「属」の名前です。"],
+      ["一つの植物？", "サラシア・レティキュラータなど、複数の植物が含まれます。"],
+      ["食品では？", "使われる植物種や加工方法によって、素材の中身は異なります。"]
+    ],
+    "related": ["コタラヒムブツは、サラシア・レティキュラータを指すシンハラ語の呼び名です。", "サラシアは大きな分類名、コタラヒムブツはその中の一種を指す呼び名です。"],
+    "sources": [
+      ["国立健康・栄養研究所：サラシア素材情報", "https://hfnet.nibn.go.jp/material-infodb/material-data/%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%B3%E3%82%AC%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AD/"],
+      ["食品安全委員会：コタラエキスに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"]
+    ]
+  },
+  {
+    "slug": "kothala-himbutu",
+    "name": "コタラヒムブツ",
+    "reading": "こたらひむぶつ",
+    "shortLabel": "KOTHALA",
+    "kind": "植物素材",
+    "group": "plant",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-22",
+    "firstLabel": "漫画 第2話「ランチ前の準備チーム」",
+    "firstPath": "/manga/002/",
+    "summary": "スリランカで、サラシア・レティキュラータを指す呼び名です。",
+    "lead": "コタラヒムブツは、サラシア属の植物「サラシア・レティキュラータ」のシンハラ語名です。サラシアという大きな植物グループの中の一種に当たります。",
+    "visualTitle": "属名・学名・現地の呼び名",
+    "visualItems": ["サラシア属", "S. reticulata", "コタラヒムブツ"],
+    "facts": [
+      ["何の名前？", "シンハラ語で、サラシア・レティキュラータを指します。"],
+      ["サラシアとの関係", "サラシアは属名、サラシア・レティキュラータはその中の一種です。"],
+      ["どこで親しまれている？", "スリランカでは、ハーブティーやおかゆなどに使われる食材として知られています。"]
+    ],
+    "related": ["「サラシア属 ＞ サラシア・レティキュラータ」という分類関係です。", "コタラヒムブツは、この植物を指す現地の呼び名です。"],
+    "sources": [
+      ["食品安全委員会：コタラエキスに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"],
+      ["国立健康・栄養研究所：サラシア素材情報", "https://hfnet.nibn.go.jp/material-infodb/material-data/%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%B3%E3%82%AC%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AD/" ]
+    ]
+  },
+  {
+    "slug": "dnj",
+    "name": "DNJ",
+    "reading": "ディーエヌジェー（1-デオキシノジリマイシン）",
+    "shortLabel": "DNJ",
+    "kind": "成分",
+    "group": "molecule",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-22",
+    "firstLabel": "漫画 第2話「ランチ前の準備チーム」",
+    "firstPath": "/manga/002/",
+    "summary": "桑の葉などに含まれる、イミノ糖の一種です。",
+    "lead": "DNJは「1-デオキシノジリマイシン」の略称です。桑の葉を構成する成分の一つで、桑葉そのものの名前ではありません。",
+    "visualTitle": "桑葉に含まれる成分",
+    "visualItems": ["桑の葉", "含まれる", "DNJ"],
+    "facts": [
+      ["正式名称", "1-デオキシノジリマイシンを略して、DNJと呼びます。"],
+      ["どんな成分？", "糖に似た構造をもつ「イミノ糖」の一種です。"],
+      ["桑葉との関係", "桑葉は植物素材、DNJはその中に含まれる成分です。"]
+    ],
+    "related": ["桑の葉には、DNJ以外にもさまざまな成分が含まれます。", "そのため、「桑葉」と「DNJ」は同じ階層の言葉ではありません。"],
+    "sources": [
+      ["PubMed：桑葉イミノ糖とDNJの総説", "https://pubmed.ncbi.nlm.nih.gov/34658276/"],
+      ["PubMed：1-Deoxynojirimycin and its Derivatives", "https://pubmed.ncbi.nlm.nih.gov/31942844/"]
+    ]
+  },
+  {
+    "slug": "nucleic-acid",
+    "name": "核酸",
+    "reading": "かくさん",
+    "shortLabel": "核酸",
+    "kind": "からだの基本用語",
+    "group": "nucleic",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「核酸とは？」",
+    "firstPath": "/articles/kakusan-toha/",
+    "summary": "DNAとRNAをまとめた呼び名です。",
+    "lead": "DNAとRNAは、どちらも「核酸」と呼ばれる物質の仲間です。",
+    "visualTitle": "核酸の中にDNAとRNA",
+    "visualItems": ["核酸", "DNA", "RNA"],
+    "facts": [
+      ["何をまとめた名前？", "DNAとRNAをまとめて核酸と呼びます。"],
+      ["共通点は？", "どちらも、ヌクレオチドという小さな単位が連なってできています。"],
+      ["役割は同じ？", "DNAは情報を保ち、RNAは種類によって情報を運ぶ、反応を助けるなどの役割を担います。"]
+    ],
+    "related": ["DNAとRNAは、同じ核酸の仲間です。", "使われる糖や塩基の一部は、DNAとRNAで異なります。"],
+    "sources": [
+      ["NCBI Bookshelf：The Chemical Components of a Cell", "https://www.ncbi.nlm.nih.gov/books/NBK26883/"],
+      ["米国国立ヒトゲノム研究所：DNA Fact Sheet", "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"]
+    ]
+  },
+  {
+    "slug": "dna",
+    "name": "DNA",
+    "reading": "ディーエヌエー（デオキシリボ核酸）",
+    "shortLabel": "DNA",
+    "kind": "核酸",
+    "group": "nucleic",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「核酸とは？」",
+    "firstPath": "/articles/kakusan-toha/",
+    "summary": "遺伝情報を記録する核酸です。",
+    "lead": "DNAは、遺伝情報を長く保存する分子です。遺伝子は、その長いDNAの中にある情報のまとまりです。",
+    "visualTitle": "A・T・G・Cの並びが情報になる",
+    "visualItems": ["A", "T", "G", "C"],
+    "facts": [
+      ["どう記録する？", "A・T・G・Cという四種類の塩基の並びで情報を記録します。"],
+      ["どこにある？", "人では、DNAの大部分が細胞核の染色体に収められています。"],
+      ["遺伝子との関係", "遺伝子は、長いDNAの一部にある情報のまとまりです。"]
+    ],
+    "related": ["DNAと遺伝子は、同じ意味ではありません。", "たんぱく質をつくるときは、遺伝子の情報がmRNAへ写されます。"],
+    "sources": [
+      ["米国国立ヒトゲノム研究所：DNA Fact Sheet", "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"],
+      ["米国国立ヒトゲノム研究所：Gene", "https://www.genome.gov/genetics-glossary/Gene"]
+    ]
+  },
+  {
+    "slug": "rna",
+    "name": "RNA",
+    "reading": "アールエヌエー（リボ核酸）",
+    "shortLabel": "RNA",
+    "kind": "核酸",
+    "group": "nucleic",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「核酸とは？」",
+    "firstPath": "/articles/kakusan-toha/",
+    "summary": "種類によって、情報を運ぶ、反応を助けるなど、異なる役割を担う核酸です。",
+    "lead": "RNAには、mRNA、tRNA、rRNAなど多くの種類があり、それぞれ役割が異なります。",
+    "visualTitle": "役割の異なるRNA",
+    "visualItems": ["mRNA", "tRNA", "rRNA"],
+    "facts": [
+      ["DNAとの違い", "使われる糖と塩基の一部がDNAとは異なり、多くは一本鎖です。"],
+      ["mRNAの役割", "たんぱく質をつくるための情報を運びます。"],
+      ["tRNAとrRNAの役割", "tRNAは材料となるアミノ酸を運び、rRNAはリボソームを形づくって反応を助けます。"]
+    ],
+    "related": ["RNAも、ヌクレオチドが連なってできています。", "mRNAは、役割の異なる多くのRNAのうちの一つです。"],
+    "sources": [
+      ["米国国立ヒトゲノム研究所：RNA Fact Sheet", "https://www.genome.gov/about-genomics/educational-resources/fact-sheets/ribonucleic-acid-fact-sheet"],
+      ["米国国立ヒトゲノム研究所：Messenger RNA", "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"]
+    ]
+  },
+  {
+    "slug": "nucleotide",
+    "name": "ヌクレオチド",
+    "reading": "ぬくれおちど",
+    "shortLabel": "NUCLEOTIDE",
+    "kind": "核酸の材料",
+    "group": "nucleic",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNA・RNA・ヌクレオチドの違い」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "DNAやRNAをつくる小さな単位です。",
+    "lead": "DNAとRNAは、ヌクレオチドが数多くつながった長い鎖です。",
+    "visualTitle": "三つの部分で一単位",
+    "visualItems": ["塩基", "糖", "リン酸"],
+    "facts": [
+      ["何でできる？", "一つのヌクレオチドは、塩基、糖、リン酸からできています。"],
+      ["核酸との関係", "ヌクレオチドが数多く連なると、DNAやRNAになります。"],
+      ["情報になる部分", "DNAやRNAでは、塩基の並びが情報を表します。"]
+    ],
+    "related": ["DNAとRNAでは、使われる糖や塩基の一部が異なります。", "それぞれの違いを保ちながら、どちらもヌクレオチドの鎖としてできています。"],
+    "sources": [
+      ["米国国立ヒトゲノム研究所：Nucleotide", "https://www.genome.gov/genetics-glossary/Nucleotide"],
+      ["NCBI Bookshelf：The Chemical Components of a Cell", "https://www.ncbi.nlm.nih.gov/books/NBK26883/"]
+    ]
+  },
+  {
+    "slug": "mrna",
+    "name": "mRNA",
+    "reading": "メッセンジャーアールエヌエー",
+    "shortLabel": "mRNA",
+    "kind": "RNAの一種",
+    "group": "nucleic",
+    "created": "2026-08-13",
+    "updated": "2026-08-14",
+    "firstIntroduced": "2026-08-10",
+    "firstLabel": "記事「mRNAって何？」",
+    "firstPath": "/articles/dna-mrna-transcription/",
+    "summary": "たんぱく質をつくるための情報を、DNAからリボソームへ運ぶRNAです。",
+    "lead": "人の細胞では、mRNAは核の中でDNAから写し取られ、細胞質にあるリボソームへ移動します。",
+    "visualTitle": "DNAの情報をリボソームへ",
+    "visualItems": ["DNA", "mRNA", "リボソーム"],
+    "facts": [
+      ["mは何の略？", "messenger（メッセンジャー）の頭文字です。"],
+      ["どうつくられる？", "遺伝子のDNA配列をもとに、RNAとして写し取られます。"],
+      ["どこで使われる？", "リボソームがmRNAの並びを読み、たんぱく質を組み立てます。"]
+    ],
+    "related": ["DNAからRNAの写しをつくる過程を「転写」と呼びます。", "mRNAを読み取ってたんぱく質をつくる過程を「翻訳」と呼びます。"],
+    "sources": [
+      ["米国国立ヒトゲノム研究所：Messenger RNA", "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"],
+      ["米国国立ヒトゲノム研究所：Transcription", "https://www.genome.gov/genetics-glossary/Transcription"]
+    ]
+  }
+]

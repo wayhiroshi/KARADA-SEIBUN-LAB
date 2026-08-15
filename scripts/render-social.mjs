@@ -3,6 +3,9 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = path.resolve(import.meta.dirname, "..");
+const fontLibrary = "/Users/yoshiaki/Library/Mobile Documents/com~apple~CloudDocs/FontLibrary/SystemFont";
+const yuGothicMediumPath = path.join(fontLibrary, "Yu Gothic Medium.otf");
+const yuGothicBoldPath = path.join(fontLibrary, "Yu Gothic Bold.otf");
 let playwright;
 try {
   playwright = await import("playwright");
@@ -47,8 +50,27 @@ const renderLines = (value = "") =>
     .map((line) => `<span>${line}</span>`)
     .join("");
 
-const browser = await chromium.launch({ headless: true });
+const browser = await chromium.launch({
+  headless: true,
+  ...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
+    ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE }
+    : {}),
+});
 const page = await browser.newPage({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1 });
+await page.route("https://fontlibrary.local/yu-gothic-medium.otf", (route) =>
+  route.fulfill({
+    path: yuGothicMediumPath,
+    contentType: "font/otf",
+    headers: { "access-control-allow-origin": "*" },
+  }),
+);
+await page.route("https://fontlibrary.local/yu-gothic-bold.otf", (route) =>
+  route.fulfill({
+    path: yuGothicBoldPath,
+    contentType: "font/otf",
+    headers: { "access-control-allow-origin": "*" },
+  }),
+);
 
 for (const post of content.posts) {
   const postDir = path.join(outputRoot, post.id);
@@ -71,6 +93,18 @@ for (const post of content.posts) {
         <head>
           <meta charset="utf-8">
           <style>
+            @font-face {
+              font-family: "Karada Yu Gothic";
+              src: url("https://fontlibrary.local/yu-gothic-medium.otf") format("opentype");
+              font-style: normal;
+              font-weight: 400 600;
+            }
+            @font-face {
+              font-family: "Karada Yu Gothic";
+              src: url("https://fontlibrary.local/yu-gothic-bold.otf") format("opentype");
+              font-style: normal;
+              font-weight: 700 900;
+            }
             * { box-sizing: border-box; }
             html, body { width: 1080px; height: 1350px; margin: 0; }
             body {
@@ -80,7 +114,7 @@ for (const post of content.posts) {
                 radial-gradient(circle at 90% 7%, rgba(215, 171, 90, .18), transparent 26%),
                 radial-gradient(circle at 10% 91%, rgba(102, 137, 111, .16), transparent 28%),
                 #f7f2e8;
-              font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+              font-family: "Karada Yu Gothic", sans-serif;
             }
             .canvas { position: relative; width: 100%; height: 100%; padding: 76px 76px 62px; }
             .brand { display: flex; align-items: center; gap: 16px; color: #001b41; font-size: 28px; font-weight: 700; letter-spacing: .06em; }
@@ -126,6 +160,12 @@ for (const post of content.posts) {
       </html>`,
       { waitUntil: "load" },
     );
+
+    await page.evaluate(() => document.fonts.ready);
+    const fontLoaded = await page.evaluate(() => document.fonts.check('36px "Karada Yu Gothic"'));
+    if (!fontLoaded) {
+      throw new Error("Yu Gothic font could not be loaded from the local FontLibrary.");
+    }
 
     const filename = `${String(index + 1).padStart(2, "0")}.png`;
     await page.screenshot({ path: path.join(postDir, filename), type: "png" });

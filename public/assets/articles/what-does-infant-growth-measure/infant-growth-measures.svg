@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1200" viewBox="0 0 1080 1200" role="img" aria-labelledby="title desc">
+  <title id="title">研究で見る成長——三つの大きさと時間による変化</title>
+  <desc id="desc">体長、体重、頭囲の三項目を時間をおいて測り、変化量と一日あたりに増える速さを分けて考える図</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffaf4"/>
+      <stop offset="0.55" stop-color="#f8eee7"/>
+      <stop offset="1" stop-color="#edf4e9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#4b554b" flood-opacity=".11"/>
+    </filter>
+    <style>
+      .jp{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;fill:#2f332f}
+      .mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;fill:#2f332f}
+      .label{font-size:28px;font-weight:800;letter-spacing:.08em;fill:#3f7251}
+      .card-title{font-size:42px;font-weight:800}
+      .card-copy{font-size:38px;fill:#616861}
+      .formula{font-size:40px;font-weight:800}
+      .small{font-size:40px;fill:#646b64}
+    </style>
+  </defs>
+  <rect width="1080" height="1200" rx="42" fill="url(#paper)"/>
+  <circle cx="978" cy="90" r="170" fill="#f5dde0" opacity=".58"/>
+  <circle cx="92" cy="1080" r="205" fill="#dfead8" opacity=".6"/>
+
+  <text x="70" y="88" class="jp label">RESEARCH NOTE</text>
+  <text x="70" y="157" class="mincho" font-size="48" font-weight="800">研究で見る、赤ちゃんの「成長」</text>
+  <text x="70" y="207" class="jp" font-size="27" fill="#596159">まず、三つの大きさを別々に測ります。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="66" y="270" width="292" height="280" rx="30" fill="#fffdf9" stroke="#ead5cb"/>
+    <rect x="394" y="270" width="292" height="280" rx="30" fill="#fffdf9" stroke="#e8ddbd"/>
+    <rect x="722" y="270" width="292" height="280" rx="30" fill="#fffdf9" stroke="#cedecc"/>
+  </g>
+
+  <g transform="translate(66 270)">
+    <circle cx="146" cy="79" r="45" fill="#f8e9e7"/>
+    <path d="M112 120h68M116 108v24M136 112v20M156 108v24M176 112v20" stroke="#c76f7d" stroke-width="6" stroke-linecap="round"/>
+    <text x="146" y="190" text-anchor="middle" class="jp card-title">体長</text>
+    <text x="146" y="238" text-anchor="middle" class="jp card-copy">身長にあたる長さ</text>
+  </g>
+  <g transform="translate(394 270)">
+    <circle cx="146" cy="79" r="45" fill="#f7eed3"/>
+    <path d="M105 111h82l-10 37h-62z" fill="none" stroke="#b78735" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M124 111c0-29 44-29 44 0" fill="none" stroke="#b78735" stroke-width="7"/>
+    <text x="146" y="190" text-anchor="middle" class="jp card-title">体重</text>
+    <text x="146" y="238" text-anchor="middle" class="jp card-copy">その時点の重さ</text>
+  </g>
+  <g transform="translate(722 270)">
+    <circle cx="146" cy="79" r="45" fill="#e8f1e6"/>
+    <circle cx="146" cy="95" r="36" fill="none" stroke="#4f805d" stroke-width="7"/>
+    <path d="M99 89c20-25 74-25 94 0" fill="none" stroke="#4f805d" stroke-width="7" stroke-linecap="round"/>
+    <text x="146" y="190" text-anchor="middle" class="jp card-title">頭囲</text>
+    <text x="146" y="238" text-anchor="middle" class="jp card-copy">頭のまわり</text>
+  </g>
+
+  <text x="70" y="634" class="jp" font-size="32" font-weight="800">同じ項目を、時間をおいてもう一度測る</text>
+  <line x1="105" y1="713" x2="975" y2="713" stroke="#d5b79e" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="105" cy="713" r="20" fill="#d9828f" stroke="#fff" stroke-width="7"/>
+  <circle cx="975" cy="713" r="20" fill="#3f7251" stroke="#fff" stroke-width="7"/>
+  <text x="105" y="774" class="jp small">はじめの値</text>
+  <text x="975" y="774" text-anchor="end" class="jp small">あとの値</text>
+
+  <g filter="url(#shadow)">
+    <rect x="68" y="824" width="944" height="238" rx="34" fill="#fffdf9" stroke="#dcccad"/>
+  </g>
+  <text x="110" y="891" class="jp formula" fill="#8d5360">変化量 ＝ あとの値 − はじめの値</text>
+  <line x1="110" y1="925" x2="970" y2="925" stroke="#e8ddd2" stroke-width="2"/>
+  <text x="110" y="985" class="jp formula" fill="#3f7251">増える速さ ＝ 変化量 ÷ 日数</text>
+  <text x="110" y="1040" class="jp" font-size="36" fill="#646b64">例：2.0kg ÷ 60日 ＝ 約33g／日</text>
+
+  <text x="540" y="1133" text-anchor="middle" class="mincho" font-size="38" font-weight="800">その時点の大きさと、増える速さは別の数字です。</text>
+</svg>

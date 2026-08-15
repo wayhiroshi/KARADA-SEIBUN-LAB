@@ -1,0 +1,92 @@
+{
+  "title": "登場人物紹介",
+  "lead": "お昼ごはんの裏側で働く、体内物流センターの仲間たち。成分スタッフは、研究されている特徴をヒントに役割を持っています。",
+  "characters": [
+    {
+      "id": "protagonist",
+      "name": "主人公",
+      "role": "食べることが大好きな会社員",
+      "description": "明るく素直で、ランチもおやつも楽しむ人。体内世界の大騒ぎを知らないまま、今日もおいしくいただきます。",
+      "image": "/assets/manga/cast/protagonist.webp"
+    },
+    {
+      "id": "rookie",
+      "name": "新人配送員",
+      "role": "体内物流センターの新人",
+      "description": "荷札を確認し、必要な場所へエネルギー便を届ける。忙しくなると、荷札を見る余裕からなくなります。",
+      "image": "/assets/manga/cast/rookie.webp"
+    },
+    {
+      "id": "captain",
+      "name": "配送隊長",
+      "role": "配送チームの指揮官",
+      "description": "豪快で判断が速い現場リーダー。新人へのツッコミも、配送指示と同じくらい速い。",
+      "image": "/assets/manga/cast/captain.webp"
+    },
+    {
+      "id": "factory-manager",
+      "name": "工場長",
+      "role": "処理ラインの責任者",
+      "description": "来た仕事はすぐ片づけたいベテラン。速さには自信がある一方、渋滞しない流れはまだ研究中。",
+      "image": "/assets/manga/cast/factory-manager.webp"
+    },
+    {
+      "id": "warehouse-manager",
+      "name": "脂肪倉庫の管理人",
+      "role": "エネルギー保管倉庫の管理人",
+      "description": "余ったエネルギーを保管する、現実的でしっかり者のおばちゃん。追加便が来るたび台帳が忙しくなります。",
+      "image": "/assets/manga/cast/warehouse-manager.webp"
+    },
+    {
+      "id": "tea-doctor",
+      "name": "ティー博士",
+      "role": "研究開発アドバイザー",
+      "description": "成分スタッフをまとめる穏やかな案内役。難しい仕組みを、現場で使える言葉に置き換えます。",
+      "image": "/assets/manga/cast/tea-doctor.webp"
+    },
+    {
+      "id": "salacia",
+      "name": "サラシア",
+      "role": "現場改善リーダー",
+      "description": "止めるのではなく、流れを整える冷静なリーダー。",
+      "research": "サラシア属植物は、糖質の消化に関わるα-グルコシダーゼへの作用や、食後の糖の変化との関係が研究されています。",
+      "story": "漫画では、処理ラインを一定の流れへ整えます。",
+      "sourceLabel": "サラシアのヒト試験",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/15635348/",
+      "image": "/assets/manga/cast/salacia.webp"
+    },
+    {
+      "id": "kothala",
+      "name": "コタラヒムブツ",
+      "role": "現場改善サポート",
+      "description": "小さな変化を見逃さず、流れをそっと支えるスタッフ。",
+      "research": "コタラヒムブツは、サラシア・レティキュラータの呼び名として扱われる植物。コタラノールなど、α-グルコシダーゼに関わる成分が研究されています。",
+      "story": "漫画では、原料が一度に押し寄せないようゲートを整理します。",
+      "sourceLabel": "コタラノールの研究",
+      "sourceUrl": "https://www.jstage.jst.go.jp/article/cpb1958/46/8/46_8_1339/_article/-char/ja",
+      "image": "/assets/manga/cast/kothala.webp"
+    },
+    {
+      "id": "mulberry",
+      "name": "桑葉（くわば）",
+      "role": "DNJを使う精密ラインオペレーター",
+      "description": "数字に強く、タブレットでラインの状態を静かに見守ります。",
+      "research": "桑葉に含まれるDNJ（1-デオキシノジリマイシン）は、α-グルコシダーゼへの作用や、食後の糖の変化との関係が研究されています。",
+      "story": "漫画では、タブレットの片隅に「DNJ」とだけ表示します。",
+      "sourceLabel": "桑葉DNJのヒト試験",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/24843505/",
+      "image": "/assets/manga/cast/mulberry.webp"
+    },
+    {
+      "id": "gymnema",
+      "name": "ギムネマ",
+      "role": "甘味センサー担当",
+      "description": "口数は少ないけれど、甘味の信号を落ち着いて見分ける受付担当。",
+      "research": "ギムネマ由来成分が口に触れたとき、甘味の感じ方を一時的に弱める作用が研究されています。甘い食品への欲求や摂取を調べたヒト試験もあります。",
+      "story": "漫画では、甘味の信号と『もう一個食べる』という本人の判断を分けます。",
+      "sourceLabel": "ギムネマと甘味のヒト試験",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/32290122/",
+      "image": "/assets/manga/cast/gymnema.webp"
+    }
+  ]
+}

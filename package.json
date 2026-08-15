@@ -5,12 +5,26 @@
   "type": "module",
   "scripts": {
     "import:storyboard": "node scripts/import-storyboard.mjs",
+    "prepare:manga": "node scripts/import-storyboard.mjs && node scripts/prepare-images.mjs",
+    "prepare:cast": "node scripts/prepare-cast-images.mjs",
     "prepare:images": "node scripts/prepare-images.mjs",
     "prepare:brand": "node scripts/prepare-brand-assets.mjs",
     "render:logos": "node scripts/render-logo-concepts.mjs",
     "render:social": "node scripts/prepare-brand-assets.mjs && node scripts/render-social.mjs",
+    "render:social:dna-baseball": "node scripts/render-dna-baseball.mjs",
+    "render:article:cell-dna": "node scripts/render-cell-dna.mjs",
+    "render:article:gene-dna": "node scripts/render-gene-dna.mjs",
+    "render:article:dna-transcription": "node scripts/render-dna-transcription.mjs",
+    "render:article:rna-mrna": "node scripts/render-rna-mrna.mjs",
+    "render:article:nucleotide-formula": "node scripts/render-nucleotide-formula.mjs",
+    "render:article:what-is-nucleotide": "node scripts/render-what-is-nucleotide.mjs",
+    "render:article:why-do-people-diet": "node scripts/render-why-do-people-diet.mjs",
+    "render:article:why-nucleotide-formula": "node scripts/render-why-nucleotides-formula.mjs",
     "forecast:rewards": "node scripts/forecast-rewards.mjs",
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-site.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.123.0"
   }
 }

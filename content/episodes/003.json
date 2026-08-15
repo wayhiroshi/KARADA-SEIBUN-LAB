@@ -1,0 +1,296 @@
+{
+  "id": "003",
+  "number": 3,
+  "siteName": "からだ成分ラボ",
+  "siteTagline": "まんがでわかる、栄養と健康成分",
+  "title": "二個目のケーキ、どうする？",
+  "subtitle": "ギムネマで、甘味センサーが少し緩やかに",
+  "question": "甘味の感じ方が少しやわらぐと、二個目のケーキはどうなる？",
+  "conclusion": "ギムネマによって甘味センサーの反応が少し緩やかになったようです。主人公は我慢するのではなく、二個目をどうするか自分で決めます。",
+  "status": "台詞下置き版",
+  "scenes": [
+    {
+      "id": "S01",
+      "number": 1,
+      "title": "二個もある",
+      "panels": [
+        {
+          "id": "E03-S01-C01",
+          "title": "二つのケーキ",
+          "description": "同じ種類の小ぶりなショートケーキが二個。苺、生クリーム、スポンジが分かる。商品箱、店名、ブランドは描かない。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "主人公",
+              "text": "ふふっ、食後のケーキ♪二個もある！"
+            }
+          ],
+          "imageBase": "E03-S01-C01",
+          "source": "generated/v2/episode-03/E03-S01-C01.png",
+          "alt": "同じ種類の小ぶりなショートケーキが二個。苺、生クリーム、スポンジが分かる。商品箱、店名、ブランドは描かない。"
+        },
+        {
+          "id": "E03-S01-C02",
+          "title": "一個目を味わう",
+          "description": "主人公が一個目をゆっくり味わい、目を細める。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "主人公",
+              "text": "おいしい！"
+            }
+          ],
+          "imageBase": "E03-S01-C02",
+          "source": "generated/v2/episode-03/E03-S01-C02.png",
+          "alt": "主人公が一個目をゆっくり味わい、目を細める。"
+        },
+        {
+          "id": "E03-S01-C03",
+          "title": "もう一個へ伸びる手",
+          "description": "主人公のフォークを持つ手が、習慣的に二個目へ伸びる。まだケーキには触れない。",
+          "script": [
+            {
+              "kind": "sfx",
+              "speaker": "",
+              "text": "スッ……"
+            }
+          ],
+          "imageBase": "E03-S01-C03",
+          "source": "generated/v2/episode-03/E03-S01-C03.png",
+          "alt": "主人公のフォークを持つ手が、習慣的に二個目へ伸びる。まだケーキには触れない。"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "number": 2,
+      "title": "甘味受付センター",
+      "panels": [
+        {
+          "id": "E03-S02-C01",
+          "title": "甘味信号を感知",
+          "description": "ピンク色の「甘味」信号がセンサーへ入り、メーターが明るく点灯する。",
+          "script": [
+            {
+              "kind": "broadcast",
+              "speaker": "センサー音声",
+              "text": "甘味信号を感知！"
+            }
+          ],
+          "imageBase": "E03-S02-C01",
+          "source": "generated/v2/episode-03/E03-S02-C01.png",
+          "alt": "ピンク色の「甘味」信号がセンサーへ入り、メーターが明るく点灯する。"
+        },
+        {
+          "id": "E03-S02-C02",
+          "title": "受付担当が早合点",
+          "description": "受付担当者が警告音に驚き、伝票へ「追加要求」と書こうとする。画面表示は「甘味」であり、「もう一個！」とは表示しない。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "受付担当者",
+              "text": "追加要求です！　二個目、来ます！"
+            },
+            {
+              "kind": "sfx",
+              "speaker": "",
+              "text": "ピコン　ピコン"
+            }
+          ],
+          "imageBase": "E03-S02-C02",
+          "source": "generated/v2/episode-03/E03-S02-C02.png",
+          "alt": "受付担当者が警告音に驚き、伝票へ「追加要求」と書こうとする。画面表示は「甘味」であり、「もう一個！」とは表示しない。"
+        },
+        {
+          "id": "E03-S02-C03",
+          "title": "それは要求ではない",
+          "description": "ギムネマが伝票へ静かに手を添え、「追加要求」と書かれる前に止める。センサー自体は正常に点灯したまま。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "ギムネマ",
+              "text": "もう少し待って。お茶が働きはじめれば、甘味の感じ方が少しやわらぐはず"
+            },
+            {
+              "kind": "speech",
+              "speaker": "受付担当者",
+              "text": "では、追加要求は保留ですね"
+            }
+          ],
+          "imageBase": "E03-S02-C03",
+          "source": "generated/v2/episode-03/E03-S02-C03.png",
+          "alt": "ギムネマが伝票へ静かに手を添え、「追加要求」と書かれる前に止める。センサー自体は正常に点灯したまま。"
+        },
+        {
+          "id": "E03-S02-C04",
+          "title": "判断とは別",
+          "description": "",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "ギムネマ",
+              "text": "ええ。信号が落ち着いてから、本人の返事を待ちましょう"
+            }
+          ],
+          "imageBase": "E03-S02-C04",
+          "source": "generated/v2/episode-03/E03-S02-C04.png",
+          "alt": "甘味受付センター「判断とは別」の漫画コマ"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "number": 3,
+      "title": "主人公が決める",
+      "panels": [
+        {
+          "id": "E03-S03-C01",
+          "title": "手が止まる",
+          "description": "主人公が首を少し傾げ、お腹の感覚を確かめる。苦しそう、我慢している、という顔にしない。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "主人公",
+              "text": "うーん……"
+            }
+          ],
+          "imageBase": "E03-S03-C01",
+          "source": "generated/v2/episode-03/E03-S03-C01.png",
+          "alt": "主人公が首を少し傾げ、お腹の感覚を確かめる。苦しそう、我慢している、という顔にしない。"
+        },
+        {
+          "id": "E03-S03-C02",
+          "title": "もう満足",
+          "description": "",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "主人公",
+              "text": "……うん。もう満足"
+            }
+          ],
+          "imageBase": "E03-S03-C02",
+          "source": "generated/v2/episode-03/E03-S03-C02.png",
+          "alt": "主人公が決める「もう満足」の漫画コマ"
+        },
+        {
+          "id": "E03-S03-C03",
+          "title": "続きは明日",
+          "description": "",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "主人公",
+              "text": "続きは、明日のお楽しみ！"
+            }
+          ],
+          "imageBase": "E03-S03-C03",
+          "source": "generated/v2/episode-03/E03-S03-C03.png",
+          "alt": "主人公が決める「続きは明日」の漫画コマ"
+        },
+        {
+          "id": "E03-S03-C04",
+          "title": "明日もある幸せ",
+          "description": "",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "主人公",
+              "text": "明日もケーキがあるって、ちょっと幸せ"
+            }
+          ],
+          "imageBase": "E03-S03-C04",
+          "source": "generated/v2/episode-03/E03-S03-C04.png",
+          "alt": "主人公が決める「明日もある幸せ」の漫画コマ"
+        },
+        {
+          "id": "E03-S03-C05",
+          "title": "満足の合図",
+          "description": "主人公の判断後、受付センターへ小さな「満足」の合図が届く。ギムネマは操作盤へ触れず、その合図を確認するだけ。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "ギムネマ",
+              "text": "どうやら、2個目は明日に回すようだな"
+            }
+          ],
+          "imageBase": "E03-S03-C05",
+          "source": "generated/v2/episode-03/E03-S03-C05.png",
+          "alt": "主人公の判断後、受付センターへ小さな「満足」の合図が届く。ギムネマは操作盤へ触れず、その合図を確認するだけ。"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "number": 4,
+      "title": "二個目便は明日へ",
+      "panels": [
+        {
+          "id": "E03-S04-C01",
+          "title": "待ち構える新人",
+          "description": "数秒たっても扉が開かず、新人の額から汗が一滴落ちる。",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "新人配送員",
+              "text": "二個目のケーキ便、来ますよね？"
+            }
+          ],
+          "imageBase": "E03-S04-C01",
+          "source": "generated/v2/episode-03/E03-S04-C01.png",
+          "alt": "数秒たっても扉が開かず、新人の額から汗が一滴落ちる。"
+        },
+        {
+          "id": "E03-S04-C02",
+          "title": "二個目ぶんは来ない",
+          "description": "案内板のケーキアイコン付き欄が「二個目便　明日へ」に切り替わる。",
+          "script": [
+            {
+              "kind": "broadcast",
+              "speaker": "館内放送",
+              "text": "二個目ぶんの追加便は、明日へ変更されました"
+            },
+            {
+              "kind": "speech",
+              "speaker": "新人配送員",
+              "text": "食べる前なら、変更できるんですね！"
+            },
+            {
+              "kind": "speech",
+              "speaker": "配送隊長",
+              "text": "食べる前ならな！"
+            }
+          ],
+          "imageBase": "E03-S04-C02",
+          "source": "generated/v2/episode-03/E03-S04-C02.png",
+          "alt": "案内板のケーキアイコン付き欄が「二個目便　明日へ」に切り替わる。"
+        },
+        {
+          "id": "E03-S04-C03",
+          "title": "決めるのは本人",
+          "description": "",
+          "script": [
+            {
+              "kind": "speech",
+              "speaker": "受付担当者",
+              "text": "止めたんですか？"
+            },
+            {
+              "kind": "speech",
+              "speaker": "ギムネマ",
+              "text": "いいえ。本人が決めたんです"
+            },
+            {
+              "kind": "narration",
+              "speaker": "",
+              "text": "明日のお楽しみ。"
+            }
+          ],
+          "imageBase": "E03-S04-C03",
+          "source": "generated/v2/episode-03/E03-S04-C03.png",
+          "alt": "二個目便は明日へ「決めるのは本人」の漫画コマ"
+        }
+      ]
+    }
+  ]
+}
