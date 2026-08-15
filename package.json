@@ -22,7 +22,8 @@
     "render:article:why-nucleotide-formula": "node scripts/render-why-nucleotides-formula.mjs",
     "forecast:rewards": "node scripts/forecast-rewards.mjs",
     "build": "node scripts/build.mjs",
-    "check": "node scripts/check-site.mjs"
+    "check": "node scripts/check-site.mjs",
+    "verify": "npm run build && npm run check"
   },
   "devDependencies": {
     "wrangler": "^4.123.0"

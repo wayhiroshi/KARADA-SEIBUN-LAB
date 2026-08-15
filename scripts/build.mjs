@@ -44,6 +44,12 @@ function formatJapaneseDate(value) {
   return `${year}年${month}月${day}日`;
 }
 
+function asSentence(value) {
+  const text = String(value).trim();
+  if (/[！？]$/u.test(text)) return `${text} `;
+  return /。$/u.test(text) ? text : `${text}。`;
+}
+
 function navLink(href, label, currentPath) {
   const active = currentPath === href || (href !== "/" && currentPath.startsWith(href));
   return `<a href="${href}"${active ? ' aria-current="page"' : ""}>${escapeHtml(label)}</a>`;
@@ -930,8 +936,10 @@ function renderEpisode(episode, episodeIndex) {
   }).join("\n");
   const scenes = episode.scenes.map((scene) => renderScene(scene, episode.id)).join("\n");
   const pageTitle = `${episode.title}｜${episode.siteName}`;
-  const description = `${episode.subtitle}。${site.shortTagline}。`;
+  const description = `${asSentence(episode.subtitle)}${asSentence(site.shortTagline)}`;
   const pathName = `/manga/${episode.id}/`;
+  const firstPanel = episode.scenes[0].panels[0];
+  const socialImage = absoluteUrl(`/assets/episodes/${episode.id}/${firstPanel.imageBase}-1254.webp`);
   const previous = episodes[episodeIndex - 1];
   const next = episodes[episodeIndex + 1];
   const episodeNavigation = `
@@ -939,19 +947,39 @@ function renderEpisode(episode, episodeIndex) {
       ${previous ? `<a class="previous" href="/manga/${previous.id}/"><small>前の話</small><strong>${escapeHtml(previous.title)}</strong></a>` : "<span></span>"}
       ${next ? `<a class="next" href="/manga/${next.id}/"><small>次の話</small><strong>${escapeHtml(next.title)}</strong></a>` : `<a class="next" href="/manga/"><small>漫画一覧へ</small><strong>3話を振り返る</strong></a>`}
     </nav>`;
-  const schema = {
-    "@context": "https://schema.org",
+  const articleSchema = {
     "@type": "Article",
     headline: episode.title,
     description,
-    datePublished: "2026-07-22",
+    image: {
+      "@type": "ImageObject",
+      url: socialImage,
+      width: 1254,
+      height: 1254
+    },
     dateModified: site.updated,
     author: { "@type": "Person", name: site.authorName, url: absoluteUrl("/about/") },
     mainEntityOfPage: absoluteUrl(pathName)
   };
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      articleSchema,
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "ホーム", item: absoluteUrl("/") },
+          { "@type": "ListItem", position: 2, name: "漫画", item: absoluteUrl("/manga/") },
+          { "@type": "ListItem", position: 3, name: episode.title, item: absoluteUrl(pathName) }
+        ]
+      }
+    ]
+  };
 
   const replacements = {
     "{{DESCRIPTION}}": description,
+    "{{SOCIAL_IMAGE}}": socialImage,
+    "{{SOCIAL_IMAGE_ALT}}": firstPanel.alt,
     "{{PAGE_TITLE}}": pageTitle,
     "{{SITE_NAME}}": episode.siteName,
     "{{SITE_TAGLINE}}": site.shortTagline,
@@ -967,6 +995,9 @@ function renderEpisode(episode, episodeIndex) {
     "{{EPISODE_NAVIGATION}}": episodeNavigation,
     "{{CANONICAL}}": absoluteUrl(pathName),
     "{{AUTHOR_NAME}}": site.authorName,
+    "{{BOOKS_HEADER_LINK}}": booksEnabled ? '<a href="/books/">読んでいる本</a>' : "",
+    "{{BOOKS_FOOTER_LINK}}": booksEnabled ? '<a href="/books/">読んでいる本</a>' : "",
+    "{{STYLES_VERSION}}": stylesVersion,
     "{{STRUCTURED_DATA}}": escapeJsonForHtml(schema)
   };
 
