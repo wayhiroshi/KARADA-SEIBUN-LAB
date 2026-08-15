@@ -59,15 +59,11 @@ for (const article of articles) {
   expect(Array.isArray(article.sections) && article.sections.length > 0, `Article sections are missing: ${article.slug}`);
   expect(article.sections?.every((section) => Array.isArray(section.paragraphs) && section.paragraphs.length === 2), `Each article section must contain exactly 2 paragraphs: ${article.slug}`);
 
-  if (article.published >= "2026-08-15") {
-    expect(article.styleVersion === "karada-article-v1", `New article must use karada-article-v1: ${article.slug}`);
-  }
-  if (article.styleVersion === "karada-article-v1") {
-    expect(article.authorNote?.title && article.authorNote?.body, `karada-article-v1 requires an author learning note: ${article.slug}`);
-    if (article.conceptFlow?.length) {
-      expect(article.conceptTitle?.trim(), `Concept flow title is missing: ${article.slug}`);
-      expect(article.conceptNote?.trim(), `Concept flow note is missing: ${article.slug}`);
-    }
+  expect(article.styleVersion === "karada-article-v1", `Every article must use karada-article-v1: ${article.slug}`);
+  expect(article.authorNote?.title && article.authorNote?.body, `karada-article-v1 requires an author learning note: ${article.slug}`);
+  if (article.conceptFlow?.length) {
+    expect(article.conceptTitle?.trim(), `Concept flow title is missing: ${article.slug}`);
+    expect(article.conceptNote?.trim(), `Concept flow note is missing: ${article.slug}`);
   }
 }
 expect(ingredients.length === 8, `Expected 8 ingredient notes, got ${ingredients.length}`);
