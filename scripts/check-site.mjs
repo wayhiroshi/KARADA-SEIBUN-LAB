@@ -204,8 +204,68 @@ for (const pagePath of ["/", "/articles/", "/ingredients/", ...(booksEnabled ? [
 }
 expect(notFound.includes('content="noindex,follow"'), "404 page must be noindex");
 
-const allHtml = [home, articleIndex, ingredientIndex, ...ingredientPages, mangaIndex, ...mangaPages, about, ...(booksEnabled ? [booksPage] : []), policy, notFound];
-for (const article of articles) allHtml.push(await readDist(`articles/${article.slug}/index.html`));
+const articlePages = await Promise.all(articles.map(async (article) => ({
+  path: `/articles/${article.slug}/`,
+  html: await readDist(`articles/${article.slug}/index.html`)
+})));
+const htmlPages = [
+  { path: "/", html: home },
+  { path: "/articles/", html: articleIndex },
+  ...articlePages,
+  { path: "/ingredients/", html: ingredientIndex },
+  ...ingredients.map((ingredient, index) => ({ path: `/ingredients/${ingredient.slug}/`, html: ingredientPages[index] })),
+  { path: "/manga/", html: mangaIndex },
+  ...episodes.map((episode, index) => ({ path: `/manga/${episode.id}/`, html: mangaPages[index] })),
+  { path: "/about/", html: about },
+  ...(booksEnabled ? [{ path: "/books/", html: booksPage }] : []),
+  { path: "/editorial-policy/", html: policy },
+  { path: "/404.html", html: notFound }
+];
+const allHtml = htmlPages.map((page) => page.html);
+const indexablePages = htmlPages.filter((page) => page.path !== "/404.html");
+const pagePaths = new Set(htmlPages.map((page) => page.path));
+const sitemapPaths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/gu)].map((match) => new URL(match[1]).pathname);
+
+expect(sitemapPaths.length === indexablePages.length, `Sitemap path count mismatch: expected ${indexablePages.length}, got ${sitemapPaths.length}`);
+expect(new Set(sitemapPaths).size === sitemapPaths.length, "Sitemap contains duplicate paths");
+for (const page of indexablePages) expect(sitemapPaths.includes(page.path), `Indexable page is missing from sitemap: ${page.path}`);
+
+const titles = [];
+const descriptions = [];
+for (const page of htmlPages) {
+  const title = page.html.match(/<title>([^<]+)<\/title>/u)?.[1];
+  const description = page.html.match(/<meta name="description" content="([^"]+)">/u)?.[1];
+  const canonical = page.html.match(/<link rel="canonical" href="([^"]+)">/u)?.[1];
+  const expectedCanonical = new URL(page.path, `${site.siteUrl}/`).toString();
+  expect(page.html.includes('<html lang="ja">'), `Japanese language declaration is missing: ${page.path}`);
+  expect((page.html.match(/<h1(?:\s|>)/gu) ?? []).length === 1, `Page must contain exactly one h1: ${page.path}`);
+  expect(Boolean(title), `Title is missing: ${page.path}`);
+  expect(Boolean(description), `Meta description is missing: ${page.path}`);
+  expect(canonical === expectedCanonical, `Canonical mismatch: ${page.path}`);
+  if (page.path !== "/404.html") {
+    titles.push(title);
+    descriptions.push(description);
+    expect(page.html.includes('meta name="robots" content="index,follow,max-image-preview:large"'), `Index robots directive is missing: ${page.path}`);
+    expect(page.html.includes(`<meta property="og:url" content="${expectedCanonical}">`), `Open Graph URL mismatch: ${page.path}`);
+    expect(page.html.includes('<meta property="og:image" content="https://'), `Absolute Open Graph image is missing: ${page.path}`);
+    expect(page.html.includes('<meta name="twitter:card" content="summary_large_image">'), `Twitter card is missing: ${page.path}`);
+  }
+  for (const match of page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gu)) {
+    try {
+      JSON.parse(match[1]);
+    } catch {
+      failures.push(`Invalid JSON-LD: ${page.path}`);
+    }
+  }
+  for (const match of page.html.matchAll(/<a[^>]+href="([^"]+)"/gu)) {
+    const href = match[1];
+    if (!href.startsWith("/") || href.startsWith("//")) continue;
+    const linkedPath = new URL(href, `${site.siteUrl}/`).pathname;
+    expect(pagePaths.has(linkedPath), `Broken internal page link from ${page.path} to ${linkedPath}`);
+  }
+}
+expect(new Set(titles).size === titles.length, "Indexable pages contain duplicate titles");
+expect(new Set(descriptions).size === descriptions.length, "Indexable pages contain duplicate meta descriptions");
 expect(!allHtml.some((html) => /招待(?:用)?URL[^<]{0,30}href=/u.test(html)), "Invite URL must not be implemented");
 const publishedImageSources = allHtml.flatMap((html) =>
   [...html.matchAll(/<img[^>]+src="([^"]+)"/giu)].map((match) => match[1])
@@ -382,5 +442,5 @@ console.log(JSON.stringify({
   webpFiles: panels.length * 2,
   fixedSocialSlides: socialSlides,
   imageMiB: Number((imageBytes / 1024 / 1024).toFixed(1)),
-  indexedPaths: 1 + 1 + articles.length + 1 + ingredients.length + 1 + episodes.length + 1 + 1
+  indexedPaths: sitemapPaths.length
 }, null, 2));

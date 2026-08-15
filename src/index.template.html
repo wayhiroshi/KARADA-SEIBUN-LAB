@@ -14,11 +14,19 @@
   <meta property="og:title" content="{{PAGE_TITLE}}">
   <meta property="og:description" content="{{DESCRIPTION}}">
   <meta property="og:url" content="{{CANONICAL}}">
-  <meta property="og:image" content="https://karada-seibun-lab.way-hiroshi-66.workers.dev/assets/episodes/001/S01-C01-1254.webp">
+  <meta property="og:image" content="{{SOCIAL_IMAGE}}">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1254">
+  <meta property="og:image:height" content="1254">
+  <meta property="og:image:alt" content="{{SOCIAL_IMAGE_ALT}}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{PAGE_TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="{{SOCIAL_IMAGE}}">
+  <meta name="twitter:image:alt" content="{{SOCIAL_IMAGE_ALT}}">
   <title>{{PAGE_TITLE}}</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v={{STYLES_VERSION}}">
   <script src="/app.js" defer></script>
   <script type="application/ld+json">{{STRUCTURED_DATA}}</script>
 </head>
@@ -35,6 +43,7 @@
     </a>
     <nav class="global-nav" aria-label="サイト内メニュー">
       <a href="/articles/">核酸と成分</a>
+      {{BOOKS_HEADER_LINK}}
       <a href="/ingredients/">成分・用語</a>
       <a href="/manga/" aria-current="page">漫画</a>
       <a href="/about/">植井寛について</a>
@@ -79,6 +88,7 @@
     <p>{{SITE_TAGLINE}}</p>
     <nav aria-label="フッターメニュー">
       <a href="/articles/">記事一覧</a>
+      {{BOOKS_FOOTER_LINK}}
       <a href="/ingredients/">成分・用語</a>
       <a href="/about/">著者情報</a>
       <a href="/editorial-policy/">編集方針</a>
