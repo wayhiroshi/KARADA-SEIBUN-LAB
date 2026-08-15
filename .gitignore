@@ -2,6 +2,8 @@
 .codex/
 node_modules/
 dist/
+dist-drafts/
+dist-books/
 .wrangler/
 
 # 制作原稿・原画・設定資料は公開リポジトリへ入れない

@@ -35,7 +35,8 @@
     </a>
     <nav class="global-nav" aria-label="サイト内メニュー">
       <a href="/articles/">核酸と成分</a>
-      <a href="/manga/001/" aria-current="page">漫画</a>
+      <a href="/ingredients/">成分・用語</a>
+      <a href="/manga/" aria-current="page">漫画</a>
       <a href="/about/">植井寛について</a>
       <a href="/editorial-policy/">編集方針</a>
     </nav>
@@ -44,16 +45,12 @@
   <main id="top">
     <article class="episode">
       <header class="episode-hero">
-        <p class="episode-number">MANGA EPISODE {{EPISODE_ID}}</p>
+        <p class="episode-number">第{{EPISODE_NUMBER}}話</p>
         <h1>{{EPISODE_TITLE}}</h1>
         <p class="episode-subtitle">{{EPISODE_SUBTITLE}}</p>
-        <p class="lead">食事を楽しむ主人公と、体の中で荷物を運ぶスタッフたち。いつもの慌ただしい昼食が、少し早めのお茶をきっかけにどう変わるのかを、体内物流センターの物語として描きます。</p>
+        <p class="episode-question"><span>この話の疑問</span>{{EPISODE_QUESTION}}</p>
+        <p class="lead">{{EPISODE_CONCLUSION}}</p>
       </header>
-
-      <aside class="draft-notice" aria-label="制作確認版について">
-        <strong>現在は制作確認版です</strong>
-        <p>画像にはセリフを入れず、各コマの下に話者とセリフを掲載しています。完成版では画像内へ文字を組み直します。</p>
-      </aside>
 
       <nav class="scene-nav" aria-label="シーン目次">
         <h2>シーン目次</h2>
@@ -65,14 +62,15 @@
         <span>各コマの「セリフをコピー」ボタンが表示されています。</span>
       </div>
 
+      <aside class="cast-shortcut">
+        <span>はじめて読む方へ</span>
+        <a href="/manga/#cast">登場人物と成分スタッフを先に見る</a>
+      </aside>
+
       <div class="manga-sequences">{{SCENES}}</div>
 
-      <section class="editorial-note" aria-labelledby="editorial-note-title">
-        <h2 id="editorial-note-title">この漫画について</h2>
-        <p>体内の仕組みや成分の働きを理解しやすくするため、物流センターや工場に置き換えて単純化した物語表現です。特定の商品による効果や減量を保証するものではありません。</p>
-        <p>健康づくりは、主食・主菜・副菜を基本にしたバランスのよい食生活が基本です。通院中、服薬中、妊娠・授乳中など、体調に不安がある場合は医療機関へ相談してください。</p>
-        <p><a href="/editorial-policy/">編集・広告方針を読む</a></p>
-      </section>
+      {{EPISODE_NAVIGATION}}
+
     </article>
   </main>
 
@@ -81,6 +79,7 @@
     <p>{{SITE_TAGLINE}}</p>
     <nav aria-label="フッターメニュー">
       <a href="/articles/">記事一覧</a>
+      <a href="/ingredients/">成分・用語</a>
       <a href="/about/">著者情報</a>
       <a href="/editorial-policy/">編集方針</a>
     </nav>
