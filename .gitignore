@@ -23,6 +23,10 @@ dist-books/
 !/public/
 !/public/**
 
+# 再生成可能な作業ファイルとmacOSメタデータは管理しない
+/tmp/
+**/.DS_Store
+
 # ブランド制作原本・不採用案はローカル保管し、公開しない
 /AdobeStock_315685537.ai
 /logo.ai
