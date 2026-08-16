@@ -21,6 +21,36 @@ const amazonAffiliateEnabled = affiliate.amazon.enabled || process.env.ENABLE_AM
 const episodeTemplate = await readFile(path.join(root, "src", "index.template.html"), "utf8");
 const stylesSource = await readFile(path.join(root, "src", "styles.css"));
 const stylesVersion = createHash("sha256").update(stylesSource).digest("hex").slice(0, 10);
+const beginnerGuide = [
+  {
+    slug: "kakusan-toha",
+    label: "まず全体をつかむ",
+    note: "核酸という名前が、DNAとRNAをまとめた呼び名だと分かります。"
+  },
+  {
+    slug: "what-is-a-nucleotide",
+    label: "小さな部品を見る",
+    note: "DNAやRNAをつくるヌクレオチドとの関係を整理します。"
+  },
+  {
+    slug: "dna-rna-nucleotide",
+    label: "DNAとRNAを見分ける",
+    note: "よく似た二つの違いを、形と役割から比べます。"
+  },
+  {
+    slug: "dna-doko-ni-aru",
+    label: "体の中をのぞく",
+    note: "長いDNAが、細胞の中にどう収まっているかを見ていきます。"
+  },
+  {
+    slug: "dna-mrna-transcription",
+    label: "情報の使われ方を知る",
+    note: "DNAの情報を運ぶmRNAの役割を、本とメモに置き換えて考えます。"
+  }
+].map((step) => ({
+  ...step,
+  article: articles.find((article) => article.slug === step.slug)
+}));
 
 function escapeHtml(value = "") {
   return String(value)
@@ -396,6 +426,18 @@ function renderHome() {
 }
 
 function renderArticleIndex() {
+  const guideItems = beginnerGuide.map((step, index) => `
+        <li>
+          <a href="/articles/${escapeHtml(step.slug)}/" data-analytics-event="learning_path_click" data-analytics-location="beginner_guide" data-content-id="${escapeHtml(step.slug)}">
+            <span class="guide-step-number">${String(index + 1).padStart(2, "0")}</span>
+            <span class="guide-step-copy">
+              <small>${escapeHtml(step.label)}</small>
+              <strong>${escapeHtml(step.article.title)}</strong>
+              <span>${escapeHtml(step.note)}</span>
+            </span>
+            <span class="guide-step-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>`).join("");
   const body = `
     <div class="content-container">
       ${breadcrumb([{ href: "/", label: "ホーム" }, { label: "核酸と成分の記事" }])}
@@ -404,6 +446,17 @@ function renderArticleIndex() {
         <h1>核酸と成分の記事</h1>
         <p>気になる成分や研究を、基礎からゆっくり確かめるための記事です。</p>
       </header>
+      <section class="beginner-guide" aria-labelledby="beginner-guide-title">
+        <div class="beginner-guide-intro">
+          <p class="eyebrow">START HERE</p>
+          <h2 id="beginner-guide-title">核酸はじめてガイド</h2>
+          <p>「どれから読めばいい？」と迷ったら、この5本を順番にどうぞ。小さな部品から体の中での働きまで、一段ずつつながります。</p>
+        </div>
+        <ol>${guideItems}</ol>
+      </section>
+      <div class="section-heading-row article-index-heading">
+        <div><p class="eyebrow">ALL ARTICLES</p><h2>すべての記事</h2></div>
+      </div>
       <div class="article-grid">${articles.map(renderArticleCard).join("")}</div>
     </div>`;
 
@@ -795,21 +848,46 @@ function renderAbout() {
 
       <div class="prose-layout">
         <section>
-          <h2>このサイトを作る理由</h2>
-          <p>健康食品を調べると、難しい成分名、研究の見出し、体験談、販売ページが一度に現れます。「成分が体内で大切な役割を持つこと」と「その製品で期待どおりの結果が出ること」が混ざらないよう、情報を一つずつ分けて読む場所を作ります。</p>
-          <p>核酸を看板テーマにしていますが、核酸だけを特別扱いせず、原材料、表示量、研究条件、価格、注意事項を同じ手順で確認します。</p>
+          <h2>難しい言葉で立ち止まったところから</h2>
+          <p>核酸を学び始めたとき、「核酸」「DNA」「RNA」「ヌクレオチド」が同じページに並び、どれが大きなまとまりなのか分かりませんでした。そこで、一つの疑問を一つの記事にして、自分が理解できた順番で書き残しています。</p>
+          <p>健康食品の話も、最初から答えを決めず、成分そのものの働きと、商品について確かめられることを分けて読みます。分からなかった地点が近いからこそ、初めて読む人にも伝わる言葉を探します。</p>
         </section>
 
         <section>
-          <h2>本と資料をどう読むか</h2>
-          <p>本で出会った言葉を出発点に、公的機関、大学、査読論文、製造販売元の公式表示へ読み進めます。最初にどう理解していたか、どこでつまずいたか、調べて何が変わったかまで記録し、自分の言葉でまとめます。</p>
-          <p>構成整理や下書きにAIを補助的に利用する場合がありますが、公開前に人が原典と表現を確認します。AIの出力だけを根拠として公開しません。</p>
+          <h2>疑問から記事になるまで</h2>
+          <ol class="research-steps">
+            <li><strong>気になった言葉を一つ選ぶ</strong><span>一つの記事では、一つの疑問だけを追います。</span></li>
+            <li><strong>もとの資料までたどる</strong><span>公的機関、大学、査読論文、メーカーの公式表示を読み比べます。</span></li>
+            <li><strong>図にして確かめる</strong><span>言葉だけで分かりにくい関係は、図や身近なたとえに置き換えます。</span></li>
+            <li><strong>読んだ資料を記事に残す</strong><span>主な情報源と更新日を示し、読者もその先を確かめられるようにします。</span></li>
+          </ol>
         </section>
 
-        <section>
-          <h2>漫画と声で伝える</h2>
-          <p>文章だけではつかみにくい仕組みは漫画や図にし、耳からも理解できるよう短い本人音声と字幕に展開します。急いで結論を出すのではなく、一つずつ言葉をほどく場所を育てます。</p>
-          <p>人に伝えることで自分自身の理解も深めながら、生涯学習と執筆活動を続けます。</p>
+        <section aria-labelledby="research-examples-title">
+          <h2 id="research-examples-title">実際に、こう調べました</h2>
+          <div class="research-examples">
+            <a href="/articles/what-is-a-nucleotide/" data-analytics-event="author_evidence_click" data-analytics-location="about_research_examples" data-content-id="what-is-a-nucleotide">
+              <small>本の言葉を、基礎から</small>
+              <strong>ヌクレオチドって、そもそも何？</strong>
+              <span>核酸との関係を「部品と全体」に分けました。</span>
+            </a>
+            <a href="/articles/nucleotide-in-infant-formula/" data-analytics-event="author_evidence_click" data-analytics-location="about_research_examples" data-content-id="nucleotide-in-infant-formula">
+              <small>商品の表示を、公式情報で</small>
+              <strong>粉ミルクにも入っているの？</strong>
+              <span>メーカーの成分表示にある名前を確かめました。</span>
+            </a>
+            <a href="/articles/why-nucleotides-were-added/" data-analytics-event="author_evidence_click" data-analytics-location="about_research_examples" data-content-id="why-nucleotides-were-added">
+              <small>研究の中身まで</small>
+              <strong>配合を後押しした研究は？</strong>
+              <span>対象者、期間、測ったものを順番に読みました。</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="author-follow">
+          <h2>漫画と声でも、一緒に学ぶ</h2>
+          <p>文章だけではつかみにくい仕組みは、漫画や図にします。Instagramでは、新しく分かったことや次に調べたい疑問も紹介しています。</p>
+          <p><a class="text-link" href="${escapeHtml(site.authorSameAs[0])}" rel="me noopener noreferrer" data-analytics-event="social_profile_click" data-analytics-location="about_author_follow" data-content-id="instagram">からだ成分ラボのInstagramを見る</a></p>
         </section>
       </div>
     </div>`;
@@ -827,7 +905,9 @@ function renderAbout() {
         name: site.authorName,
         description: "からだ成分ラボ 執筆・編集",
         image: absoluteUrl(site.authorImage),
-        url: absoluteUrl("/about/")
+        url: absoluteUrl("/about/"),
+        sameAs: site.authorSameAs,
+        knowsAbout: ["核酸", "DNA", "RNA", "ヌクレオチド", "健康食品の表示"]
       }
     }, breadcrumbStructuredData([
       { href: "/", label: "ホーム" },
