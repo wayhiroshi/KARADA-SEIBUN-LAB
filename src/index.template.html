@@ -56,33 +56,11 @@
       <header class="episode-hero">
         <p class="episode-number">第{{EPISODE_NUMBER}}話</p>
         <h1>{{EPISODE_TITLE}}</h1>
-        <p class="episode-subtitle">{{EPISODE_SUBTITLE}}</p>
-        <p class="episode-question"><span>この話の疑問</span>{{EPISODE_QUESTION}}</p>
-        <p class="lead">{{EPISODE_CONCLUSION}}</p>
       </header>
 
-      <aside class="editorial-note manga-editorial-note" aria-labelledby="manga-note-title">
-        <h2 id="manga-note-title">この漫画の読み方</h2>
-        <p>{{EDITORIAL_NOTE}}</p>
-        {{SOURCE_LINKS}}
-      </aside>
-
-      <nav class="scene-nav" aria-label="シーン目次">
-        <h2>シーン目次</h2>
-        <div class="scene-nav-links">{{SCENE_NAV}}</div>
-      </nav>
-
-      <div class="work-mode-guide" hidden>
-        <strong>制作確認モード</strong>
-        <span>各コマの「セリフをコピー」ボタンが表示されています。</span>
-      </div>
-
-      <aside class="cast-shortcut">
-        <span>はじめて読む方へ</span>
-        <a href="/manga/#cast">登場人物と成分スタッフを先に見る</a>
-      </aside>
-
       <div class="manga-sequences">{{SCENES}}</div>
+
+      {{SOURCE_LINKS}}
 
       {{EPISODE_NAVIGATION}}
 

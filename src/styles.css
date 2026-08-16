@@ -42,6 +42,7 @@ main {
 
 img {
   display: block;
+  height: auto;
   max-width: 100%;
 }
 
@@ -175,14 +176,7 @@ a {
 }
 
 .episode-hero {
-  padding: clamp(42px, 9vw, 84px) clamp(20px, 6vw, 56px);
-  overflow: hidden;
-  border: 1px solid rgba(97, 125, 92, 0.18);
-  border-radius: 32px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(244, 238, 219, 0.92)),
-    var(--paper-strong);
-  box-shadow: var(--shadow);
+  padding: clamp(30px, 7vw, 52px) 12px clamp(24px, 5vw, 38px);
   text-align: center;
 }
 
@@ -202,33 +196,6 @@ a {
   letter-spacing: 0.025em;
 }
 
-.episode-subtitle {
-  margin: 18px 0 0;
-  color: var(--green-dark);
-  font-size: clamp(15px, 4vw, 20px);
-  font-weight: 700;
-}
-
-.episode-question {
-  max-width: 38rem;
-  margin: 28px auto 0;
-  padding: 15px 18px;
-  border-radius: 14px;
-  color: #4b574d;
-  background: rgba(255, 255, 255, 0.72);
-  font-size: 14px;
-  text-align: left;
-}
-
-.episode-question span {
-  display: block;
-  margin-bottom: 2px;
-  color: var(--green);
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-}
-
 .lead {
   max-width: 38rem;
   margin: 30px auto 0;
@@ -238,7 +205,6 @@ a {
 }
 
 .draft-notice,
-.work-mode-guide,
 .editorial-note {
   margin: 26px 0;
   padding: 18px 20px;
@@ -257,16 +223,6 @@ a {
   font-size: 13px;
 }
 
-.manga-editorial-note {
-  border-left: 5px solid var(--green);
-  background: #f1f6ed;
-}
-
-.manga-editorial-note h2 {
-  margin: 0;
-  font-size: 16px;
-}
-
 .manga-source-links strong {
   display: block;
   margin-bottom: 6px;
@@ -277,6 +233,18 @@ a {
   margin: 4px 14px 0 0;
   color: var(--green-dark);
   font-weight: 700;
+}
+
+.manga-sources {
+  margin: 18px 0 46px;
+  padding: 15px 18px;
+}
+
+.manga-sources summary {
+  color: var(--green-dark);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
 }
 
 .scene-nav {
@@ -313,19 +281,6 @@ a {
 .scene-nav a:focus-visible {
   border-color: var(--green);
   background: var(--green-pale);
-}
-
-.work-mode-guide {
-  display: none;
-  align-items: center;
-  gap: 10px;
-  border: 1px dashed var(--green);
-  background: var(--green-pale);
-  font-size: 13px;
-}
-
-.work-mode .work-mode-guide {
-  display: flex;
 }
 
 .manga-scene {
@@ -387,30 +342,6 @@ a {
   border: 1px solid #e8eae5;
   border-top: 0;
   border-radius: 0 0 var(--radius) var(--radius);
-}
-
-.panel-meta {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-
-.panel-id {
-  color: var(--green);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-}
-
-.panel-title {
-  margin: 0;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
-  text-align: right;
 }
 
 .panel-script {
@@ -682,15 +613,6 @@ a {
   color: var(--muted);
 }
 
-.manga-index-card .manga-index-summary {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  color: #4f5750;
-  font-size: 13px;
-  line-height: 1.75;
-}
-
 .manga-index-card span {
   color: var(--green);
   font-size: 12px;
@@ -710,10 +632,6 @@ a {
 
   .panel-caption {
     border-radius: 0 0 16px 16px;
-  }
-
-  .panel-meta {
-    margin-bottom: 12px;
   }
 
   .episode-pagination,
@@ -766,36 +684,6 @@ a {
   }
 }
 
-.work-tools {
-  display: none;
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px dashed var(--line);
-}
-
-.work-mode .work-tools {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.copy-script {
-  padding: 8px 13px;
-  border: 1px solid var(--green);
-  border-radius: 8px;
-  color: var(--green-dark);
-  background: white;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.copy-script:hover,
-.copy-script:focus-visible {
-  color: white;
-  background: var(--green);
-}
-
 .editorial-note {
   margin-top: 86px;
   border: 1px solid #d9dfd6;
@@ -809,13 +697,6 @@ a {
 
 .editorial-note p + p {
   margin-top: 10px;
-}
-
-.editorial-note.manga-editorial-note {
-  margin: 26px 0;
-  border: 0;
-  border-left: 5px solid var(--green);
-  background: #f1f6ed;
 }
 
 .site-footer {
