@@ -276,6 +276,11 @@
         "label": "米国科学アカデミー（2004）：乳児用粉ミルクの開発史と新成分",
         "url": "https://www.nationalacademies.org/read/10935/chapter/5"
       }
+    ],
+    "relatedSlugs": [
+      "why-nucleotides-in-infant-formula",
+      "what-does-infant-growth-measure",
+      "kakusan-kenkyu-no-yomikata"
     ]
   },
   {
@@ -338,6 +343,11 @@
         "label": "Singhalほか（2010）：粉ミルクで育つ乳児のヌクレオチド摂取と初期成長―ランダム化比較試験（英語）",
         "url": "https://pubmed.ncbi.nlm.nih.gov/20837597/"
       }
+    ],
+    "relatedSlugs": [
+      "why-nucleotides-were-added",
+      "why-nucleotides-in-infant-formula",
+      "kakusan-kenkyu-no-yomikata"
     ]
   },
   {
@@ -408,6 +418,11 @@
         "label": "明治ミルフィーHP 公式商品情報",
         "url": "https://www.meiji.co.jp/products/milkpowder/2415469.html"
       }
+    ],
+    "relatedSlugs": [
+      "nucleotide-in-infant-formula",
+      "why-nucleotides-were-added",
+      "what-is-a-nucleotide"
     ]
   },
   {
@@ -538,6 +553,11 @@
         "label": "米国国立ヒトゲノム研究所：Messenger RNA (mRNA)",
         "url": "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"
       }
+    ],
+    "relatedSlugs": [
+      "dna-mrna-transcription",
+      "dna-rna-nucleotide",
+      "kakusan-toha"
     ]
   },
   {
@@ -600,6 +620,11 @@
         "label": "米国国立ヒトゲノム研究所：Messenger RNA (mRNA)",
         "url": "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"
       }
+    ],
+    "relatedSlugs": [
+      "rna-to-mrna",
+      "idenshi-dna-atgc",
+      "saibo-kaku-onaji-dna"
     ]
   },
   {
@@ -662,6 +687,11 @@
         "label": "米国国立ヒトゲノム研究所：DNA Fact Sheet",
         "url": "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"
       }
+    ],
+    "relatedSlugs": [
+      "dna-doko-ni-aru",
+      "saibo-kaku-onaji-dna",
+      "dna-mrna-transcription"
     ]
   },
   {
@@ -733,6 +763,11 @@
         "label": "Seminars in Cell & Developmental Biology：Mechanics of the Nucleus",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4600468/"
       }
+    ],
+    "relatedSlugs": [
+      "idenshi-dna-atgc",
+      "dna-mrna-transcription",
+      "dna-doko-ni-aru"
     ]
   },
   {
@@ -796,6 +831,11 @@
         "label": "米国国立ヒトゲノム研究所：Chromosome",
         "url": "https://www.genome.gov/genetics-glossary/Chromosome"
       }
+    ],
+    "relatedSlugs": [
+      "idenshi-dna-atgc",
+      "saibo-kaku-onaji-dna",
+      "kakusan-toha"
     ]
   },
   {
@@ -858,6 +898,11 @@
         "label": "NCBI Bookshelf：The Chemical Components of a Cell",
         "url": "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
       }
+    ],
+    "relatedSlugs": [
+      "dna-rna-nucleotide",
+      "what-is-a-nucleotide",
+      "dna-doko-ni-aru"
     ]
   },
   {
@@ -923,6 +968,11 @@
         "label": "NCBI Bookshelf：The Chemical Components of a Cell",
         "url": "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
       }
+    ],
+    "relatedSlugs": [
+      "kakusan-toha",
+      "rna-to-mrna",
+      "what-is-a-nucleotide"
     ]
   },
   {
@@ -992,6 +1042,11 @@
         "label": "厚生労働省：健康食品の表示等に関する指針",
         "url": "https://www.mhlw.go.jp/web/t_doc?dataId=00ta5834&dataType=1&pageNo=1"
       }
+    ],
+    "relatedSlugs": [
+      "kakusan-kenkyu-no-yomikata",
+      "why-do-people-diet",
+      "nucleotide-in-infant-formula"
     ]
   },
   {
@@ -1051,6 +1106,11 @@
         "label": "フォーデイズ：京都大学との共同研究開始（2026年7月10日）",
         "url": "https://fordays.jp/news/2026/07/post-127.html"
       }
+    ],
+    "relatedSlugs": [
+      "kenko-shokuhin-koukoku",
+      "why-nucleotides-were-added",
+      "what-does-infant-growth-measure"
     ]
   }
 ]

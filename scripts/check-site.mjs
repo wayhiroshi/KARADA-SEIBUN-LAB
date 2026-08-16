@@ -66,6 +66,10 @@ for (const article of articles) {
 
   expect(article.styleVersion === "karada-article-v1", `Every article must use karada-article-v1: ${article.slug}`);
   expect(article.authorNote?.title && article.authorNote?.body, `karada-article-v1 requires an author learning note: ${article.slug}`);
+  expect(Array.isArray(article.relatedSlugs) && article.relatedSlugs.length === 3, `Article must define exactly 3 related articles: ${article.slug}`);
+  expect(new Set(article.relatedSlugs ?? []).size === 3, `Related articles must be unique: ${article.slug}`);
+  expect(!(article.relatedSlugs ?? []).includes(article.slug), `Article cannot relate to itself: ${article.slug}`);
+  expect((article.relatedSlugs ?? []).every((slug) => articles.some((candidate) => candidate.slug === slug)), `Related article slug is invalid: ${article.slug}`);
   if (article.conceptFlow?.length) {
     expect(article.conceptTitle?.trim(), `Concept flow title is missing: ${article.slug}`);
     expect(article.conceptNote?.trim(), `Concept flow note is missing: ${article.slug}`);
