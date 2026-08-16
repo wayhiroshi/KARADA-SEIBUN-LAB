@@ -7,6 +7,9 @@
   "siteUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev",
   "authorName": "植井寛",
   "authorImage": "/assets/brand/uehi-hiroshi-v2.png",
-  "updated": "2026-08-16",
-  "gaMeasurementId": "G-YW2FNQ70ZT"
+  "updated": "2026-08-17",
+  "gaMeasurementId": "G-YW2FNQ70ZT",
+  "authorSameAs": [
+    "https://www.instagram.com/karada_seibun_lab/"
+  ]
 }

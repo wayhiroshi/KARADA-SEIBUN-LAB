@@ -107,6 +107,15 @@ expect(articleIndex.includes("核酸と成分の記事"), "Article index heading
 expect((articleIndex.match(/class="article-card"/g) ?? []).length === articles.length, "Article index card count is inconsistent");
 expect(articleIndex.includes('"@type":"ItemList"'), "Article index ItemList structured data is missing");
 expect(articleIndex.includes('"@type":"BreadcrumbList"'), "Article index BreadcrumbList structured data is missing");
+expect(articleIndex.includes("核酸はじめてガイド"), "Beginner guide heading is missing");
+expect((articleIndex.match(/data-analytics-location="beginner_guide"/g) ?? []).length === 5, "Beginner guide must contain 5 tracked article links");
+expect([
+  "kakusan-toha",
+  "what-is-a-nucleotide",
+  "dna-rna-nucleotide",
+  "dna-doko-ni-aru",
+  "dna-mrna-transcription"
+].every((slug) => articleIndex.includes(`href="/articles/${slug}/"`)), "Beginner guide article path is missing");
 
 expect(ingredientIndex.includes("記事に出てきた成分・用語"), "Ingredient index heading is missing");
 expect((ingredientIndex.match(/class="ingredient-timeline-card"/g) ?? []).length === ingredients.length, "Ingredient index card count is inconsistent");
@@ -213,8 +222,13 @@ for (const misleadingClaim of [
 expect(episodes[1].sourceLinks.length === 3, "Episode 002 must link its three research sources");
 expect(episodes[2].sourceLinks.length === 1, "Episode 003 must link its Gymnema research source");
 
-expect(about.includes("本と資料をどう読むか"), "About learning-process section is missing");
-expect(about.includes("漫画と声で伝える"), "About communication section is missing");
+expect(about.includes("難しい言葉で立ち止まったところから"), "About author-introduction section is missing");
+expect(about.includes("疑問から記事になるまで"), "About research-process section is missing");
+expect((about.match(/class="research-steps"/g) ?? []).length === 1, "About research steps are missing");
+expect((about.match(/data-analytics-event="author_evidence_click"/g) ?? []).length === 3, "About research examples must contain 3 tracked links");
+expect(about.includes("Instagramを見る"), "About official Instagram link is missing");
+expect(about.includes('data-analytics-event="social_profile_click"'), "About Instagram analytics event is missing");
+expect(about.includes('"sameAs":["https://www.instagram.com/karada_seibun_lab/"]'), "About Person sameAs is missing");
 expect(about.includes('"@type":"BreadcrumbList"'), "About BreadcrumbList structured data is missing");
 expect(!about.includes("フォーデイズ会員"), "Internal advertising relationship must not be repeated on About");
 expect(policy.includes("編集方針"), "Editorial policy section is missing");
