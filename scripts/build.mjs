@@ -51,6 +51,59 @@ const beginnerGuide = [
   ...step,
   article: articles.find((article) => article.slug === step.slug)
 }));
+const articleTopicDefinitions = [
+  {
+    id: "nucleic-acid-basics",
+    symbol: "核酸",
+    title: "核酸の基本",
+    description: "DNA、RNA、ヌクレオチドの関係から始めます。",
+    categories: ["核酸の基礎"]
+  },
+  {
+    id: "dna-visual",
+    symbol: "DNA",
+    title: "DNAを目で理解する",
+    description: "細胞の中で、遺伝情報がどう収まり、使われるかを見ていきます。",
+    categories: ["DNAを目で理解する"]
+  },
+  {
+    id: "everyday-nucleic-acid",
+    symbol: "食品",
+    title: "身近な食品から探す",
+    description: "粉ミルクなどの表示から、核酸との接点を見つけます。",
+    categories: ["身近なところで見つける核酸"]
+  },
+  {
+    id: "read-research",
+    symbol: "研究",
+    title: "研究をやさしく読む",
+    description: "対象者や期間、何を測った研究なのかを順番に読みます。",
+    categories: ["研究をやさしく読む", "研究の読み方"]
+  },
+  {
+    id: "choose-health-information",
+    symbol: "選ぶ",
+    title: "健康情報と向き合う",
+    description: "成分表示やダイエットの目的から、自分の判断軸を考えます。",
+    categories: ["成分と表示の読み方", "ダイエットを考える"]
+  }
+];
+const knownTopicCategories = new Set(articleTopicDefinitions.flatMap((topic) => topic.categories));
+const uncategorizedArticles = articles.filter((article) => !knownTopicCategories.has(article.category));
+const articleTopics = [
+  ...articleTopicDefinitions.map((topic) => ({
+    ...topic,
+    articles: articles.filter((article) => topic.categories.includes(article.category))
+  })),
+  ...(uncategorizedArticles.length ? [{
+    id: "other",
+    symbol: "ほか",
+    title: "そのほかの記事",
+    description: "新しく加わったテーマの記事です。",
+    categories: [],
+    articles: uncategorizedArticles
+  }] : [])
+].filter((topic) => topic.articles.length > 0);
 
 function escapeHtml(value = "") {
   return String(value)
@@ -226,7 +279,7 @@ function authorCard(compact = false) {
       <div>
         <p class="eyebrow">AUTHOR</p>
         <h2 id="author-card-title">植井寛</h2>
-        <p>核酸について本や資料を読み始めた「からだ成分ラボ」の執筆者です。つまずいた点も隠さず、読者のみなさんと一緒に学びながら、自分の言葉で整理します。</p>
+        <p>健康にまつわる難しい言葉を、本や公的な資料で調べ、図と文章で紹介しています。</p>
         <a class="text-link" href="/about/" data-analytics-event="author_profile_click" data-analytics-location="author_card">植井寛について読む</a>
       </div>
     </section>`;
@@ -324,35 +377,42 @@ function renderBooks() {
 
 function renderHome() {
   const [firstArticle, ...otherArticles] = articles;
+  const latestArticles = otherArticles.slice(0, 6);
+  const topicCards = articleTopics.map((topic) => `
+        <a class="topic-nav-card" href="/articles/#topic-${escapeHtml(topic.id)}" data-analytics-event="topic_navigation_click" data-analytics-location="home_topic_navigation" data-content-id="${escapeHtml(topic.id)}">
+          <span class="topic-nav-symbol" aria-hidden="true">${escapeHtml(topic.symbol)}</span>
+          <span class="topic-nav-copy"><small>${topic.articles.length}記事</small><strong>${escapeHtml(topic.title)}</strong><span>${escapeHtml(topic.description)}</span></span>
+          <span class="topic-nav-arrow" aria-hidden="true">→</span>
+        </a>`).join("");
   const body = `
     <section class="home-hero">
       <div class="home-hero-copy">
         <p class="hero-kicker"><span>40代からの、やさしい学び直し</span></p>
         <h1>からだのことを、<br><em>わかる言葉で</em><br>学び直す。</h1>
-        <p class="hero-copy">本を読み、つまずいたところから、一緒に学ぶ。</p>
-        <p class="hero-description">核酸、栄養、健康食品。難しい言葉を一人で抱えず、植井寛が読者のみなさんと一緒に確かめていく場所です。</p>
+        <p class="hero-copy">本を読み、気になった言葉を一つずつほどく。</p>
+        <p class="hero-description">核酸、栄養、健康食品。植井寛が本と公的な資料をたどり、図と文章でやさしく紹介します。</p>
         <div class="button-row">
           <a class="button primary" href="/articles/kakusan-toha/">最初の記事を読む</a>
           <a class="button secondary" href="/about/">このラボについて</a>
         </div>
         <div class="hero-tags" aria-label="発信方法">
-          <span>本と資料</span><span>漫画</span><span>本人の声</span>
+          <span>本と資料</span><span>図解</span><span>漫画</span>
         </div>
       </div>
       <figure class="home-hero-visual">
         <img src="/assets/articles/kakusan-toha/learning-together-v2.webp" width="1440" height="960" alt="適度な距離を保ち、それぞれの本を開いて一緒に学ぶ植井寛と女性のイラスト" fetchpriority="high">
-        <figcaption><strong>何でも知っている人ではなく、</strong>学びながら、自分の言葉で伝えます。</figcaption>
+        <figcaption><strong>知るほど、からだは面白い。</strong>見えない仕組みを、一つずつ図にします。</figcaption>
       </figure>
     </section>
 
     <section class="learning-rhythm" aria-labelledby="learning-rhythm-title">
       <div class="section-heading-row">
-        <div><p class="eyebrow">OUR RHYTHM</p><h2 id="learning-rhythm-title">分からないところから、始めます。</h2></div>
+        <div><p class="eyebrow">OUR RHYTHM</p><h2 id="learning-rhythm-title">知りたい言葉を、ひとつずつ。</h2></div>
       </div>
       <ol>
-        <li><span>01</span><div><strong>本を読む</strong><p>気になった言葉に印をつけます。</p></div></li>
-        <li><span>02</span><div><strong>調べてほどく</strong><p>つまずいた点も、そのまま記録します。</p></div></li>
-        <li><span>03</span><div><strong>一緒に確かめる</strong><p>漫画や声でも、ゆっくり共有します。</p></div></li>
+        <li><span>01</span><div><strong>本を読む</strong><p>もっと知りたい言葉を見つけます。</p></div></li>
+        <li><span>02</span><div><strong>資料をたどる</strong><p>言葉の意味や、もの同士の関係を整理します。</p></div></li>
+        <li><span>03</span><div><strong>図と文章にする</strong><p>初めて読む人にも見える形で紹介します。</p></div></li>
       </ol>
     </section>
 
@@ -371,10 +431,32 @@ function renderHome() {
 
     <section class="section-block home-article-section" aria-labelledby="latest-title">
       <div class="section-heading-row">
-        <div><p class="eyebrow">CONTINUE READING</p><h2 id="latest-title">次に読みたい記事</h2></div>
+        <div><p class="eyebrow">NEW ARTICLES</p><h2 id="latest-title">新着記事</h2></div>
         <a class="text-link" href="/articles/">すべての記事</a>
       </div>
-      <div class="article-grid article-grid-three">${otherArticles.map(renderArticleCard).join("")}</div>
+      <div class="article-grid article-grid-three">${latestArticles.map(renderArticleCard).join("")}</div>
+    </section>
+
+    <section class="section-block home-topic-section" aria-labelledby="home-topic-title">
+      <div class="section-heading-row">
+        <div><p class="eyebrow">FIND YOUR INTEREST</p><h2 id="home-topic-title">テーマから探す</h2></div>
+        <p class="section-heading-note">記事が増えても、興味のある入口から選べます。</p>
+      </div>
+      <nav class="topic-nav-grid" aria-label="記事のテーマ">${topicCards}</nav>
+    </section>
+
+    <section class="home-social" aria-labelledby="home-social-title">
+      <div class="home-social-copy">
+        <p class="eyebrow">INSTAGRAM</p>
+        <h2 id="home-social-title">図と漫画で、短く読めます。</h2>
+        <p>記事の要点や新しく見つけた疑問を、図解と漫画で紹介しています。</p>
+      </div>
+      <a class="home-social-card" href="${escapeHtml(site.authorSameAs[0])}" rel="me noopener noreferrer" data-analytics-event="social_profile_click" data-analytics-location="home_social_card" data-content-id="instagram">
+        <span class="instagram-mark" aria-hidden="true"><i></i></span>
+        <span class="home-social-account"><strong>からだ成分ラボ</strong><small>@karada_seibun_lab</small></span>
+        <span class="home-social-previews" aria-hidden="true"><i>図解</i><i>漫画</i><i>新着</i></span>
+        <span class="home-social-arrow">Instagramで読む →</span>
+      </a>
     </section>
 
     ${booksEnabled ? `<section class="home-books" aria-labelledby="home-books-title">
@@ -394,7 +476,7 @@ function renderHome() {
       <div>
         <p class="eyebrow">MANGA EPISODE 001</p>
         <h2>${escapeHtml(episode.title)}</h2>
-        <p>${escapeHtml(episode.subtitle)}。体の中の出来事を、にぎやかな物流センターの物語で楽しめます。</p>
+        <p>${escapeHtml(asSentence(episode.subtitle))}体の中の出来事を、にぎやかな物流センターの物語で楽しめます。</p>
         <a class="button secondary" href="/manga/#cast">登場人物から読む</a>
       </div>
     </section>
@@ -438,6 +520,14 @@ function renderArticleIndex() {
             <span class="guide-step-arrow" aria-hidden="true">→</span>
           </a>
         </li>`).join("");
+  const topicSections = articleTopics.map((topic) => `
+      <section class="article-topic-group" id="topic-${escapeHtml(topic.id)}" aria-labelledby="topic-${escapeHtml(topic.id)}-title">
+        <div class="article-topic-heading">
+          <span class="topic-nav-symbol" aria-hidden="true">${escapeHtml(topic.symbol)}</span>
+          <div><p class="eyebrow">${topic.articles.length} ARTICLES</p><h2 id="topic-${escapeHtml(topic.id)}-title">${escapeHtml(topic.title)}</h2><p>${escapeHtml(topic.description)}</p></div>
+        </div>
+        <div class="article-grid">${topic.articles.map(renderArticleCard).join("")}</div>
+      </section>`).join("");
   const body = `
     <div class="content-container">
       ${breadcrumb([{ href: "/", label: "ホーム" }, { label: "核酸と成分の記事" }])}
@@ -455,9 +545,9 @@ function renderArticleIndex() {
         <ol>${guideItems}</ol>
       </section>
       <div class="section-heading-row article-index-heading">
-        <div><p class="eyebrow">ALL ARTICLES</p><h2>すべての記事</h2></div>
+        <div><p class="eyebrow">BROWSE BY TOPIC</p><h2>テーマから探す</h2></div>
       </div>
-      <div class="article-grid">${articles.map(renderArticleCard).join("")}</div>
+      <div class="article-topic-list">${topicSections}</div>
     </div>`;
 
   return pageShell({
