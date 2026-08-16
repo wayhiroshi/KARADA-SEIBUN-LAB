@@ -345,7 +345,7 @@ function renderHome() {
       <div>
         <p class="eyebrow">MANGA EPISODE 001</p>
         <h2>${escapeHtml(episode.title)}</h2>
-        <p>${escapeHtml(episode.subtitle)}。体の仕組みを体内物流センターに置き換えた、制作確認版の漫画です。</p>
+        <p>${escapeHtml(episode.subtitle)}。体の中の出来事を、にぎやかな物流センターの物語で楽しめます。</p>
         <a class="button secondary" href="/manga/#cast">登場人物から読む</a>
       </div>
     </section>
@@ -906,12 +906,7 @@ function renderPanel(panel, episodeId) {
           decoding="async"${priority ? '\n          fetchpriority="high"' : ""}>
       </div>
       <figcaption class="panel-caption">
-        <div class="panel-meta">
-          <span class="panel-id">${escapeHtml(panel.id)}</span>
-          <h3 class="panel-title">${escapeHtml(panel.title)}</h3>
-        </div>
         <div class="panel-script">${scriptBlock}</div>
-        <div class="work-tools"><button class="copy-script" type="button">セリフをコピー</button></div>
       </figcaption>
     </figure>`;
 }
@@ -930,10 +925,6 @@ function renderScene(scene, episodeId) {
 
 function renderEpisode(episode, episodeIndex) {
   panelIndex = 0;
-  const sceneNav = episode.scenes.map((scene) => {
-    const number = String(scene.number).padStart(2, "0");
-    return `<a href="#scene-${number}" title="${escapeHtml(scene.title)}">${number}</a>`;
-  }).join("\n");
   const scenes = episode.scenes.map((scene) => renderScene(scene, episode.id)).join("\n");
   const pageTitle = `${episode.title}｜${episode.siteName}`;
   const description = `${asSentence(episode.subtitle)}${asSentence(site.shortTagline)}`;
@@ -943,7 +934,7 @@ function renderEpisode(episode, episodeIndex) {
   const previous = episodes[episodeIndex - 1];
   const next = episodes[episodeIndex + 1];
   const sourceLinks = episode.sourceLinks.length
-    ? `<p class="manga-source-links"><strong>参照した研究</strong>${episode.sourceLinks.map((source) => `<a href="${escapeHtml(source.url)}" rel="noopener noreferrer">${escapeHtml(source.label)}</a>`).join("")}</p>`
+    ? `<details class="editorial-note manga-sources"><summary>この話の参考資料</summary><p class="manga-source-links">${episode.sourceLinks.map((source) => `<a href="${escapeHtml(source.url)}" rel="noopener noreferrer">${escapeHtml(source.label)}</a>`).join("")}</p></details>`
     : "";
   const episodeNavigation = `
     <nav class="episode-pagination" aria-label="漫画の前後移動">
@@ -986,16 +977,9 @@ function renderEpisode(episode, episodeIndex) {
     "{{PAGE_TITLE}}": pageTitle,
     "{{SITE_NAME}}": episode.siteName,
     "{{SITE_TAGLINE}}": site.shortTagline,
-    "{{STATUS}}": episode.status,
-    "{{EPISODE_ID}}": episode.id,
     "{{EPISODE_NUMBER}}": String(episode.number),
     "{{EPISODE_TITLE}}": episode.title,
-    "{{EPISODE_SUBTITLE}}": episode.subtitle,
-    "{{EPISODE_QUESTION}}": episode.question,
-    "{{EPISODE_CONCLUSION}}": episode.conclusion,
-    "{{EDITORIAL_NOTE}}": episode.editorialNote,
     "{{SOURCE_LINKS}}": sourceLinks,
-    "{{SCENE_NAV}}": sceneNav,
     "{{SCENES}}": scenes,
     "{{EPISODE_NAVIGATION}}": episodeNavigation,
     "{{CANONICAL}}": absoluteUrl(pathName),
@@ -1014,8 +998,8 @@ function renderEpisode(episode, episodeIndex) {
 function renderMangaIndex() {
   const renderCastCard = (character) => {
     const research = character.research ? `<div class="cast-research">
-      <p><strong>研究では</strong>${escapeHtml(character.research)}</p>
-      <p><strong>漫画では</strong>${escapeHtml(character.story)}</p>
+      <p><strong>名前のもと</strong>${escapeHtml(character.research)}</p>
+      <p><strong>センターでの仕事</strong>${escapeHtml(character.story)}</p>
       <a href="${escapeHtml(character.sourceUrl)}" rel="noopener noreferrer">${escapeHtml(character.sourceLabel)}</a>
     </div>` : "";
     return `<article class="cast-card${character.research ? " ingredient" : ""}">
@@ -1037,7 +1021,7 @@ function renderMangaIndex() {
       <a class="manga-index-image" href="/manga/${item.id}/">
         <img src="/assets/episodes/${item.id}/${firstPanel.imageBase}-640.webp" width="640" height="640" alt="${escapeHtml(firstPanel.alt)}" loading="lazy">
       </a>
-      <div><p class="eyebrow">第${item.number}話</p><h2><a href="/manga/${item.id}/">${escapeHtml(item.title)}</a></h2><p>${escapeHtml(item.subtitle)}</p><p class="manga-index-summary">${escapeHtml(item.conclusion)}</p><span>${item.scenes.length}シーン・${count}コマ</span></div>
+      <div><p class="eyebrow">第${item.number}話</p><h2><a href="/manga/${item.id}/">${escapeHtml(item.title)}</a></h2><p>${escapeHtml(item.subtitle)}</p><span>${item.scenes.length}シーン・${count}コマ</span></div>
     </article>`;
   }).join("\n");
   const body = `<div class="content-container manga-index-page">
@@ -1046,7 +1030,7 @@ function renderMangaIndex() {
     <section class="cast-section" id="cast" aria-labelledby="cast-title">
       <div class="section-heading-row"><div><p class="eyebrow">CAST</p><h2 id="cast-title">${escapeHtml(mangaCast.title)}</h2><p>${escapeHtml(mangaCast.lead)}</p></div></div>
       <div class="cast-grid">${storyCastCards}</div>
-      <div class="ingredient-heading"><p class="eyebrow">INGREDIENT TEAM</p><h3>成分スタッフは、何をヒントにしたキャラクター？</h3><p>研究で扱われているポイントと、漫画の中での仕事を並べて紹介します。</p></div>
+      <div class="ingredient-heading"><p class="eyebrow">INGREDIENT TEAM</p><h3>植物や成分から生まれた仲間たち</h3><p>それぞれの名前のもとと、体内物流センターでの仕事を紹介します。</p></div>
       <div class="cast-grid ingredient-grid">${ingredientCastCards}</div>
     </section>
     <div class="episode-list-heading"><p class="eyebrow">STORIES</p><h2>全3話を読む</h2></div>

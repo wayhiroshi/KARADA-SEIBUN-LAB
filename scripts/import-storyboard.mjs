@@ -3,13 +3,15 @@ import path from "node:path";
 
 const root = process.cwd();
 const sourcePath = path.join(root, "docs", "manga-revised-script-3episodes.md");
-const outputDir = path.join(root, "content", "episodes");
+const outputDir = process.env.MANGA_OUTPUT_DIR
+  ? path.resolve(process.env.MANGA_OUTPUT_DIR)
+  : path.join(root, "content", "episodes");
 const markdown = await readFile(sourcePath, "utf8");
 
 const episodeMeta = {
   "001": {
     title: "新人配送員、初ランチ便！",
-    subtitle: "普通に食事をしたとき、体内物流センターでは？",
+    subtitle: "ランチ便が一気に到着。新人の初日はどうなる？",
     question: "いつものように食事をすると、体の中ではどんなことが起きる？",
     conclusion: "お茶を飲まず、いつものように食事をした主人公。糖分が一度に届いた体内工場と配送センターは、たちまち大忙しになります。",
     editorialNote: "体内物流センターは、体の働きを分かりやすくするために単純化した物語上のたとえです。食事のあとに起きる変化や時間には個人差があります。",
@@ -17,7 +19,7 @@ const episodeMeta = {
   },
   "002": {
     title: "ランチ前の準備チーム",
-    subtitle: "3成分の研究を、体内物流のたとえで見る",
+    subtitle: "ランチ前、体内物流センターに準備チームが集合！",
     question: "サラシア属植物と桑葉DNJは、糖質との関係をどう研究されている？",
     conclusion: "サラシア属植物と桑葉DNJは、糖質の消化に関わる酵素への作用などが研究されています。体内物流センターは、その研究を理解するためのたとえです。",
     editorialNote: "この話は、特定の抽出物・量・条件で行われた研究をもとにした比喩です。どのお茶にも同じ結果が出ることや、特定の飲み方による効果を示すものではありません。",
@@ -29,7 +31,7 @@ const episodeMeta = {
   },
   "003": {
     title: "二個目のケーキ、どうする？",
-    subtitle: "甘味の合図と「もう一個」を分けて考える",
+    subtitle: "ケーキはあと一個。食べる？ 明日に残す？",
     question: "甘いと感じることと、二個目を食べる判断は同じ？",
     conclusion: "甘味の合図は、二個目を食べるという命令ではありません。主人公は自分の満足を確かめて決めました。",
     editorialNote: "ギムネマ由来成分と甘味を扱った研究では、口の中で溶かすミントなどが使われています。この話は、お茶に同じ働きがあると示すものではありません。",
@@ -92,6 +94,21 @@ const imageSources = {
   "E02-S06-C03": "generated/v2/episode-02/E02-S06-C03.png",
   "E02-S06-C04": "generated/v2/episode-02/E02-S06-C04.png"
 };
+
+const publicDescriptions = {
+  "E01-S03-C01": "米粒や麺のマークが付いた原料コンテナが、処理ラインへ次々に運び込まれる。",
+  "E01-S04-C02": "新人が箱を抱えて走り、「筋肉」「肝臓」「各組織」の案内板へ目を向ける。",
+  "E02-S01-C01": "スマートフォンに「11:40　お茶の時間」と表示され、主人公がアラームに気づく。",
+  "E02-S04-C05": "桑葉がタブレットの数値を確かめながら、処理ラインを細かく調整する。画面には小さく「DNJ」と見える。",
+  "E02-S06-C04": "主人公がお茶を手に笑顔を見せ、体内スタッフも落ち着いて仕事へ入る。",
+  "E03-S01-C01": "主人公が、苺のショートケーキを二個載せた皿をうれしそうに差し出す。",
+  "E03-S02-C02": "受付担当者が警告音に驚き、「甘味」と表示された画面の前で伝票に手を伸ばす。",
+  "E03-S02-C03": "ギムネマが伝票へ静かに手を添える。センサーは「甘味」の合図を明るく示している。",
+  "E03-S03-C01": "主人公が首を少し傾げ、お腹に手を添えて自分の満足を確かめる。",
+  "E03-S03-C05": "主人公が決めたあと、受付センターへ小さな「満足」の合図が届き、ギムネマが静かに受け取る。",
+};
+
+const productionDirectionPattern = /(?:描かない|表示しない|説明しない|使わない|顔にしない)/u;
 
 for (const episodeNumber of ["01", "02", "03"]) {
   const id = `00${Number(episodeNumber)}`;
@@ -210,6 +227,11 @@ await mkdir(outputDir, { recursive: true });
 for (const [id, episode] of episodes) {
   for (const scene of episode.scenes) {
     for (const panel of scene.panels) {
+      const publicDescription = publicDescriptions[panel.id];
+      if (publicDescription) panel.description = publicDescription;
+      if (productionDirectionPattern.test(panel.description)) {
+        throw new Error(`Public description still contains a production direction: ${panel.id}`);
+      }
       panel.alt = panel.description || `${scene.title}「${panel.title}」の漫画コマ`;
     }
   }

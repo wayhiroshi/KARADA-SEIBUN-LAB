@@ -1,56 +1,56 @@
 {
   "title": "登場人物紹介",
-  "lead": "お昼ごはんの裏側で働く、体内物流センターの仲間たち。成分スタッフは、研究されている特徴をヒントに役割を持っています。",
+  "lead": "食事が届くたび、体内物流センターは大にぎわい。個性豊かな仲間たちが、それぞれの持ち場で働いています。",
   "characters": [
     {
       "id": "protagonist",
       "name": "主人公",
       "role": "食べることが大好きな会社員",
-      "description": "明るく素直で、ランチもおやつも楽しむ人。体内世界の大騒ぎを知らないまま、今日もおいしくいただきます。",
+      "description": "ランチもおやつも大好き。体の中で大騒ぎが起きているとは知らず、今日も笑顔で「いただきます！」",
       "image": "/assets/manga/cast/protagonist.webp"
     },
     {
       "id": "rookie",
       "name": "新人配送員",
       "role": "体内物流センターの新人",
-      "description": "荷札を確認し、必要な場所へエネルギー便を届ける。忙しくなると、荷札を見る余裕からなくなります。",
+      "description": "エネルギー便を必要な場所へ届ける新人。荷物が一気に来ると、あわてて荷札を見失うことも。",
       "image": "/assets/manga/cast/rookie.webp"
     },
     {
       "id": "captain",
       "name": "配送隊長",
       "role": "配送チームの指揮官",
-      "description": "豪快で判断が速い現場リーダー。新人へのツッコミも、配送指示と同じくらい速い。",
+      "description": "判断も指示も、とにかく速い現場リーダー。新人へのツッコミにも迷いがありません。",
       "image": "/assets/manga/cast/captain.webp"
     },
     {
       "id": "factory-manager",
       "name": "工場長",
       "role": "処理ラインの責任者",
-      "description": "来た仕事はすぐ片づけたいベテラン。速さには自信がある一方、渋滞しない流れはまだ研究中。",
+      "description": "届いた原料をすぐ処理したい、せっかちなベテラン。速さは自慢ですが、渋滞にはいつも頭を抱えています。",
       "image": "/assets/manga/cast/factory-manager.webp"
     },
     {
       "id": "warehouse-manager",
       "name": "脂肪倉庫の管理人",
       "role": "エネルギー保管倉庫の管理人",
-      "description": "余ったエネルギーを保管する、現実的でしっかり者のおばちゃん。追加便が来るたび台帳が忙しくなります。",
+      "description": "余ったエネルギーをきちんと預かる、頼れる管理人。追加便が来るたび、台帳を片手に倉庫を走り回ります。",
       "image": "/assets/manga/cast/warehouse-manager.webp"
     },
     {
       "id": "tea-doctor",
       "name": "ティー博士",
       "role": "研究開発アドバイザー",
-      "description": "成分スタッフをまとめる穏やかな案内役。難しい仕組みを、現場で使える言葉に置き換えます。",
+      "description": "成分スタッフをまとめる穏やかな案内役。難しい話を、みんなが動けるひと言に変えてくれます。",
       "image": "/assets/manga/cast/tea-doctor.webp"
     },
     {
       "id": "salacia",
       "name": "サラシア",
       "role": "現場改善リーダー",
-      "description": "止めるのではなく、流れを整える冷静なリーダー。",
-      "research": "サラシア属植物は、糖質の消化に関わるα-グルコシダーゼへの作用や、食後の糖の変化との関係が研究されています。",
-      "story": "漫画では、処理ラインを一定の流れへ整えます。",
+      "description": "混み具合を見渡し、てきぱき指示を出す冷静なリーダー。",
+      "research": "サラシア属植物と、糖質の消化に関わる酵素との関係が研究されています。",
+      "story": "混み合う処理ラインを見渡し、みんなが動きやすい流れをつくります。",
       "sourceLabel": "サラシアのヒト試験",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/15635348/",
       "image": "/assets/manga/cast/salacia.webp"
@@ -59,9 +59,9 @@
       "id": "kothala",
       "name": "コタラヒムブツ",
       "role": "現場改善サポート",
-      "description": "小さな変化を見逃さず、流れをそっと支えるスタッフ。",
-      "research": "コタラヒムブツは、サラシア・レティキュラータの呼び名として扱われる植物。コタラノールなど、α-グルコシダーゼに関わる成分が研究されています。",
-      "story": "漫画では、原料が一度に押し寄せないようゲートを整理します。",
+      "description": "小さな変化によく気づく、静かなサポート役。",
+      "research": "コタラヒムブツはサラシアの仲間。含まれるコタラノールと、糖質の消化に関わる酵素との関係が研究されています。",
+      "story": "ゲートのそばで、原料が一度に押し寄せないよう仲間を支えます。",
       "sourceLabel": "コタラノールの研究",
       "sourceUrl": "https://www.jstage.jst.go.jp/article/cpb1958/46/8/46_8_1339/_article/-char/ja",
       "image": "/assets/manga/cast/kothala.webp"
@@ -69,10 +69,10 @@
     {
       "id": "mulberry",
       "name": "桑葉（くわば）",
-      "role": "DNJを使う精密ラインオペレーター",
-      "description": "数字に強く、タブレットでラインの状態を静かに見守ります。",
-      "research": "桑葉に含まれるDNJ（1-デオキシノジリマイシン）は、α-グルコシダーゼへの作用や、食後の糖の変化との関係が研究されています。",
-      "story": "漫画では、タブレットの片隅に「DNJ」とだけ表示します。",
+      "role": "数字に強いラインオペレーター",
+      "description": "タブレットを片手に、ラインの小さな変化まで見逃しません。",
+      "research": "桑葉に含まれるDNJと、糖質の消化に関わる酵素との関係が研究されています。",
+      "story": "数字を読み取り、混み具合に合わせてラインを細かく調整します。",
       "sourceLabel": "桑葉DNJのヒト試験",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/24843505/",
       "image": "/assets/manga/cast/mulberry.webp"
@@ -81,9 +81,9 @@
       "id": "gymnema",
       "name": "ギムネマ",
       "role": "甘味センサー担当",
-      "description": "口数は少ないけれど、甘味の合図と本人の判断を落ち着いて分ける受付担当。",
-      "research": "ギムネマ由来成分を含むミントを口の中で溶かした条件で、甘味の感じ方や、その直後のチョコレート摂取を調べたヒト試験があります。お茶を飲む条件と同じではありません。",
-      "story": "漫画では、甘味の信号と『もう一個食べる』という本人の判断を分けます。",
+      "description": "口数は少ないけれど、甘味の合図を誰より早く見つける受付担当。",
+      "research": "ギムネマ由来成分と、甘味の感じ方との関係を調べた研究があります。",
+      "story": "甘味の信号を受け取り、主人公が「もう一個どうしよう？」と考えるきっかけをつくります。",
       "sourceLabel": "ギムネマと甘味のヒト試験",
       "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/32290122/",
       "image": "/assets/manga/cast/gymnema.webp"

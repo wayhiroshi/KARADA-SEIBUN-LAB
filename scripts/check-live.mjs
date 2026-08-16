@@ -28,11 +28,8 @@ if (!sitemapResponse.ok) {
 const sitemap = await sitemapResponse.text();
 const baseOrigin = new URL(baseUrl).origin;
 const pageUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/gu)]
-  .map((match) => match[1])
-  .filter((url) => {
-    const parsed = new URL(url);
-    return parsed.origin === baseOrigin && !/\.(?:avif|gif|jpe?g|png|svg|webp)$/iu.test(parsed.pathname);
-  });
+  .map((match) => new URL(new URL(match[1]).pathname, `${baseUrl}/`).toString())
+  .filter((url) => !/\.(?:avif|gif|jpe?g|png|svg|webp)$/iu.test(new URL(url).pathname));
 
 const browser = await playwright.chromium.launch({
   headless: true,
@@ -78,6 +75,19 @@ for (const url of pageUrls) {
         documentWidth: document.documentElement.scrollWidth,
         analyticsConfigured:
           !measurementId || [...document.scripts].some((script) => `${script.src}\n${script.textContent}`.includes(measurementId)),
+        distortedImages: [...document.images].flatMap((image) => {
+          const rendered = image.getBoundingClientRect();
+          const sourceWidth = image.naturalWidth || Number(image.getAttribute("width"));
+          const sourceHeight = image.naturalHeight || Number(image.getAttribute("height"));
+          if (!rendered.width || !rendered.height || !sourceWidth || !sourceHeight || getComputedStyle(image).objectFit !== "fill") {
+            return [];
+          }
+          const sourceRatio = sourceWidth / sourceHeight;
+          const renderedRatio = rendered.width / rendered.height;
+          return Math.abs(sourceRatio - renderedRatio) / sourceRatio > 0.02
+            ? [{ src: image.currentSrc || image.src, sourceRatio, renderedRatio }]
+            : [];
+        }),
         brokenImages: [...document.images]
           .filter((image) => image.complete && image.naturalWidth === 0)
           .map((image) => image.currentSrc || image.src),
@@ -96,6 +106,7 @@ const issues = results.filter(
     result.h1Count !== 1 ||
     result.documentWidth > result.viewportWidth ||
     !result.analyticsConfigured ||
+    result.distortedImages?.length ||
     result.brokenImages?.length ||
     result.firstPartyFailures.length
 );
@@ -106,7 +117,8 @@ for (const result of results) {
   console.log(
     `${issues.includes(result) ? "FAIL" : "PASS"} ${new URL(result.url).pathname} ` +
       `(HTTP ${result.status}, h1=${result.h1Count ?? "?"}, overflow=${overflow}px, ` +
-      `analytics=${result.analyticsConfigured ? "ok" : "missing"}, broken-images=${result.brokenImages?.length || 0}, ` +
+      `analytics=${result.analyticsConfigured ? "ok" : "missing"}, distorted-images=${result.distortedImages?.length || 0}, ` +
+      `broken-images=${result.brokenImages?.length || 0}, ` +
       `failed-requests=${result.firstPartyFailures.length})`
   );
 }
