@@ -4,10 +4,25 @@
   "siteName": "からだ成分ラボ",
   "siteTagline": "まんがでわかる、栄養と健康成分",
   "title": "ランチ前の準備チーム",
-  "subtitle": "サラシア・コタラヒムブツ・桑葉（DNJ）が動き出す",
-  "question": "食事の少し前にお茶を飲むと、体内物流はどう変わる？",
-  "conclusion": "サラシア、コタラヒムブツ、桑葉（DNJ）の準備チームが先に動いたことで、糖分の流れに少し変化があったようです。",
-  "status": "台詞下置き版",
+  "subtitle": "3成分の研究を、体内物流のたとえで見る",
+  "question": "サラシア属植物と桑葉DNJは、糖質との関係をどう研究されている？",
+  "conclusion": "サラシア属植物と桑葉DNJは、糖質の消化に関わる酵素への作用などが研究されています。体内物流センターは、その研究を理解するためのたとえです。",
+  "status": "公開版（台詞下置き）",
+  "editorialNote": "この話は、特定の抽出物・量・条件で行われた研究をもとにした比喩です。どのお茶にも同じ結果が出ることや、特定の飲み方による効果を示すものではありません。",
+  "sourceLinks": [
+    {
+      "label": "サラシア属植物抽出物のヒト試験（PubMed）",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15635348/"
+    },
+    {
+      "label": "コタラノールとα-グルコシダーゼの研究（J-STAGE）",
+      "url": "https://www.jstage.jst.go.jp/article/cpb1958/46/8/46_8_1339/_article/-char/ja"
+    },
+    {
+      "label": "桑葉DNJ抽出物のヒト試験（PubMed）",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24843505/"
+    }
+  ],
   "scenes": [
     {
       "id": "S01",
@@ -41,7 +56,7 @@
             }
           ],
           "imageBase": "E02-S01-C02",
-          "source": "generated/S07-C02.png",
+          "source": "generated/v3/episode-02/E02-S01-C02.png",
           "alt": "主人公が作業を止め、昨日のティーバッグを思い出して少し得意そうに笑う。"
         },
         {
@@ -102,13 +117,18 @@
           "description": "荷物が一つもなく、床が広く見える。新人は掃除中だが顔色が悪く、手とモップが震えている。",
           "script": [
             {
+              "kind": "narration",
+              "speaker": "ナレーション",
+              "text": "ここからは、成分研究を体内物流にたとえた物語です。"
+            },
+            {
               "kind": "speech",
               "speaker": "新人配送員",
               "text": "嵐の前の静けさ……だよね、これ"
             }
           ],
           "imageBase": "E02-S02-C01",
-          "source": "generated/S08-C01.png",
+          "source": "generated/v3/episode-02/E02-S02-C01.png",
           "alt": "荷物が一つもなく、床が広く見える。新人は掃除中だが顔色が悪く、手とモップが震えている。"
         },
         {
@@ -123,7 +143,7 @@
             }
           ],
           "imageBase": "E02-S02-C02",
-          "source": "generated/identity_v2/S08-C02.png",
+          "source": "generated/v3/episode-02/E02-S02-C02.png",
           "alt": "ティー博士を中央に、サラシア、コタラヒムブツ、桑葉、ギムネマが歩いてくる。五人のシルエットと色を明確に分ける。"
         },
         {
@@ -143,7 +163,7 @@
             }
           ],
           "imageBase": "E02-S02-C03",
-          "source": "generated/v2/episode-02/E02-S02-C03.png",
+          "source": "generated/v3/episode-02/E02-S02-C03.png",
           "alt": "静かな配送センター「今だから準備できる」の漫画コマ"
         },
         {
@@ -185,7 +205,7 @@
             }
           ],
           "imageBase": "E02-S03-C01",
-          "source": "generated/identity_v2/S09-C01.png",
+          "source": "generated/v3/episode-02/E02-S03-C01.png",
           "alt": "工場長との交渉「工場長が立ちはだかる」の漫画コマ"
         },
         {
@@ -200,7 +220,7 @@
             }
           ],
           "imageBase": "E02-S03-C02",
-          "source": "generated/identity_v2/S09-C02.png",
+          "source": "generated/v3/episode-02/E02-S03-C02.png",
           "alt": "工場長との交渉「工場長の流儀」の漫画コマ"
         },
         {
@@ -220,7 +240,7 @@
             }
           ],
           "imageBase": "E02-S03-C03",
-          "source": "generated/identity_v2/S09-C03.png",
+          "source": "generated/v3/episode-02/E02-S03-C03.png",
           "alt": "工場長との交渉「サラシアの提案」の漫画コマ"
         },
         {
@@ -235,7 +255,7 @@
             }
           ],
           "imageBase": "E02-S03-C04",
-          "source": "generated/identity_v2/S09-C04.png",
+          "source": "generated/v3/episode-02/E02-S03-C04.png",
           "alt": "工場長との交渉「速さだけではない」の漫画コマ"
         },
         {
@@ -282,7 +302,7 @@
             }
           ],
           "imageBase": "E02-S04-C01",
-          "source": "generated/S10-C01.png",
+          "source": "generated/v3/episode-02/E02-S04-C01.png",
           "alt": "前日と同じ豚カツ定食。主人公が自然に手を合わせる。"
         },
         {
@@ -302,7 +322,7 @@
             }
           ],
           "imageBase": "E02-S04-C02",
-          "source": "generated/identity_v2/S10-C02.png",
+          "source": "generated/v3/episode-02/E02-S04-C02.png",
           "alt": "ランチ便、本番「反射的に最大へ」の漫画コマ"
         },
         {
@@ -322,7 +342,7 @@
             }
           ],
           "imageBase": "E02-S04-C03",
-          "source": "generated/v2/episode-02/E02-S04-C03-v2.png",
+          "source": "generated/v3/episode-02/E02-S04-C03.png",
           "alt": "ランチ便、本番「今日は、ゆっくりで」の漫画コマ"
         },
         {
@@ -337,7 +357,7 @@
             }
           ],
           "imageBase": "E02-S04-C04",
-          "source": "generated/S10-C04.png",
+          "source": "generated/v3/episode-02/E02-S04-C04.png",
           "alt": "工場の機械を交通整理に見立て、説明と笑いを同時に成立させる。"
         },
         {
@@ -367,7 +387,7 @@
             }
           ],
           "imageBase": "E02-S04-C06",
-          "source": "generated/identity_v2/S10-C06.png",
+          "source": "generated/v3/episode-02/E02-S04-C06.png",
           "alt": "ランチ便、本番「詰まらずに進む」の漫画コマ"
         }
       ]
@@ -385,11 +405,11 @@
             {
               "kind": "speech",
               "speaker": "新人配送員",
-              "text": "一箱……だけ……？"
+              "text": "一箱ずつ……？"
             }
           ],
           "imageBase": "E02-S05-C01",
-          "source": "generated/S11-C01.png",
+          "source": "generated/v3/episode-02/E02-S05-C01.png",
           "alt": "床が見える配送センター「一箱だけ」の漫画コマ"
         },
         {
@@ -409,7 +429,7 @@
             }
           ],
           "imageBase": "E02-S05-C02",
-          "source": "generated/S11-C02.png",
+          "source": "generated/v3/episode-02/E02-S05-C02.png",
           "alt": "床が見える配送センター「床って青かった」の漫画コマ"
         },
         {
@@ -434,7 +454,7 @@
             }
           ],
           "imageBase": "E02-S05-C03",
-          "source": "generated/S11-C03.png",
+          "source": "generated/v3/episode-02/E02-S05-C03.png",
           "alt": "床が見える配送センター「荷札が読める」の漫画コマ"
         },
         {
