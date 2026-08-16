@@ -194,8 +194,14 @@ if (booksEnabled) {
   expect(!sitemap.includes(`<loc>${site.siteUrl}/books/</loc>`), "Books page must stay out of production sitemap before approval");
 }
 if (booksEnabled && amazonAffiliateEnabled) {
+  expect(
+    ["pending-qualifying-sales", "approved"].includes(affiliate.amazon.applicationStatus),
+    "Amazon application status must be pending-qualifying-sales or approved",
+  );
+  expect(/^\d{4}-\d{2}-\d{2}$/u.test(affiliate.amazon.appliedOn), "Amazon application date is invalid");
   expect(affiliate.amazon.trackingId.trim().length > 0, "Amazon tracking ID is required when affiliate is enabled");
   expect(books.every((book) => book.amazonUrl.includes(affiliate.amazon.trackingId)), "Every Amazon URL must contain the configured tracking ID");
+  expect(books.every((book) => /^https:\/\/www\.amazon\.co\.jp\/dp\/[A-Z0-9]{10}\/\?tag=[a-z0-9-]+$/u.test(book.amazonUrl)), "Every Amazon URL must use a direct product link and configured tag");
   expect(booksPage.includes(affiliate.amazon.disclosure), "Amazon Associates disclosure is missing from books page");
   expect(policy.includes(affiliate.amazon.disclosure), "Amazon Associates disclosure is missing from policy page");
   expect((booksPage.match(/rel="sponsored noopener noreferrer"/g) ?? []).length === books.length, "Every Amazon link must be marked sponsored");
