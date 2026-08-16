@@ -176,6 +176,19 @@ function breadcrumb(items) {
   return `<nav class="breadcrumb" aria-label="パンくずリスト"><ol>${list}</ol></nav>`;
 }
 
+function breadcrumbStructuredData(items, currentPath) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.label,
+      item: absoluteUrl(item.href || currentPath)
+    }))
+  };
+}
+
 function authorCard(compact = false) {
   return `
     <section class="author-card${compact ? " compact" : ""}" aria-labelledby="author-card-title">
@@ -260,7 +273,7 @@ function renderBooks() {
     title: "読んでいる本",
     description: "植井寛が、核酸、栄養、体の仕組みを学ぶために読んでいる本と、そこから生まれた疑問を紹介します。",
     body,
-    structuredData: {
+    structuredData: [{
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "植井寛が読んでいる本",
@@ -269,7 +282,10 @@ function renderBooks() {
         position: index + 1,
         item: { "@type": "Book", name: book.title }
       }))
-    }
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "読んでいる本" }
+    ], "/books/")]
   });
 }
 
@@ -393,7 +409,7 @@ function renderArticleIndex() {
     title: "核酸と成分の記事",
     description: "核酸、DNA、RNA、ヌクレオチド、健康食品の表示、研究の読み方を、健康情報を調べる人の目線で整理した記事一覧です。",
     body,
-    structuredData: {
+    structuredData: [{
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "核酸と成分の記事",
@@ -408,7 +424,10 @@ function renderArticleIndex() {
           url: absoluteUrl(`/articles/${article.slug}/`)
         }))
       }
-    }
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "核酸と成分の記事" }
+    ], "/articles/")]
   });
 }
 
@@ -480,7 +499,7 @@ function renderIngredientIndex() {
     description: "漫画や記事に出てきた植物素材、成分、核酸の基本用語を、図と短い解説で紹介します。",
     body,
     bodyClass: "ingredient-index-page",
-    structuredData: {
+    structuredData: [{
       "@context": "https://schema.org",
       "@type": "CollectionPage",
       name: "記事に出てきた成分・用語",
@@ -494,7 +513,10 @@ function renderIngredientIndex() {
           url: absoluteUrl(`/ingredients/${ingredient.slug}/`)
         }))
       }
-    }
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "記事に出てきた成分・用語" }
+    ], "/ingredients/")]
   });
 }
 
@@ -587,7 +609,11 @@ function renderIngredient(ingredient) {
     description: `${ingredient.name}とは何か、似た言葉とどうつながるのかを、図と短い文章で紹介します。`,
     body,
     bodyClass: "ingredient-detail-page",
-    structuredData: pageSchema
+    structuredData: [pageSchema, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { href: "/ingredients/", label: "成分・用語" },
+      { label: ingredient.name }
+    ], pathName)]
   });
 }
 
@@ -728,15 +754,11 @@ function renderArticle(article) {
       }
     }
   };
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "ホーム", item: absoluteUrl("/") },
-      { "@type": "ListItem", position: 2, name: "記事", item: absoluteUrl("/articles/") },
-      { "@type": "ListItem", position: 3, name: article.title, item: absoluteUrl(pathName) }
-    ]
-  };
+  const breadcrumbSchema = breadcrumbStructuredData([
+    { href: "/", label: "ホーム" },
+    { href: "/articles/", label: "記事" },
+    { label: article.title }
+  ], pathName);
 
   return pageShell({
     pathName,
@@ -791,7 +813,7 @@ function renderAbout() {
     title: "植井寛について",
     description: "からだ成分ラボの執筆者・植井寛が、本や資料を読み、漫画と声で伝える理由を紹介します。",
     body,
-    structuredData: {
+    structuredData: [{
       "@context": "https://schema.org",
       "@type": "ProfilePage",
       mainEntity: {
@@ -801,7 +823,10 @@ function renderAbout() {
         image: absoluteUrl(site.authorImage),
         url: absoluteUrl("/about/")
       }
-    }
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "植井寛について" }
+    ], "/about/")]
   });
 }
 
@@ -868,7 +893,16 @@ function renderEditorialPolicy() {
     pathName: "/editorial-policy/",
     title: "運営・プライバシー",
     description: "からだ成分ラボの記事制作、情報源、訂正、プライバシー、問い合わせ方針です。",
-    body
+    body,
+    structuredData: [{
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "運営・プライバシー",
+      url: absoluteUrl("/editorial-policy/")
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "運営・プライバシー" }
+    ], "/editorial-policy/")]
   });
 }
 
@@ -1036,7 +1070,30 @@ function renderMangaIndex() {
     <div class="episode-list-heading"><p class="eyebrow">STORIES</p><h2>全3話を読む</h2></div>
     <div class="manga-index-list">${cards}</div>
   </div>`;
-  return pageShell({ pathName: "/manga/", title: "漫画", description: "体の仕組みを物流センターにたとえた、全3話の漫画です。", body });
+  return pageShell({
+    pathName: "/manga/",
+    title: "漫画",
+    description: "体の仕組みを物流センターにたとえた、全3話の漫画です。",
+    body,
+    structuredData: [{
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "体内物流センターの物語",
+      url: absoluteUrl("/manga/"),
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: episodes.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.title,
+          url: absoluteUrl(`/manga/${item.id}/`)
+        }))
+      }
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "漫画" }
+    ], "/manga/")]
+  });
 }
 
 function render404() {
