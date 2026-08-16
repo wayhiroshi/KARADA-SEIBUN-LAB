@@ -840,54 +840,54 @@ function renderAbout() {
         <img src="${site.authorImage}" width="1254" height="1254" alt="ノートを持つ植井寛の著者イラスト">
         <div>
           <p class="eyebrow">ABOUT THE AUTHOR</p>
-          <h1>植井寛について</h1>
-          <p class="profile-role">からだ成分ラボ 執筆・編集</p>
-          <p>何でも知っている先生としてではなく、本や資料を読み、読者のみなさんと一緒に健康食品の成分や体の仕組みを学んでいきます。</p>
+          <h1>植井寛</h1>
+          <p class="profile-role">からだ成分ラボ 著者</p>
+          <p>健康のことを調べていると、知っているつもりで説明できない言葉に出会います。そんな言葉を本や公的な資料で調べ、図と文章で紹介しています。</p>
         </div>
       </section>
 
       <div class="prose-layout">
         <section>
-          <h2>難しい言葉で立ち止まったところから</h2>
-          <p>核酸を学び始めたとき、「核酸」「DNA」「RNA」「ヌクレオチド」が同じページに並び、どれが大きなまとまりなのか分かりませんでした。そこで、一つの疑問を一つの記事にして、自分が理解できた順番で書き残しています。</p>
-          <p>健康食品の話も、最初から答えを決めず、成分そのものの働きと、商品について確かめられることを分けて読みます。分からなかった地点が近いからこそ、初めて読む人にも伝わる言葉を探します。</p>
+          <h2>「分からない」を、そのままにしない</h2>
+          <p>核酸を学び始めたころ、「核酸」「DNA」「RNA」「ヌクレオチド」が同じページに並ぶだけで、私は話を見失っていました。似た言葉を一度に覚えるのではなく、一つずつ関係を確かめてみる。そこから、このラボの記事が始まりました。</p>
+          <p>調べて分かったことは、難しい言葉のまま置いておかず、身近なたとえや図にします。初めて読む人が途中で迷わず、「そういうことか」と一つ持ち帰れる記事を目指しています。</p>
         </section>
 
         <section>
-          <h2>疑問から記事になるまで</h2>
+          <h2>記事で大切にしていること</h2>
           <ol class="research-steps">
-            <li><strong>気になった言葉を一つ選ぶ</strong><span>一つの記事では、一つの疑問だけを追います。</span></li>
-            <li><strong>もとの資料までたどる</strong><span>公的機関、大学、査読論文、メーカーの公式表示を読み比べます。</span></li>
-            <li><strong>図にして確かめる</strong><span>言葉だけで分かりにくい関係は、図や身近なたとえに置き換えます。</span></li>
-            <li><strong>読んだ資料を記事に残す</strong><span>主な情報源と更新日を示し、読者もその先を確かめられるようにします。</span></li>
+            <li><strong>言葉の意味から始める</strong><span>専門用語を重ねず、まず「何のことか」を短く説明します。</span></li>
+            <li><strong>できるだけ元の資料を読む</strong><span>公的機関や大学、研究論文、メーカーの公式表示までたどります。</span></li>
+            <li><strong>図でつながりを見せる</strong><span>大きさや順番、違いが見えるように、図や身近なたとえを使います。</span></li>
+            <li><strong>もっと知りたい人へ道を残す</strong><span>記事の最後に主な情報源を載せ、その先まで読めるようにします。</span></li>
           </ol>
         </section>
 
         <section aria-labelledby="research-examples-title">
-          <h2 id="research-examples-title">実際に、こう調べました</h2>
+          <h2 id="research-examples-title">まずは、この3本から</h2>
           <div class="research-examples">
             <a href="/articles/what-is-a-nucleotide/" data-analytics-event="author_evidence_click" data-analytics-location="about_research_examples" data-content-id="what-is-a-nucleotide">
-              <small>本の言葉を、基礎から</small>
+              <small>核酸を学ぶ最初の一歩</small>
               <strong>ヌクレオチドって、そもそも何？</strong>
-              <span>核酸との関係を「部品と全体」に分けました。</span>
+              <span>小さな部品がつながってDNAやRNAになる様子を、ネックレスにたとえます。</span>
             </a>
             <a href="/articles/nucleotide-in-infant-formula/" data-analytics-event="author_evidence_click" data-analytics-location="about_research_examples" data-content-id="nucleotide-in-infant-formula">
-              <small>商品の表示を、公式情報で</small>
+              <small>身近な表示から見つける</small>
               <strong>粉ミルクにも入っているの？</strong>
-              <span>メーカーの成分表示にある名前を確かめました。</span>
+              <span>成分表示に並ぶ名前から、ヌクレオチドを探します。</span>
             </a>
             <a href="/articles/why-nucleotides-were-added/" data-analytics-event="author_evidence_click" data-analytics-location="about_research_examples" data-content-id="why-nucleotides-were-added">
-              <small>研究の中身まで</small>
+              <small>もう一歩、研究の中へ</small>
               <strong>配合を後押しした研究は？</strong>
-              <span>対象者、期間、測ったものを順番に読みました。</span>
+              <span>粉ミルクへの配合が広がった背景を、初期の研究からたどります。</span>
             </a>
           </div>
         </section>
 
         <section class="author-follow">
-          <h2>漫画と声でも、一緒に学ぶ</h2>
-          <p>文章だけではつかみにくい仕組みは、漫画や図にします。Instagramでは、新しく分かったことや次に調べたい疑問も紹介しています。</p>
-          <p><a class="text-link" href="${escapeHtml(site.authorSameAs[0])}" rel="me noopener noreferrer" data-analytics-event="social_profile_click" data-analytics-location="about_author_follow" data-content-id="instagram">からだ成分ラボのInstagramを見る</a></p>
+          <h2>図と漫画で、もう少しやさしく</h2>
+          <p>文章だけではつかみにくい仕組みは、図や漫画でも紹介しています。Instagramでは、記事の要点を短くまとめて届けます。</p>
+          <p><a class="text-link" href="${escapeHtml(site.authorSameAs[0])}" rel="me noopener noreferrer" data-analytics-event="social_profile_click" data-analytics-location="about_author_follow" data-content-id="instagram">からだ成分ラボをInstagramで読む</a></p>
         </section>
       </div>
     </div>`;
@@ -895,7 +895,7 @@ function renderAbout() {
   return pageShell({
     pathName: "/about/",
     title: "植井寛について",
-    description: "からだ成分ラボの執筆者・植井寛が、本や資料を読み、漫画と声で伝える理由を紹介します。",
+    description: "からだ成分ラボの著者・植井寛が、健康にまつわる言葉を本や公的資料で調べ、図と文章でやさしく紹介する理由をお話しします。",
     body,
     structuredData: [{
       "@context": "https://schema.org",
@@ -903,7 +903,7 @@ function renderAbout() {
       mainEntity: {
         "@type": "Person",
         name: site.authorName,
-        description: "からだ成分ラボ 執筆・編集",
+        description: "からだ成分ラボ 著者",
         image: absoluteUrl(site.authorImage),
         url: absoluteUrl("/about/"),
         sameAs: site.authorSameAs,
