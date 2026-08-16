@@ -7,7 +7,9 @@
   "subtitle": "普通に食事をしたとき、体内物流センターでは？",
   "question": "いつものように食事をすると、体の中ではどんなことが起きる？",
   "conclusion": "お茶を飲まず、いつものように食事をした主人公。糖分が一度に届いた体内工場と配送センターは、たちまち大忙しになります。",
-  "status": "台詞下置き版",
+  "status": "公開版（台詞下置き）",
+  "editorialNote": "体内物流センターは、体の働きを分かりやすくするために単純化した物語上のたとえです。食事のあとに起きる変化や時間には個人差があります。",
+  "sourceLinks": [],
   "scenes": [
     {
       "id": "S01",
@@ -31,7 +33,7 @@
             }
           ],
           "imageBase": "E01-S01-C01",
-          "source": "generated/S03-C02.png",
+          "source": "generated/v3/episode-01/E01-S01-C01.png",
           "alt": "体内配送センター。扉が左右へ勢いよく開き、統一されたエネルギー便の箱が雪崩のように押し寄せる。新人配送員は画面手前で一箱だけを抱え、振り返る。"
         },
         {
@@ -46,7 +48,7 @@
             }
           ],
           "imageBase": "E01-S01-C02",
-          "source": "generated/S03-C03.png",
+          "source": "generated/v3/episode-01/E01-S01-C02.png",
           "alt": "床が見えないほど箱が積み上がり、新人配送員が埋もれている。箱の一つが帽子のつばに引っかかる。"
         },
         {
@@ -155,7 +157,7 @@
             }
           ],
           "imageBase": "E01-S03-C02",
-          "source": "generated/identity_v2/S02-C02.png",
+          "source": "generated/v3/episode-01/E01-S03-C02.png",
           "alt": "工場長が流入量を確認し、制御レバーへ手を伸ばす。"
         },
         {
@@ -222,7 +224,7 @@
             }
           ],
           "imageBase": "E01-S04-C01",
-          "source": "generated/S03-C04.png",
+          "source": "generated/v3/episode-01/E01-S04-C01.png",
           "alt": "冒頭の箱の雪崩へ時間が追いつく。配送隊長が無線機を握り、出口を指す。"
         },
         {
@@ -354,7 +356,7 @@
             }
           ],
           "imageBase": "E01-S05-C04",
-          "source": "generated/S05-C04.png",
+          "source": "generated/v3/episode-01/E01-S05-C04.png",
           "alt": "管理人が台帳へ記入し、鍵束が箱へ引っかかる。"
         }
       ]
@@ -376,7 +378,7 @@
             }
           ],
           "imageBase": "E01-S06-C01",
-          "source": "generated/S06-C01.png",
+          "source": "generated/v3/episode-01/E01-S06-C01.png",
           "alt": "豚カツ定食を食べ終え、主人公が満足そうに背もたれへ寄る。"
         },
         {
@@ -391,7 +393,7 @@
             }
           ],
           "imageBase": "E01-S06-C02",
-          "source": "generated/S06-C02.png",
+          "source": "generated/v3/episode-01/E01-S06-C02.png",
           "alt": "ナプキンの下から個包装ティーバッグが見え、主人公の手が止まる。"
         },
         {
@@ -406,7 +408,7 @@
             }
           ],
           "imageBase": "E01-S06-C03",
-          "source": "generated/S06-C03.png",
+          "source": "generated/v3/episode-01/E01-S06-C03.png",
           "alt": "食後の飲み忘れ「先に飲むつもりだった」の漫画コマ"
         },
         {
@@ -431,7 +433,7 @@
             }
           ],
           "imageBase": "E01-S06-C04",
-          "source": "generated/S06-C04.png",
+          "source": "generated/v3/episode-01/E01-S06-C04.png",
           "alt": "新人が空の配送バッグを枕にして大の字。隊長が見下ろす。"
         }
       ]

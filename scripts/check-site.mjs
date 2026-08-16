@@ -157,7 +157,20 @@ for (const [index, html] of mangaPages.entries()) {
   expect(html.includes('meta name="robots" content="index,follow,max-image-preview:large"'), `Manga robots meta is missing: ${item.id}`);
   expect(html.includes(`${site.siteUrl}/manga/${item.id}/`), `Manga canonical is missing: ${item.id}`);
   expect(!html.includes("このコマにはセリフはありません"), `Silent panel placeholder must not be shown: ${item.id}`);
+  expect(html.includes("この漫画の読み方"), `Manga editorial note is missing: ${item.id}`);
+  expect(item.status === "公開版（台詞下置き）", `Manga status must identify the public accessible format: ${item.id}`);
 }
+
+const mangaCopy = JSON.stringify(episodes);
+for (const misleadingClaim of [
+  "お茶が働きはじめれば",
+  "ギムネマによって甘味センサー",
+  "食事の少し前にお茶を飲むと、体内物流はどう変わる",
+]) {
+  expect(!mangaCopy.includes(misleadingClaim), `Misleading manga efficacy claim remains: ${misleadingClaim}`);
+}
+expect(episodes[1].sourceLinks.length === 3, "Episode 002 must link its three research sources");
+expect(episodes[2].sourceLinks.length === 1, "Episode 003 must link its Gymnema research source");
 
 expect(about.includes("本と資料をどう読むか"), "About learning-process section is missing");
 expect(about.includes("漫画と声で伝える"), "About communication section is missing");

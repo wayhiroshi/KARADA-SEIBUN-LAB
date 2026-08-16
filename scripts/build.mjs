@@ -942,6 +942,9 @@ function renderEpisode(episode, episodeIndex) {
   const socialImage = absoluteUrl(`/assets/episodes/${episode.id}/${firstPanel.imageBase}-1254.webp`);
   const previous = episodes[episodeIndex - 1];
   const next = episodes[episodeIndex + 1];
+  const sourceLinks = episode.sourceLinks.length
+    ? `<p class="manga-source-links"><strong>参照した研究</strong>${episode.sourceLinks.map((source) => `<a href="${escapeHtml(source.url)}" rel="noopener noreferrer">${escapeHtml(source.label)}</a>`).join("")}</p>`
+    : "";
   const episodeNavigation = `
     <nav class="episode-pagination" aria-label="漫画の前後移動">
       ${previous ? `<a class="previous" href="/manga/${previous.id}/"><small>前の話</small><strong>${escapeHtml(previous.title)}</strong></a>` : "<span></span>"}
@@ -990,6 +993,8 @@ function renderEpisode(episode, episodeIndex) {
     "{{EPISODE_SUBTITLE}}": episode.subtitle,
     "{{EPISODE_QUESTION}}": episode.question,
     "{{EPISODE_CONCLUSION}}": episode.conclusion,
+    "{{EDITORIAL_NOTE}}": episode.editorialNote,
+    "{{SOURCE_LINKS}}": sourceLinks,
     "{{SCENE_NAV}}": sceneNav,
     "{{SCENES}}": scenes,
     "{{EPISODE_NAVIGATION}}": episodeNavigation,

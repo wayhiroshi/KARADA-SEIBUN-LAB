@@ -257,6 +257,28 @@ a {
   font-size: 13px;
 }
 
+.manga-editorial-note {
+  border-left: 5px solid var(--green);
+  background: #f1f6ed;
+}
+
+.manga-editorial-note h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.manga-source-links strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.manga-source-links a {
+  display: inline-block;
+  margin: 4px 14px 0 0;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
 .scene-nav {
   margin: 42px 0 54px;
 }
@@ -787,6 +809,13 @@ a {
 
 .editorial-note p + p {
   margin-top: 10px;
+}
+
+.editorial-note.manga-editorial-note {
+  margin: 26px 0;
+  border: 0;
+  border-left: 5px solid var(--green);
+  background: #f1f6ed;
 }
 
 .site-footer {
