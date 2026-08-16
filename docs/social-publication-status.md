@@ -1,15 +1,15 @@
 # SNS制作・公開台帳
 
-最終確認: 2026-08-16
+最終確認: 2026-08-17
 
 この台帳は、リポジトリ内の制作物と公開済みInstagram投稿を対応させる正本です。投稿操作、予約投稿、他媒体への転載は、この台帳の更新とは別に、公開前チェックと本人の承認を経て行います。
 
 ## 現在の集計
 
-- 投稿セット: 9件
-- Instagramで公開確認済み: 8件
+- 投稿セット: 10件
+- Instagramで公開確認済み: 9件
 - 画像・本文は完成、Instagram公開待ち: 1件
-- 4:5画像: 45枚（すべて1080×1350px）
+- 4:5画像: 49枚（すべて1080×1350px）
 - 本人音声リール: 収録・字幕・完成動画の保管記録なし
 - Facebook、YouTube Shorts、ストーリーズ: 公開記録なし
 
@@ -27,6 +27,7 @@
 | 教育 | 粉ミルクにもヌクレオチド？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/Db36x-Jkz0K/) |
 | 教育 | なぜ、粉ミルクに入れるの？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/Db-hvOME4xm/) |
 | 教育 | そもそも、人はなぜダイエットをするの？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/DcE_qACE3PM/) |
+| 教育 | ダイエットは、食事を減らすことなの？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/DcHXIQhE1a2/) |
 
 ## 公開待ち
 

@@ -488,7 +488,7 @@ for (const post of allSocialPosts) {
 expect(allSocialPosts.length === 10, `Expected 10 social post sets, got ${allSocialPosts.length}`);
 expect(socialSlides === 49, `Expected 49 social slides, got ${socialSlides}`);
 const publishedSocialPosts = allSocialPosts.filter((post) => post.status === "published").length;
-expect(publishedSocialPosts === 8, `Expected 8 published social posts, got ${publishedSocialPosts}`);
+expect(publishedSocialPosts === 9, `Expected 9 published social posts, got ${publishedSocialPosts}`);
 
 if (failures.length) {
   console.error("Site check failed:");
