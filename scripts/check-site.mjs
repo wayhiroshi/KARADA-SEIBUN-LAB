@@ -18,24 +18,28 @@ const amazonAffiliateEnabled = affiliate.amazon.enabled || process.env.ENABLE_AM
 const fixedSocialPosts = JSON.parse(
   await readFile(path.join(root, "content", "social", "fixed-posts.json"), "utf8"),
 );
-const dnaBaseballPost = JSON.parse(
-  await readFile(path.join(root, "content", "social", "dna-baseball-2026-08-06.json"), "utf8"),
-);
-const dnaTranscriptionPost = JSON.parse(
-  await readFile(path.join(root, "content", "social", "dna-transcription-2026-08-10.json"), "utf8"),
-);
-const rnaMrnaPost = JSON.parse(
-  await readFile(path.join(root, "content", "social", "rna-mrna-2026-08-11.json"), "utf8"),
-);
-const nucleotideFormulaPost = JSON.parse(
-  await readFile(path.join(root, "content", "social", "nucleotide-formula-2026-08-11.json"), "utf8"),
-);
+const socialContentDir = path.join(root, "content", "social");
+const dailySocialFiles = (await readdir(socialContentDir))
+  .filter((filename) => filename.endsWith(".json") && filename !== "fixed-posts.json")
+  .sort();
+const dailySocialPosts = await Promise.all(dailySocialFiles.map(async (filename) =>
+  JSON.parse(await readFile(path.join(socialContentDir, filename), "utf8"))
+));
 const panels = episodes.flatMap((episode) => episode.scenes.flatMap((scene) => scene.panels));
 const scriptLines = panels.flatMap((panel) => panel.script);
 const failures = [];
 
 function expect(condition, message) {
   if (!condition) failures.push(message);
+}
+
+async function readPngDimensions(filePath) {
+  const buffer = await readFile(filePath);
+  const pngSignature = "89504e470d0a1a0a";
+  if (buffer.length < 24 || buffer.subarray(0, 8).toString("hex") !== pngSignature) {
+    throw new Error("not a PNG file");
+  }
+  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
 }
 
 async function readDist(relativePath) {
@@ -340,99 +344,56 @@ for (const asset of [
   }
 }
 
+const allSocialPosts = [
+  ...fixedSocialPosts.posts.map((post) => ({ ...post, category: "fixed" })),
+  ...dailySocialPosts.map((post) => ({ ...post, category: "daily" })),
+];
 let socialSlides = 0;
-for (const post of fixedSocialPosts.posts) {
+for (const post of allSocialPosts) {
+  expect(typeof post.id === "string" && post.id.length > 0, "Social post ID is missing");
+  expect(Array.isArray(post.slides) && post.slides.length > 0, `Social slides are missing: ${post.id}`);
+  expect(["ready", "published"].includes(post.status), `Invalid social status: ${post.id}`);
+  if (post.category === "daily") {
+    expect(typeof post.caption === "string" && post.caption.trim().length > 0, `Social caption is missing: ${post.id}`);
+  }
+  if (post.instagramUrl) {
+    expect(
+      /^https:\/\/www\.instagram\.com\/karada_seibun_lab\/p\/[A-Za-z0-9_-]+\/$/u.test(post.instagramUrl),
+      `Invalid Instagram URL: ${post.id}`,
+    );
+  }
+  expect(
+    (post.status === "published") === Boolean(post.instagramUrl),
+    `Published status and Instagram URL must match: ${post.id}`,
+  );
+
+  const postDir = path.join(root, "public", "assets", "social", post.category, post.id);
+  let outputSlides = [];
+  try {
+    outputSlides = (await readdir(postDir)).filter((filename) => filename.endsWith(".png")).sort();
+  } catch {
+    failures.push(`Missing social post directory: ${postDir}`);
+  }
+  expect(outputSlides.length === post.slides.length, `Social slide count mismatch: ${post.id}`);
+
   for (const [index] of post.slides.entries()) {
     socialSlides += 1;
-    const slidePath = path.join(
-      root,
-      "public",
-      "assets",
-      "social",
-      "fixed",
-      post.id,
-      `${String(index + 1).padStart(2, "0")}.png`,
-    );
+    const slidePath = path.join(postDir, `${String(index + 1).padStart(2, "0")}.png`);
     try {
-      await access(slidePath);
-    } catch {
-      failures.push(`Missing social slide: ${slidePath}`);
+      const dimensions = await readPngDimensions(slidePath);
+      expect(
+        dimensions.width === 1080 && dimensions.height === 1350,
+        `Social slide must be 1080x1350: ${slidePath}`,
+      );
+    } catch (error) {
+      failures.push(`Invalid social slide: ${slidePath} (${error.message})`);
     }
   }
 }
-expect(socialSlides === 19, `Expected 19 fixed social slides, got ${socialSlides}`);
-
-for (const [index] of dnaBaseballPost.slides.entries()) {
-  const slidePath = path.join(
-    root,
-    "public",
-    "assets",
-    "social",
-    "daily",
-    dnaBaseballPost.id,
-    `${String(index + 1).padStart(2, "0")}.png`,
-  );
-  try {
-    await access(slidePath);
-  } catch {
-    failures.push(`Missing DNA baseball social slide: ${slidePath}`);
-  }
-}
-expect(dnaBaseballPost.slides.length === 5, `Expected 5 DNA baseball slides, got ${dnaBaseballPost.slides.length}`);
-
-for (const [index] of dnaTranscriptionPost.slides.entries()) {
-  const slidePath = path.join(
-    root,
-    "public",
-    "assets",
-    "social",
-    "daily",
-    dnaTranscriptionPost.id,
-    `${String(index + 1).padStart(2, "0")}.png`,
-  );
-  try {
-    await access(slidePath);
-  } catch {
-    failures.push(`Missing DNA transcription social slide: ${slidePath}`);
-  }
-}
-expect(dnaTranscriptionPost.slides.length === 5, `Expected 5 DNA transcription slides, got ${dnaTranscriptionPost.slides.length}`);
-
-for (const [index] of rnaMrnaPost.slides.entries()) {
-  const slidePath = path.join(
-    root,
-    "public",
-    "assets",
-    "social",
-    "daily",
-    rnaMrnaPost.id,
-    `${String(index + 1).padStart(2, "0")}.png`,
-  );
-  try {
-    await access(slidePath);
-  } catch {
-    failures.push(`Missing RNA and mRNA social slide: ${slidePath}`);
-  }
-}
-expect(rnaMrnaPost.slides.length === 4, `Expected 4 RNA and mRNA slides, got ${rnaMrnaPost.slides.length}`);
-
-for (const [index] of nucleotideFormulaPost.slides.entries()) {
-  const slidePath = path.join(
-    root,
-    "public",
-    "assets",
-    "social",
-    "daily",
-    nucleotideFormulaPost.id,
-    `${String(index + 1).padStart(2, "0")}.png`,
-  );
-  try {
-    await access(slidePath);
-  } catch {
-    failures.push(`Missing nucleotide/formula social slide: ${slidePath}`);
-  }
-}
-expect(nucleotideFormulaPost.slides.length === 4, `Expected 4 nucleotide/formula slides, got ${nucleotideFormulaPost.slides.length}`);
+expect(allSocialPosts.length === 9, `Expected 9 social post sets, got ${allSocialPosts.length}`);
+expect(socialSlides === 45, `Expected 45 social slides, got ${socialSlides}`);
+const publishedSocialPosts = allSocialPosts.filter((post) => post.status === "published").length;
+expect(publishedSocialPosts === 8, `Expected 8 published social posts, got ${publishedSocialPosts}`);
 
 if (failures.length) {
   console.error("Site check failed:");
@@ -449,7 +410,9 @@ console.log(JSON.stringify({
   panels: panels.length,
   scriptLines: scriptLines.length,
   webpFiles: panels.length * 2,
-  fixedSocialSlides: socialSlides,
+  socialPosts: allSocialPosts.length,
+  publishedSocialPosts,
+  socialSlides,
   imageMiB: Number((imageBytes / 1024 / 1024).toFixed(1)),
   indexedPaths: sitemapPaths.length
 }, null, 2));
