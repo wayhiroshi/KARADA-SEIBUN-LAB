@@ -66,6 +66,10 @@ for (const article of articles) {
 
   expect(article.styleVersion === "karada-article-v1", `Every article must use karada-article-v1: ${article.slug}`);
   expect(article.authorNote?.title && article.authorNote?.body, `karada-article-v1 requires an author learning note: ${article.slug}`);
+  expect(Array.isArray(article.relatedSlugs) && article.relatedSlugs.length === 3, `Article must define exactly 3 related articles: ${article.slug}`);
+  expect(new Set(article.relatedSlugs ?? []).size === 3, `Related articles must be unique: ${article.slug}`);
+  expect(!(article.relatedSlugs ?? []).includes(article.slug), `Article cannot relate to itself: ${article.slug}`);
+  expect((article.relatedSlugs ?? []).every((slug) => articles.some((candidate) => candidate.slug === slug)), `Related article slug is invalid: ${article.slug}`);
   if (article.conceptFlow?.length) {
     expect(article.conceptTitle?.trim(), `Concept flow title is missing: ${article.slug}`);
     expect(article.conceptNote?.trim(), `Concept flow note is missing: ${article.slug}`);
@@ -251,6 +255,9 @@ expect(/^G-[A-Z0-9]+$/u.test(site.gaMeasurementId), "GA4 measurement ID is missi
 expect(policy.includes("Google Analytics 4"), "GA4 privacy disclosure is missing");
 expect(home.includes(`googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`), "GA4 loader is missing");
 expect(home.includes(`gtag('config', '${site.gaMeasurementId}'`), "GA4 configuration is missing");
+expect(builtApp.includes('a[data-analytics-event]'), "Analytics link listener is missing");
+expect(builtApp.includes('window.gtag("event"'), "GA4 custom event dispatch is missing");
+expect(booksPage.includes('data-analytics-event="affiliate_click"'), "Affiliate click measurement is missing");
 
 expect(robots.includes("Allow: /"), "robots.txt must allow crawling");
 expect(robots.includes(`Sitemap: ${site.siteUrl}/sitemap.xml`), "robots.txt sitemap URL is missing");
@@ -264,6 +271,14 @@ const articlePages = await Promise.all(articles.map(async (article) => ({
   path: `/articles/${article.slug}/`,
   html: await readDist(`articles/${article.slug}/index.html`)
 })));
+for (const [index, article] of articles.entries()) {
+  const articleHtml = articlePages[index].html;
+  expect((articleHtml.match(/data-analytics-event="continue_reading_click"/g) ?? []).length === 6, `Related article click measurement is incomplete: ${article.slug}`);
+  expect(articleHtml.includes('data-analytics-event="author_profile_click"'), `Author profile click measurement is missing: ${article.slug}`);
+  for (const relatedSlug of article.relatedSlugs) {
+    expect(articleHtml.includes(`data-content-id="${relatedSlug}"`), `Configured related article is missing from output: ${article.slug} -> ${relatedSlug}`);
+  }
+}
 const htmlPages = [
   { path: "/", html: home },
   { path: "/articles/", html: articleIndex },
