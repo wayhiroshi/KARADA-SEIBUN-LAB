@@ -13,6 +13,7 @@ const articles = allArticles.filter((article) => !article.draft || includeDrafts
 const ingredients = JSON.parse(await readFile(path.join(root, "content", "ingredients.json"), "utf8"));
 const books = JSON.parse(await readFile(path.join(root, "content", "books.json"), "utf8"));
 const affiliate = JSON.parse(await readFile(path.join(root, "content", "affiliate.json"), "utf8"));
+const mangaCast = JSON.parse(await readFile(path.join(root, "content", "manga-cast.json"), "utf8"));
 const booksEnabled = affiliate.amazon.pageEnabled || process.env.INCLUDE_BOOKS === "1";
 const amazonAffiliateEnabled = affiliate.amazon.enabled || process.env.ENABLE_AMAZON_PREVIEW === "1";
 const fixedSocialPosts = JSON.parse(
@@ -20,7 +21,7 @@ const fixedSocialPosts = JSON.parse(
 );
 const socialContentDir = path.join(root, "content", "social");
 const dailySocialFiles = (await readdir(socialContentDir))
-  .filter((filename) => filename.endsWith(".json") && filename !== "fixed-posts.json")
+  .filter((filename) => /^[a-z0-9-]+\.json$/u.test(filename) && filename !== "fixed-posts.json")
   .sort();
 const dailySocialPosts = await Promise.all(dailySocialFiles.map(async (filename) =>
   JSON.parse(await readFile(path.join(socialContentDir, filename), "utf8"))
@@ -85,6 +86,8 @@ const policy = await readDist("editorial-policy/index.html");
 const robots = await readDist("robots.txt");
 const sitemap = await readDist("sitemap.xml");
 const notFound = await readDist("404.html");
+const builtStyles = await readDist("styles.css");
+const builtApp = await readDist("app.js");
 
 expect(home.includes("40代からの、やさしい学び直し"), "Home hero concept is missing");
 expect(home.includes("learning-together-v2.webp"), "Home hero image is missing");
@@ -94,6 +97,7 @@ expect(!home.includes("fordays-shop.jp"), "Home must not contain a Fordays shopp
 expect(!home.includes("noindex,nofollow"), "Home must be indexable");
 expect(home.includes('<link rel="canonical"'), "Home canonical is missing");
 expect(home.includes('type="application/ld+json"'), "Home structured data is missing");
+expect(/img\s*\{[^}]*height:\s*auto;/su.test(builtStyles), "Responsive images must preserve their aspect ratio");
 
 expect(articleIndex.includes("核酸と成分の記事"), "Article index heading is missing");
 expect((articleIndex.match(/class="article-card"/g) ?? []).length === articles.length, "Article index card count is inconsistent");
@@ -161,9 +165,35 @@ for (const [index, html] of mangaPages.entries()) {
   expect(html.includes('meta name="robots" content="index,follow,max-image-preview:large"'), `Manga robots meta is missing: ${item.id}`);
   expect(html.includes(`${site.siteUrl}/manga/${item.id}/`), `Manga canonical is missing: ${item.id}`);
   expect(!html.includes("このコマにはセリフはありません"), `Silent panel placeholder must not be shown: ${item.id}`);
-  expect(html.includes("この漫画の読み方"), `Manga editorial note is missing: ${item.id}`);
+  expect(!html.includes("この漫画の読み方"), `Manga must start with the story, not an editorial note: ${item.id}`);
+  expect(!html.includes("この話の疑問"), `Manga must not explain its question before the story: ${item.id}`);
+  expect(!html.includes(item.question), `Manga question must remain internal metadata: ${item.id}`);
+  expect(!html.includes(item.conclusion), `Manga conclusion must not spoil the story opening: ${item.id}`);
+  expect(!html.includes('class="panel-id"'), `Production panel IDs must not be visible: ${item.id}`);
+  expect(!html.includes('class="panel-title"'), `Production panel titles must not be visible: ${item.id}`);
   expect(item.status === "公開版（台詞下置き）", `Manga status must identify the public accessible format: ${item.id}`);
 }
+
+const publicMangaHtml = [home, mangaIndex, ...mangaPages].join("\n");
+for (const authorOnlyPhrase of [
+  "制作確認",
+  "セリフをコピー",
+  "描かない",
+  "表示しない",
+  "説明しない",
+  "顔にしない",
+  "漫画では、",
+  "タブレットの片隅に",
+  "ここからは、成分研究",
+]) {
+  expect(!publicMangaHtml.includes(authorOnlyPhrase), `Author-only phrase leaked into public manga: ${authorOnlyPhrase}`);
+}
+expect(!builtApp.includes("workMode"), "Public JavaScript must not expose production review mode");
+expect(
+  panels.every((panel) => !/(?:描かない|表示しない|説明しない|使わない|顔にしない)/u.test(panel.alt)),
+  "Production directions must not appear in manga alt text",
+);
+expect(mangaCast.characters.every((character) => !character.story?.startsWith("漫画では")), "Cast copy must address readers, not creators");
 
 const mangaCopy = JSON.stringify(episodes);
 for (const misleadingClaim of [
