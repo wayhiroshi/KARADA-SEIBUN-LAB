@@ -222,11 +222,11 @@ for (const misleadingClaim of [
 expect(episodes[1].sourceLinks.length === 3, "Episode 002 must link its three research sources");
 expect(episodes[2].sourceLinks.length === 1, "Episode 003 must link its Gymnema research source");
 
-expect(about.includes("難しい言葉で立ち止まったところから"), "About author-introduction section is missing");
-expect(about.includes("疑問から記事になるまで"), "About research-process section is missing");
+expect(about.includes("「分からない」を、そのままにしない"), "About author-introduction section is missing");
+expect(about.includes("記事で大切にしていること"), "About editorial-principles section is missing");
 expect((about.match(/class="research-steps"/g) ?? []).length === 1, "About research steps are missing");
 expect((about.match(/data-analytics-event="author_evidence_click"/g) ?? []).length === 3, "About research examples must contain 3 tracked links");
-expect(about.includes("Instagramを見る"), "About official Instagram link is missing");
+expect(about.includes("Instagramで読む"), "About official Instagram link is missing");
 expect(about.includes('data-analytics-event="social_profile_click"'), "About Instagram analytics event is missing");
 expect(about.includes('"sameAs":["https://www.instagram.com/karada_seibun_lab/"]'), "About Person sameAs is missing");
 expect(about.includes('"@type":"BreadcrumbList"'), "About BreadcrumbList structured data is missing");
