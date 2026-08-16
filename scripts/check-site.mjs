@@ -94,8 +94,13 @@ const builtStyles = await readDist("styles.css");
 const builtApp = await readDist("app.js");
 
 expect(home.includes("40代からの、やさしい学び直し"), "Home hero concept is missing");
+expect(home.includes("知りたい言葉を、ひとつずつ"), "Home learning rhythm is missing");
 expect(home.includes("learning-together-v2.webp"), "Home hero image is missing");
 expect(home.includes("植井寛"), "Home author identity is missing");
+expect((home.match(/class="article-card"/g) ?? []).length === Math.min(6, Math.max(articles.length - 1, 0)), "Home latest articles must be limited to 6 cards");
+expect((home.match(/class="topic-nav-card"/g) ?? []).length >= 5, "Home topic navigation is missing");
+expect(home.includes('data-analytics-location="home_social_card"'), "Home Instagram card is missing");
+expect(home.includes(site.authorSameAs[0]), "Home Instagram profile URL is missing");
 expect(!home.includes("販売導線について"), "Internal sales-operation notice must not appear on home");
 expect(!home.includes("fordays-shop.jp"), "Home must not contain a Fordays shopping link before written approval");
 expect(!home.includes("noindex,nofollow"), "Home must be indexable");
@@ -105,6 +110,8 @@ expect(/img\s*\{[^}]*height:\s*auto;/su.test(builtStyles), "Responsive images mu
 
 expect(articleIndex.includes("核酸と成分の記事"), "Article index heading is missing");
 expect((articleIndex.match(/class="article-card"/g) ?? []).length === articles.length, "Article index card count is inconsistent");
+expect((articleIndex.match(/class="article-topic-group"/g) ?? []).length >= 5, "Article topic groups are missing");
+expect(articleIndex.includes('id="topic-nucleic-acid-basics"'), "Nucleic-acid topic anchor is missing");
 expect(articleIndex.includes('"@type":"ItemList"'), "Article index ItemList structured data is missing");
 expect(articleIndex.includes('"@type":"BreadcrumbList"'), "Article index BreadcrumbList structured data is missing");
 expect(articleIndex.includes("核酸はじめてガイド"), "Beginner guide heading is missing");
