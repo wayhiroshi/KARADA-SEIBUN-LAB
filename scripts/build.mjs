@@ -197,21 +197,24 @@ function authorCard(compact = false) {
         <p class="eyebrow">AUTHOR</p>
         <h2 id="author-card-title">植井寛</h2>
         <p>核酸について本や資料を読み始めた「からだ成分ラボ」の執筆者です。つまずいた点も隠さず、読者のみなさんと一緒に学びながら、自分の言葉で整理します。</p>
-        <a class="text-link" href="/about/">植井寛について読む</a>
+        <a class="text-link" href="/about/" data-analytics-event="author_profile_click" data-analytics-location="author_card">植井寛について読む</a>
       </div>
     </section>`;
 }
 
-function renderArticleCard(article) {
+function renderArticleCard(article, analytics = null) {
   const articlePath = `/articles/${escapeHtml(article.slug)}/`;
+  const analyticsAttributes = analytics && typeof analytics === "object"
+    ? ` data-analytics-event="${escapeHtml(analytics.event)}" data-analytics-location="${escapeHtml(analytics.location)}" data-content-id="${escapeHtml(article.slug)}"`
+    : "";
   return `
     <article class="article-card">
-      <a class="article-card-image" href="${articlePath}" aria-hidden="true" tabindex="-1">
+      <a class="article-card-image" href="${articlePath}" aria-hidden="true" tabindex="-1"${analyticsAttributes}>
         <img src="${escapeHtml(article.image)}" width="1440" height="960" alt="" loading="lazy">
       </a>
       <div class="article-card-copy">
         <p class="article-category">${escapeHtml(article.category)}</p>
-        <h3><a href="${articlePath}">${escapeHtml(article.title)}</a></h3>
+        <h3><a href="${articlePath}"${analyticsAttributes}>${escapeHtml(article.title)}</a></h3>
         <p>${escapeHtml(article.description)}</p>
         <div class="article-meta"><span>更新 ${escapeHtml(article.updated)}</span><span>${escapeHtml(article.readingTime)}</span></div>
       </div>
@@ -224,7 +227,7 @@ function renderBookCard(book, index) {
     ? `<time datetime="${escapeHtml(book.started)}">${formatJapaneseDate(book.started)}から</time>`
     : "";
   const link = amazonEnabled
-    ? `<a class="button book-amazon-link" href="${escapeHtml(book.amazonUrl)}" rel="sponsored noopener noreferrer">Amazonで見る <span>広告</span></a>`
+    ? `<a class="button book-amazon-link" href="${escapeHtml(book.amazonUrl)}" rel="sponsored noopener noreferrer" data-analytics-event="affiliate_click" data-analytics-location="books_page" data-content-id="${escapeHtml(book.slug)}">Amazonで見る <span>広告</span></a>`
     : "";
   return `
     <article class="book-card">
@@ -681,7 +684,7 @@ function renderArticle(article) {
           <p class="article-category">${escapeHtml(article.category)}</p>
           <h1>${escapeHtml(article.title)}</h1>
           <p class="article-lead">${escapeHtml(article.lead)}</p>
-          <div class="article-meta"><span>公開 ${escapeHtml(article.published)}</span><span>更新 ${escapeHtml(article.updated)}</span><span>${escapeHtml(article.readingTime)}</span><span>執筆：<a href="/about/">植井寛</a></span></div>
+          <div class="article-meta"><span>公開 ${escapeHtml(article.published)}</span><span>更新 ${escapeHtml(article.updated)}</span><span>${escapeHtml(article.readingTime)}</span><span>執筆：<a href="/about/" data-analytics-event="author_profile_click" data-analytics-location="article_meta">植井寛</a></span></div>
         </header>
 
         ${article.image ? `<figure class="article-hero-image">
@@ -717,7 +720,10 @@ function renderArticle(article) {
 
       <section class="related-articles" aria-labelledby="related-title">
         <h2 id="related-title">続けて読む</h2>
-        <div class="article-grid">${related.map(renderArticleCard).join("")}</div>
+        <div class="article-grid">${related.map((item) => renderArticleCard(item, {
+          event: "continue_reading_click",
+          location: "article_related"
+        })).join("")}</div>
       </section>
     </div>`;
 
