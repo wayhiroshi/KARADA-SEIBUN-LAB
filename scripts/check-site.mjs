@@ -102,10 +102,12 @@ expect(/img\s*\{[^}]*height:\s*auto;/su.test(builtStyles), "Responsive images mu
 expect(articleIndex.includes("核酸と成分の記事"), "Article index heading is missing");
 expect((articleIndex.match(/class="article-card"/g) ?? []).length === articles.length, "Article index card count is inconsistent");
 expect(articleIndex.includes('"@type":"ItemList"'), "Article index ItemList structured data is missing");
+expect(articleIndex.includes('"@type":"BreadcrumbList"'), "Article index BreadcrumbList structured data is missing");
 
 expect(ingredientIndex.includes("記事に出てきた成分・用語"), "Ingredient index heading is missing");
 expect((ingredientIndex.match(/class="ingredient-timeline-card"/g) ?? []).length === ingredients.length, "Ingredient index card count is inconsistent");
 expect(ingredientIndex.includes('"@type":"ItemList"'), "Ingredient index ItemList structured data is missing");
+expect(ingredientIndex.includes('"@type":"BreadcrumbList"'), "Ingredient index BreadcrumbList structured data is missing");
 expect(sitemap.includes(`<loc>${site.siteUrl}/ingredients/</loc>`), "Ingredient index sitemap path is missing");
 const ingredientsByFirstIntroduction = [...ingredients].sort((a, b) =>
   a.firstIntroduced.localeCompare(b.firstIntroduced) || a.created.localeCompare(b.created) || a.name.localeCompare(b.name, "ja")
@@ -121,6 +123,7 @@ for (const [index, ingredient] of ingredients.entries()) {
   expect(html.includes(`作成日</dt><dd><time datetime="${ingredient.created}"`), `Ingredient created date missing: ${ingredient.slug}`);
   expect(html.includes(`最終更新日</dt><dd><time datetime="${ingredient.updated}"`), `Ingredient updated date missing: ${ingredient.slug}`);
   expect(html.includes('"@type":"DefinedTerm"'), `Ingredient DefinedTerm structured data missing: ${ingredient.slug}`);
+  expect(html.includes('"@type":"BreadcrumbList"'), `Ingredient BreadcrumbList structured data missing: ${ingredient.slug}`);
   expect((html.match(/class="ingredient-fact-card"/g) ?? []).length === 3, `Ingredient visual fact cards must be 3: ${ingredient.slug}`);
   expect(html.includes(`図に含まれる言葉：${ingredient.visualItems.join("、")}`), `Ingredient visual text alternative missing: ${ingredient.slug}`);
   expect(ingredientIndex.includes(`<dt>作成日</dt><dd><time datetime="${ingredient.created}">${ingredient.created.replace(/^(\d{4})-(\d{2})-(\d{2})$/u, (_, y, m, d) => `${Number(y)}年${Number(m)}月${Number(d)}日`)}</time>`), `Ingredient index created date missing: ${ingredient.slug}`);
@@ -208,16 +211,20 @@ expect(episodes[2].sourceLinks.length === 1, "Episode 003 must link its Gymnema 
 
 expect(about.includes("本と資料をどう読むか"), "About learning-process section is missing");
 expect(about.includes("漫画と声で伝える"), "About communication section is missing");
+expect(about.includes('"@type":"BreadcrumbList"'), "About BreadcrumbList structured data is missing");
 expect(!about.includes("フォーデイズ会員"), "Internal advertising relationship must not be repeated on About");
 expect(policy.includes("編集方針"), "Editorial policy section is missing");
 expect(!policy.includes("フォーデイズ会員"), "Internal sales relationship must not appear without a sales route");
 expect(policy.includes("運営・プライバシー"), "Operations and privacy heading is missing");
+expect(policy.includes('"@type":"BreadcrumbList"'), "Editorial policy BreadcrumbList structured data is missing");
+expect(mangaIndex.includes('"@type":"BreadcrumbList"'), "Manga index BreadcrumbList structured data is missing");
 expect(books.length === 2, `Expected 2 reading books, got ${books.length}`);
 if (booksEnabled) {
   expect(booksPage.includes("読んでいる本"), "Books page heading is missing");
   expect((booksPage.match(/class="book-card"/g) ?? []).length === books.length, "Books page card count is inconsistent");
   expect(books.every((book) => booksPage.includes(book.title)), "A reading book title is missing");
   expect(booksPage.includes('"@type":"ItemList"'), "Books ItemList structured data is missing");
+  expect(booksPage.includes('"@type":"BreadcrumbList"'), "Books BreadcrumbList structured data is missing");
   expect(sitemap.includes(`<loc>${site.siteUrl}/books/</loc>`), "Books sitemap path is missing");
 } else {
   expect(!home.includes('href="/books/"'), "Books page must stay out of production navigation before approval");
@@ -281,6 +288,12 @@ for (const page of indexablePages) expect(sitemapPaths.includes(page.path), `Ind
 
 const titles = [];
 const descriptions = [];
+function findStructuredDataNodes(value, type) {
+  if (!value || typeof value !== "object") return [];
+  const matches = value["@type"] === type ? [value] : [];
+  return matches.concat(Object.values(value).flatMap((child) => findStructuredDataNodes(child, type)));
+}
+
 for (const page of htmlPages) {
   const title = page.html.match(/<title>([^<]+)<\/title>/u)?.[1];
   const description = page.html.match(/<meta name="description" content="([^"]+)">/u)?.[1];
@@ -299,11 +312,21 @@ for (const page of htmlPages) {
     expect(page.html.includes('<meta property="og:image" content="https://'), `Absolute Open Graph image is missing: ${page.path}`);
     expect(page.html.includes('<meta name="twitter:card" content="summary_large_image">'), `Twitter card is missing: ${page.path}`);
   }
+  const structuredData = [];
   for (const match of page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gu)) {
     try {
-      JSON.parse(match[1]);
+      structuredData.push(JSON.parse(match[1]));
     } catch {
       failures.push(`Invalid JSON-LD: ${page.path}`);
+    }
+  }
+  if (page.path !== "/" && page.path !== "/404.html") {
+    const breadcrumbNodes = structuredData.flatMap((item) => findStructuredDataNodes(item, "BreadcrumbList"));
+    expect(breadcrumbNodes.length === 1, `Page must contain one BreadcrumbList: ${page.path}`);
+    if (breadcrumbNodes.length === 1) {
+      const items = breadcrumbNodes[0].itemListElement;
+      expect(Array.isArray(items) && items.length >= 2, `BreadcrumbList must contain at least two items: ${page.path}`);
+      expect(items?.at(-1)?.item === expectedCanonical, `BreadcrumbList current URL mismatch: ${page.path}`);
     }
   }
   for (const match of page.html.matchAll(/<a[^>]+href="([^"]+)"/gu)) {
