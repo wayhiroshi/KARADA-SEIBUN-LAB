@@ -2,6 +2,8 @@
   "posts": [
     {
       "id": "fixed-01-about",
+      "status": "published",
+      "instagramUrl": "https://www.instagram.com/karada_seibun_lab/p/DboeyHJE8fR/",
       "label": "固定投稿 1",
       "title": "このアカウントについて",
       "slides": [
@@ -45,6 +47,8 @@
     },
     {
       "id": "fixed-02-author",
+      "status": "published",
+      "instagramUrl": "https://www.instagram.com/karada_seibun_lab/p/Dboe7iFkwSK/",
       "label": "固定投稿 2",
       "title": "植井寛について",
       "slides": [
@@ -92,6 +96,8 @@
     },
     {
       "id": "fixed-03-checklist",
+      "status": "published",
+      "instagramUrl": "https://www.instagram.com/karada_seibun_lab/p/DbohMe1Exp4/",
       "label": "固定投稿 3",
       "title": "健康情報を読むときの5つのポイント",
       "slides": [

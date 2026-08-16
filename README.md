@@ -1,6 +1,6 @@
 # からだ成分ラボ
 
-「健康情報を、わかる言葉に。漫画と声でほどく、からだ成分ラボ」をテーマに、核酸・健康食品の表示・研究・広告を生活者目線で整理する静的サイトです。
+「健康情報を、わかる言葉に。漫画と声でほどく、からだ成分ラボ」をテーマに、核酸・健康食品の成分、研究、表示の読み方を、健康情報を調べる人の目線で整理する静的サイトです。
 
 ## 第1話
 
@@ -32,8 +32,12 @@ npm run check
 - [ブランドロゴ3案](docs/logo-concepts.md)
 - [核酸啓蒙・SNS販売 年間運用計画](docs/online-growth-plan.md)
 - [初年度コンテンツカレンダー](docs/content-calendar-year1.md)
+- [漫画・音声によるInstagram成長運用](docs/instagram-comic-growth-loop.md)
+- [SNS制作・公開台帳](docs/social-publication-status.md)
 - [SNS投稿テンプレート](docs/social-post-templates.md)
 - [SNS投稿・記事 公開前チェックリスト](docs/post-review-checklist.md)
+- [全記事共通の編集ルール](docs/article-editorial-rules.md)
+- [参考サイト研究: わかさの秘密](docs/reference-wakasa-no-himitsu.md)
 - [フォーデイズへの媒体利用 書面確認依頼案](docs/fordays-written-confirmation-request.md)
 - [月次KPI空テンプレート](docs/monthly-scorecard-template.csv)
 
