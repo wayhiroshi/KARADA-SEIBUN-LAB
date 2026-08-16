@@ -1,5 +1,7 @@
 {
   "amazon": {
+    "applicationStatus": "pending-qualifying-sales",
+    "appliedOn": "2026-08-16",
     "pageEnabled": true,
     "enabled": true,
     "associateName": "植井寛",

@@ -34,6 +34,7 @@ npm run check
 - [初年度コンテンツカレンダー](docs/content-calendar-year1.md)
 - [漫画・音声によるInstagram成長運用](docs/instagram-comic-growth-loop.md)
 - [SNS制作・公開台帳](docs/social-publication-status.md)
+- [Amazonアソシエイト運用メモ](docs/amazon-associates.md)
 - [SNS投稿テンプレート](docs/social-post-templates.md)
 - [SNS投稿・記事 公開前チェックリスト](docs/post-review-checklist.md)
 - [全記事共通の編集ルール](docs/article-editorial-rules.md)
