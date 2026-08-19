@@ -1298,7 +1298,10 @@ async function writePage(relativePath, html) {
 
 await rm(dist, { recursive: true, force: true });
 await mkdir(dist, { recursive: true });
-await cp(path.join(root, "public"), dist, { recursive: true });
+await cp(path.join(root, "public"), dist, {
+  recursive: true,
+  filter: (source) => path.basename(source) !== ".DS_Store"
+});
 await cp(path.join(root, "src", "styles.css"), path.join(dist, "styles.css"));
 await cp(path.join(root, "src", "app.js"), path.join(dist, "app.js"));
 
