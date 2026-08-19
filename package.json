@@ -21,6 +21,7 @@
     "render:article:why-do-people-diet": "node scripts/render-why-do-people-diet.mjs",
     "render:article:is-dieting-just-eating-less": "node scripts/render-is-dieting-just-eating-less.mjs",
     "render:article:is-willpower-enough-for-dieting": "node scripts/render-is-willpower-enough-for-dieting.mjs",
+    "render:article:do-supplements-really-help": "node scripts/render-do-supplements-really-help.mjs",
     "render:article:why-nucleotide-formula": "node scripts/render-why-nucleotides-formula.mjs",
     "forecast:rewards": "node scripts/forecast-rewards.mjs",
     "build": "node scripts/build.mjs",
