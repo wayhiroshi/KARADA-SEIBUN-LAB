@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "fordays-diet-tea",
+    "maker": "フォーデイズ",
+    "name": "フォーデイズ ダイエット茶",
+    "kind": "ブレンド茶",
+    "tone": "tea",
+    "visualLabel": "TEA",
+    "intro": "普段から飲んでいるお茶です。原材料に並ぶ名前が気になり、成分を一つずつ調べ始めました。",
+    "curiosity": "最初に調べたのはサラシア。植物だと知り、糖質の消化との関係をたどりました。",
+    "detailUrl": "https://www.instagram.com/karada_seibun_lab/",
+    "detailLabel": "Instagramを見る",
+    "articlePath": "/articles/is-salacia-an-ingredient/",
+    "articleLabel": "サラシアの記事を読む",
+    "amazonUrl": ""
+  },
+  {
+    "slug": "easy-fiber-diet",
+    "maker": "小林製薬",
+    "name": "イージーファイバー ダイエット 30パック",
+    "kind": "食物繊維配合食品",
+    "tone": "fiber",
+    "visualLabel": "FIBER",
+    "intro": "普段使っている食物繊維配合食品です。「ダイエット」という名前が、どの成分につながるのか気になっています。",
+    "curiosity": "難消化性デキストリン、L-カルニチン、BCAA。これから一つずつ調べていきます。",
+    "detailUrl": "https://www.kobayashi.co.jp/seihin/efd/",
+    "detailLabel": "公式情報を見る",
+    "articlePath": "",
+    "articleLabel": "",
+    "amazonUrl": "https://www.amazon.co.jp/dp/B00J7GXHRQ/?tag=karadalab-web-22"
+  }
+]

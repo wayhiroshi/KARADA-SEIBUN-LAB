@@ -1,15 +1,15 @@
 # SNS制作・公開台帳
 
-最終確認: 2026-08-16
+最終確認: 2026-08-17
 
 この台帳は、リポジトリ内の制作物と公開済みInstagram投稿を対応させる正本です。投稿操作、予約投稿、他媒体への転載は、この台帳の更新とは別に、公開前チェックと本人の承認を経て行います。
 
 ## 現在の集計
 
-- 投稿セット: 9件
-- Instagramで公開確認済み: 8件
-- 画像・本文は完成、Instagram公開待ち: 1件
-- 4:5画像: 45枚（すべて1080×1350px）
+- 投稿セット: 12件
+- Instagramで公開確認済み: 10件
+- 画像・本文は完成、Instagram公開待ち: 2件
+- 4:5画像: 57枚（すべて1080×1350px）
 - 本人音声リール: 収録・字幕・完成動画の保管記録なし
 - Facebook、YouTube Shorts、ストーリーズ: 公開記録なし
 
@@ -27,18 +27,21 @@
 | 教育 | 粉ミルクにもヌクレオチド？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/Db36x-Jkz0K/) |
 | 教育 | なぜ、粉ミルクに入れるの？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/Db-hvOME4xm/) |
 | 教育 | そもそも、人はなぜダイエットをするの？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/DcE_qACE3PM/) |
+| 教育 | ダイエットは、食事を減らすことなの？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/DcHXIQhE1a2/) |
+| 漫画 | 続かないのは、意志が弱いから？ | 4枚 | [Instagram](https://www.instagram.com/karada_seibun_lab/p/DcIUEOUE428/) |
 
 ## 公開待ち
 
 | 投稿 | 完成しているもの | 公開前に必要なこと |
 |---|---|---|
 | mRNAは、何をするの？ | 5枚の画像、投稿本文、Web記事 | 本文と5枚を最終確認し、本人承認後にInstagramへ公開する |
+| 続かないのは、意志が弱いから？ | 4枚の保存用画像、投稿本文、Web記事 | ローカル記事と4枚を確認し、本人承認後に公開する |
 
-原稿は `content/social/dna-transcription-2026-08-10.json`、画像は `public/assets/social/daily/2026-08-10-dna-transcription/` にある。公開後は同JSONの `instagramUrl` を更新し、`npm run check` で台帳数と画像仕様を再検証する。
+原稿と画像は各 `content/social/` のJSONと、対応する `public/assets/social/daily/` にある。公開後は同JSONの `instagramUrl` を更新し、`npm run check` で台帳数と画像仕様を再検証する。
 
 ## 次に制作が必要なもの
 
-1. 公開待ちカルーセル1件の最終承認と公開
+1. 公開待ちカルーセル2件の最終承認と公開
 2. 15〜30秒の本人音声リール（収録、字幕、縦型完成動画）
 3. 漫画3話をInstagramで読める単位へ再編集した4:5カルーセルまたは9:16動画
 4. ストーリーズ用の質問・二択素材
