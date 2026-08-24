@@ -15,8 +15,10 @@ const articles = allArticles.filter((article) => !article.draft || includeDrafts
 const ingredients = JSON.parse(await readFile(path.join(root, "content", "ingredients.json"), "utf8"));
 const mangaCast = JSON.parse(await readFile(path.join(root, "content", "manga-cast.json"), "utf8"));
 const books = JSON.parse(await readFile(path.join(root, "content", "books.json"), "utf8"));
+const favorites = JSON.parse(await readFile(path.join(root, "content", "favorites.json"), "utf8"));
 const affiliate = JSON.parse(await readFile(path.join(root, "content", "affiliate.json"), "utf8"));
 const booksEnabled = affiliate.amazon.pageEnabled || process.env.INCLUDE_BOOKS === "1";
+const favoritesEnabled = favorites.length > 0;
 const amazonAffiliateEnabled = affiliate.amazon.enabled || process.env.ENABLE_AMAZON_PREVIEW === "1";
 const episodeTemplate = await readFile(path.join(root, "src", "index.template.html"), "utf8");
 const stylesSource = await readFile(path.join(root, "src", "styles.css"));
@@ -167,6 +169,7 @@ function siteFooter() {
       <nav aria-label="フッターメニュー">
         <a href="/articles/">記事一覧</a>
         ${booksEnabled ? '<a href="/books/">読んでいる本</a>' : ""}
+        ${favoritesEnabled ? '<a href="/favorites/">愛用しているもの</a>' : ""}
         <a href="/ingredients/">成分・用語</a>
         <a href="/manga/">漫画</a>
         <a href="/about/">著者情報</a>
@@ -375,6 +378,83 @@ function renderBooks() {
   });
 }
 
+function renderFavoriteCard(item) {
+  const amazonEnabled = amazonAffiliateEnabled && item.amazonUrl;
+  const articleLink = item.articlePath
+    ? `<a class="text-link" href="${escapeHtml(item.articlePath)}">${escapeHtml(item.articleLabel)}</a>`
+    : "";
+  const amazonLink = amazonEnabled
+    ? `<a class="button book-amazon-link favorite-amazon-link" href="${escapeHtml(item.amazonUrl)}" rel="sponsored noopener noreferrer" data-analytics-event="affiliate_click" data-analytics-location="favorites_page" data-content-id="${escapeHtml(item.slug)}">Amazonで見る <span>広告</span></a>`
+    : "";
+  return `
+    <article class="favorite-card favorite-card-${escapeHtml(item.tone)}">
+      <div class="favorite-visual" aria-hidden="true">
+        <span>${escapeHtml(item.visualLabel)}</span><i></i><b></b>
+      </div>
+      <div class="favorite-card-copy">
+        <p class="favorite-kind">${escapeHtml(item.maker)}・${escapeHtml(item.kind)}</p>
+        <h2>${escapeHtml(item.name)}</h2>
+        <p>${escapeHtml(item.intro)}</p>
+        <div class="favorite-curiosity"><strong>ここから生まれた疑問</strong><p>${escapeHtml(item.curiosity)}</p></div>
+        <div class="favorite-links">
+          ${articleLink}
+          <a class="text-link" href="${escapeHtml(item.detailUrl)}" rel="noopener noreferrer"${item.detailUrl.includes("instagram.com") ? ' data-analytics-event="social_profile_click" data-analytics-location="favorites_page" data-content-id="instagram"' : ""}>${escapeHtml(item.detailLabel)}</a>
+          ${amazonLink}
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderFavorites() {
+  const hasAmazonLink = amazonAffiliateEnabled && favorites.some((item) => item.amazonUrl);
+  const amazonDisclosure = hasAmazonLink
+    ? `<aside class="affiliate-disclosure" aria-label="広告について"><strong>広告について</strong><p>${escapeHtml(affiliate.amazon.disclosure)}</p></aside>`
+    : "";
+  const body = `
+    <div class="content-container favorites-container">
+      ${breadcrumb([{ href: "/", label: "ホーム" }, { label: "愛用しているもの" }])}
+      <header class="page-hero favorites-hero">
+        <p class="eyebrow">FAVORITES</p>
+        <h1>愛用しているもの</h1>
+        <p>気に入って使っているお茶や食品から、「これは何だろう」が始まります。飲んで終わりにせず、気になった成分を一つずつ調べています。</p>
+      </header>
+      ${amazonDisclosure}
+      <section class="favorite-list" aria-label="愛用しているものの一覧">
+        ${favorites.map(renderFavoriteCard).join("")}
+      </section>
+      <section class="favorites-closing">
+        <p class="eyebrow">CURIOSITY STARTS HERE</p>
+        <h2>使っているものから、次の疑問へ。</h2>
+        <p>原材料欄で見つけた名前が、次の記事の入口になります。</p>
+        <a class="text-link" href="/articles/">記事を読んでみる</a>
+      </section>
+    </div>`;
+
+  return pageShell({
+    pathName: "/favorites/",
+    title: "愛用しているもの",
+    description: "植井寛が普段使っているお茶や食品と、そこから生まれた成分への疑問を紹介します。",
+    body,
+    structuredData: [{
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "植井寛が愛用しているもの",
+      itemListElement: favorites.map((item, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: item.name,
+          brand: { "@type": "Brand", name: item.maker }
+        }
+      }))
+    }, breadcrumbStructuredData([
+      { href: "/", label: "ホーム" },
+      { label: "愛用しているもの" }
+    ], "/favorites/")]
+  });
+}
+
 function renderHome() {
   const [firstArticle, ...otherArticles] = articles;
   const latestArticles = otherArticles.slice(0, 6);
@@ -467,6 +547,16 @@ function renderHome() {
         <a class="text-link" href="/books/">読んでいる本を見る</a>
       </div>
       <div class="home-book-spines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </section>` : ""}
+
+    ${favoritesEnabled ? `<section class="home-favorites" aria-labelledby="home-favorites-title">
+      <div class="home-favorites-visual" aria-hidden="true"><i></i><b></b><span>FAVORITES</span></div>
+      <div>
+        <p class="eyebrow">THINGS I USE</p>
+        <h2 id="home-favorites-title">いつもの一杯から、成分を知る。</h2>
+        <p>普段使っているお茶や食品と、そこから生まれた疑問を紹介します。</p>
+        <a class="text-link" href="/favorites/">愛用しているものを見る</a>
+      </div>
     </section>` : ""}
 
     <section class="manga-feature">
@@ -626,7 +716,7 @@ function renderIngredientIndex() {
           <p>漫画や記事に登場した植物素材、成分、核酸の基本用語を、最初に紹介した日からたどれます。</p>
         </div>
         <div class="ingredient-growth-visual" aria-label="小さな丸が少しずつ増えていく成分ノートのイメージ">
-          ${chronological.slice(0, 8).map((item, index) => `<span style="--i:${index}">${escapeHtml(item.name)}</span>`).join("")}
+          ${chronological.slice(-8).map((item, index) => `<span style="--i:${index}">${escapeHtml(item.name)}</span>`).join("")}
         </div>
       </header>
 
@@ -1197,6 +1287,7 @@ function renderEpisode(episode, episodeIndex) {
     "{{BOOKS_HEADER_LINK}}": booksEnabled ? '<a href="/books/">読んでいる本</a>' : "",
     "{{BOOKS_FOOTER_LINK}}": booksEnabled ? '<a href="/books/">読んでいる本</a>' : "",
     "{{STYLES_VERSION}}": stylesVersion,
+    "{{ANALYTICS}}": analyticsMarkup(),
     "{{STRUCTURED_DATA}}": escapeJsonForHtml(schema)
   };
 
@@ -1316,6 +1407,7 @@ for (const ingredient of ingredients) {
 }
 await writePage("about/index.html", renderAbout());
 if (booksEnabled) await writePage("books/index.html", renderBooks());
+if (favoritesEnabled) await writePage("favorites/index.html", renderFavorites());
 await writePage("editorial-policy/index.html", renderEditorialPolicy());
 await writePage("manga/index.html", renderMangaIndex());
 for (const [index, item] of episodes.entries()) {
@@ -1338,6 +1430,7 @@ const sitemapEntries = [
   ...episodes.map((item) => ({ path: `/manga/${item.id}/`, lastmod: site.updated })),
   { path: "/about/", lastmod: site.updated },
   ...(booksEnabled ? [{ path: "/books/", lastmod: books.reduce((latest, item) => item.started && item.started > latest ? item.started : latest, site.updated) }] : []),
+  ...(favoritesEnabled ? [{ path: "/favorites/", lastmod: site.updated }] : []),
   { path: "/editorial-policy/", lastmod: site.updated }
 ];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

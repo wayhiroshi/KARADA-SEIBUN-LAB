@@ -214,5 +214,113 @@
       ["米国国立ヒトゲノム研究所：Messenger RNA", "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"],
       ["米国国立ヒトゲノム研究所：Transcription", "https://www.genome.gov/genetics-glossary/Transcription"]
     ]
+  },
+  {
+    "slug": "salacinol",
+    "name": "サラシノール",
+    "reading": "さらしのーる",
+    "shortLabel": "SALACINOL",
+    "kind": "サラシア由来成分",
+    "group": "molecule",
+    "created": "2026-08-24",
+    "updated": "2026-08-24",
+    "firstIntroduced": "2026-08-21",
+    "firstLabel": "記事「サラシアがダイエット茶に入っているのは、なぜ？」",
+    "firstPath": "/articles/is-salacia-an-ingredient/",
+    "summary": "サラシア属の植物に含まれる成分の一つです。",
+    "lead": "サラシノールは、サラシア属の植物から見つかった成分です。糖質を小さく分ける消化酵素との関係が研究されています。",
+    "visualTitle": "サラシアの中にある成分",
+    "visualItems": ["サラシア", "含まれる", "消化酵素との関係"],
+    "facts": [
+      ["何に含まれる？", "サラシア属の植物に含まれています。"],
+      ["何が調べられている？", "糖質を小さく分けるα-グルコシダーゼという消化酵素との関係です。"],
+      ["サラシアとの違い", "サラシアは植物のグループ名、サラシノールはその植物に含まれる成分名です。"]
+    ],
+    "related": ["サラシノールとコタラノールは、どちらもサラシア属の植物から見つかった成分です。", "植物素材の名前と、その中に含まれる成分の名前を分けると、表示を読みやすくなります。"],
+    "sources": [
+      ["食品安全委員会：サラシア由来サラシノールに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=202&retrievalId=kya20191024085"],
+      ["Nutrients：サラシア・キネンシス抽出物を用いたランダム化比較試験", "https://pubmed.ncbi.nlm.nih.gov/33370165/"]
+    ]
+  },
+  {
+    "slug": "kotalanol",
+    "name": "コタラノール",
+    "reading": "こたらのーる",
+    "shortLabel": "KOTALANOL",
+    "kind": "サラシア由来成分",
+    "group": "molecule",
+    "created": "2026-08-24",
+    "updated": "2026-08-24",
+    "firstIntroduced": "2026-08-21",
+    "firstLabel": "記事「サラシアがダイエット茶に入っているのは、なぜ？」",
+    "firstPath": "/articles/is-salacia-an-ingredient/",
+    "summary": "サラシア・レティキュラータから見つかった成分です。",
+    "lead": "コタラノールは、サラシア属の一種であるサラシア・レティキュラータから見つかった成分です。糖質を小さく分ける消化酵素との関係が研究されています。",
+    "visualTitle": "植物の名前から成分の名前へ",
+    "visualItems": ["S. reticulata", "含まれる", "コタラノール"],
+    "facts": [
+      ["どこから見つかった？", "サラシア・レティキュラータという植物から見つかりました。"],
+      ["何が調べられている？", "糖質を小さく分けるα-グルコシダーゼという消化酵素との関係です。"],
+      ["コタラヒムブツとの違い", "コタラヒムブツは植物を指す呼び名、コタラノールはその植物から見つかった成分名です。"]
+    ],
+    "related": ["コタラヒムブツとコタラノールは名前が似ていますが、植物の呼び名と成分名という違いがあります。", "サラシノールも、サラシア属の植物に含まれる成分の一つです。"],
+    "sources": [
+      ["Chemical and Pharmaceutical Bulletin：サラシア・レティキュラータから得られたコタラノールの研究", "https://www.jstage.jst.go.jp/article/cpb1958/46/8/46_8_1339/_article"],
+      ["食品安全委員会：コタラエキスに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"]
+    ]
+  },
+  {
+    "slug": "dha",
+    "name": "DHA",
+    "reading": "ディーエイチエー（ドコサヘキサエン酸）",
+    "shortLabel": "DHA",
+    "kind": "脂肪酸",
+    "group": "lipid",
+    "created": "2026-08-24",
+    "updated": "2026-08-24",
+    "firstIntroduced": "2026-08-24",
+    "firstLabel": "記事「魚に入っているのは、DNA？ DHA？」",
+    "firstPath": "/articles/dna-vs-dha-in-fish/",
+    "summary": "魚などの脂に含まれる、オメガ3脂肪酸の一つです。",
+    "lead": "DHAはドコサヘキサエン酸の略称です。DNAと名前はよく似ていますが、DHAは核酸ではなく脂肪酸です。",
+    "visualTitle": "魚の脂に含まれる脂肪酸",
+    "visualItems": ["魚", "オメガ3", "脂肪酸"],
+    "facts": [
+      ["何の略？", "ドコサヘキサエン酸の英語名を短くした呼び方です。"],
+      ["どんな成分？", "オメガ3脂肪酸に分類される脂肪酸です。"],
+      ["DNAとの違い", "DNAは遺伝情報を持つ核酸、DHAは脂の仲間である脂肪酸です。"]
+    ],
+    "related": ["DHAとEPAは、どちらも魚や魚介類に含まれるオメガ3脂肪酸です。", "DNAとDHAは略称が似ていますが、物質の種類が異なります。"],
+    "sources": [
+      ["米国国立衛生研究所サプリメント局：Omega-3 Fatty Acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"],
+      ["厚生労働省 e-ヘルスネット：不飽和脂肪酸", "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"]
+    ]
+  },
+  {
+    "slug": "omega-3-fatty-acids",
+    "name": "オメガ3脂肪酸",
+    "reading": "おめがすりーしぼうさん",
+    "shortLabel": "OMEGA-3",
+    "kind": "脂肪酸のグループ",
+    "group": "lipid",
+    "created": "2026-08-24",
+    "updated": "2026-08-24",
+    "firstIntroduced": "2026-08-24",
+    "firstLabel": "記事「魚に入っているのは、DNA？ DHA？」",
+    "firstPath": "/articles/dna-vs-dha-in-fish/",
+    "summary": "DHA、EPA、ALAなどを含む脂肪酸のグループです。",
+    "lead": "オメガ3脂肪酸は、一つの成分だけを指す名前ではありません。DHA、EPA、ALAなど、構造に共通点を持つ脂肪酸をまとめた呼び名です。",
+    "visualTitle": "オメガ3の中にDHAなどがある",
+    "visualItems": ["DHA", "EPA", "ALA"],
+    "facts": [
+      ["一つの成分？", "DHA、EPA、ALAなどをまとめたグループ名です。"],
+      ["どこに含まれる？", "DHAとEPAは魚や魚介類、ALAは亜麻仁油やえごま油などに含まれます。"],
+      ["DHAとの関係", "DHAは、オメガ3脂肪酸という大きなグループの一員です。"]
+    ],
+    "related": ["DHAとEPAは主に魚や魚介類から、ALAは一部の植物油などから取れます。", "オメガ3脂肪酸は脂の仲間で、DNAやRNAのような核酸とは異なります。"],
+    "sources": [
+      ["米国国立衛生研究所サプリメント局：Omega-3 Fatty Acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"],
+      ["厚生労働省 e-ヘルスネット：不飽和脂肪酸", "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"]
+    ]
   }
 ]

@@ -6,7 +6,7 @@ const defaultBaseUrl = "https://karada-seibun-lab.way-hiroshi-66.workers.dev";
 const baseUrl = (process.env.LIVE_SITE_URL || defaultBaseUrl).replace(/\/$/u, "");
 const root = path.resolve(import.meta.dirname, "..");
 const site = JSON.parse(await readFile(path.join(root, "content", "site.json"), "utf8"));
-const expectedMeasurementId = site.analytics?.measurementId || "";
+const expectedMeasurementId = site.gaMeasurementId || "";
 
 let playwright;
 try {

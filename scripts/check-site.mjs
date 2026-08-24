@@ -12,9 +12,11 @@ const includeDrafts = process.env.INCLUDE_DRAFTS === "1";
 const articles = allArticles.filter((article) => !article.draft || includeDrafts);
 const ingredients = JSON.parse(await readFile(path.join(root, "content", "ingredients.json"), "utf8"));
 const books = JSON.parse(await readFile(path.join(root, "content", "books.json"), "utf8"));
+const favorites = JSON.parse(await readFile(path.join(root, "content", "favorites.json"), "utf8"));
 const affiliate = JSON.parse(await readFile(path.join(root, "content", "affiliate.json"), "utf8"));
 const mangaCast = JSON.parse(await readFile(path.join(root, "content", "manga-cast.json"), "utf8"));
 const booksEnabled = affiliate.amazon.pageEnabled || process.env.INCLUDE_BOOKS === "1";
+const favoritesEnabled = favorites.length > 0;
 const amazonAffiliateEnabled = affiliate.amazon.enabled || process.env.ENABLE_AMAZON_PREVIEW === "1";
 const fixedSocialPosts = JSON.parse(
   await readFile(path.join(root, "content", "social", "fixed-posts.json"), "utf8"),
@@ -75,8 +77,17 @@ for (const article of articles) {
     expect(article.conceptNote?.trim(), `Concept flow note is missing: ${article.slug}`);
   }
 }
-expect(ingredients.length === 8, `Expected 8 ingredient notes, got ${ingredients.length}`);
+expect(ingredients.length > 0, "At least one ingredient note is required");
 expect(new Set(ingredients.map((ingredient) => ingredient.slug)).size === ingredients.length, "Ingredient slugs are not unique");
+for (const ingredient of ingredients) {
+  expect(typeof ingredient.name === "string" && ingredient.name.trim().length > 0, `Ingredient name is missing: ${ingredient.slug}`);
+  expect(/^\d{4}-\d{2}-\d{2}$/u.test(ingredient.created), `Ingredient created date is invalid: ${ingredient.slug}`);
+  expect(/^\d{4}-\d{2}-\d{2}$/u.test(ingredient.updated), `Ingredient updated date is invalid: ${ingredient.slug}`);
+  expect(/^\d{4}-\d{2}-\d{2}$/u.test(ingredient.firstIntroduced), `Ingredient first-introduced date is invalid: ${ingredient.slug}`);
+  expect(Array.isArray(ingredient.visualItems) && ingredient.visualItems.length >= 3 && ingredient.visualItems.length <= 4, `Ingredient visual must contain 3 or 4 items: ${ingredient.slug}`);
+  expect(Array.isArray(ingredient.facts) && ingredient.facts.length === 3, `Ingredient must contain exactly 3 facts: ${ingredient.slug}`);
+  expect(Array.isArray(ingredient.sources) && ingredient.sources.length > 0, `Ingredient sources are missing: ${ingredient.slug}`);
+}
 
 const home = await readDist("index.html");
 const articleIndex = await readDist("articles/index.html");
@@ -86,6 +97,7 @@ const mangaIndex = await readDist("manga/index.html");
 const mangaPages = await Promise.all(episodes.map((item) => readDist(`manga/${item.id}/index.html`)));
 const about = await readDist("about/index.html");
 const booksPage = booksEnabled ? await readDist("books/index.html") : "";
+const favoritesPage = favoritesEnabled ? await readDist("favorites/index.html") : "";
 const policy = await readDist("editorial-policy/index.html");
 const robots = await readDist("robots.txt");
 const sitemap = await readDist("sitemap.xml");
@@ -187,6 +199,8 @@ for (const [index, html] of mangaPages.entries()) {
   expect(!html.includes("{{"), `Unexpanded template token found in manga ${item.id}`);
   expect(html.includes('meta name="robots" content="index,follow,max-image-preview:large"'), `Manga robots meta is missing: ${item.id}`);
   expect(html.includes(`${site.siteUrl}/manga/${item.id}/`), `Manga canonical is missing: ${item.id}`);
+  expect(html.includes(`googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`), `Manga GA4 loader is missing: ${item.id}`);
+  expect(html.includes(`gtag('config', '${site.gaMeasurementId}'`), `Manga GA4 configuration is missing: ${item.id}`);
   expect(!html.includes("このコマにはセリフはありません"), `Silent panel placeholder must not be shown: ${item.id}`);
   expect(!html.includes("この漫画の読み方"), `Manga must start with the story, not an editorial note: ${item.id}`);
   expect(!html.includes("この話の疑問"), `Manga must not explain its question before the story: ${item.id}`);
@@ -255,6 +269,19 @@ if (booksEnabled) {
   expect(!home.includes('href="/books/"'), "Books page must stay out of production navigation before approval");
   expect(!sitemap.includes(`<loc>${site.siteUrl}/books/</loc>`), "Books page must stay out of production sitemap before approval");
 }
+if (favoritesEnabled) {
+  expect(favoritesPage.includes("愛用しているもの"), "Favorites page heading is missing");
+  expect((favoritesPage.match(/class="favorite-card /g) ?? []).length === favorites.length, "Favorites page card count is inconsistent");
+  expect(favorites.every((item) => favoritesPage.includes(item.name)), "A favorite product name is missing");
+  expect(favoritesPage.includes('"@type":"ItemList"'), "Favorites ItemList structured data is missing");
+  expect(favoritesPage.includes('"@type":"BreadcrumbList"'), "Favorites BreadcrumbList structured data is missing");
+  expect(home.includes('href="/favorites/"'), "Home favorites link is missing");
+  expect(sitemap.includes(`<loc>${site.siteUrl}/favorites/</loc>`), "Favorites sitemap path is missing");
+  expect(!favoritesPage.includes("fordays-shop.jp"), "Favorites page must not contain a Fordays shopping link");
+  expect(!favoritesPage.includes("https://fordays.jp/products/"), "Favorites page must not link directly to a Fordays product page");
+  expect(favoritesPage.includes(site.authorSameAs[0]), "Fordays favorite must lead to the Instagram profile");
+  expect(favoritesPage.includes('data-analytics-event="social_profile_click"'), "Favorites Instagram click measurement is missing");
+}
 if (booksEnabled && amazonAffiliateEnabled) {
   expect(
     ["pending-qualifying-sales", "approved"].includes(affiliate.amazon.applicationStatus),
@@ -267,6 +294,14 @@ if (booksEnabled && amazonAffiliateEnabled) {
   expect(booksPage.includes(affiliate.amazon.disclosure), "Amazon Associates disclosure is missing from books page");
   expect(policy.includes(affiliate.amazon.disclosure), "Amazon Associates disclosure is missing from policy page");
   expect((booksPage.match(/rel="sponsored noopener noreferrer"/g) ?? []).length === books.length, "Every Amazon link must be marked sponsored");
+  const amazonFavorites = favorites.filter((item) => item.amazonUrl);
+  if (favoritesEnabled && amazonFavorites.length) {
+    expect(amazonFavorites.every((item) => item.amazonUrl.includes(affiliate.amazon.trackingId)), "Every favorite Amazon URL must contain the configured tracking ID");
+    expect(amazonFavorites.every((item) => /^https:\/\/www\.amazon\.co\.jp\/dp\/[A-Z0-9]{10}\/\?tag=[a-z0-9-]+$/u.test(item.amazonUrl)), "Every favorite Amazon URL must use a direct product link and configured tag");
+    expect(favoritesPage.includes(affiliate.amazon.disclosure), "Amazon Associates disclosure is missing from favorites page");
+    expect((favoritesPage.match(/rel="sponsored noopener noreferrer"/g) ?? []).length === amazonFavorites.length, "Every favorite Amazon link must be marked sponsored");
+    expect(favoritesPage.includes('data-analytics-location="favorites_page"'), "Favorite affiliate click measurement is missing");
+  }
 } else if (booksEnabled) {
   expect(!booksPage.includes("amazon.co.jp"), "Amazon links must stay hidden until affiliate is enabled");
   expect(!booksPage.includes(affiliate.amazon.disclosure), "Amazon disclosure must not claim participation before activation");
@@ -283,7 +318,7 @@ expect(booksPage.includes('data-analytics-event="affiliate_click"'), "Affiliate 
 expect(robots.includes("Allow: /"), "robots.txt must allow crawling");
 expect(robots.includes(`Sitemap: ${site.siteUrl}/sitemap.xml`), "robots.txt sitemap URL is missing");
 expect(!robots.includes("Disallow: /"), "robots.txt must not block the site");
-for (const pagePath of ["/", "/articles/", "/ingredients/", ...(booksEnabled ? ["/books/"] : []), "/manga/", "/manga/001/", "/manga/002/", "/manga/003/", "/about/", "/editorial-policy/"]) {
+for (const pagePath of ["/", "/articles/", "/ingredients/", ...(booksEnabled ? ["/books/"] : []), ...(favoritesEnabled ? ["/favorites/"] : []), "/manga/", "/manga/001/", "/manga/002/", "/manga/003/", "/about/", "/editorial-policy/"]) {
   expect(sitemap.includes(`<loc>${new URL(pagePath, `${site.siteUrl}/`)}</loc>`), `Sitemap path missing: ${pagePath}`);
 }
 expect(notFound.includes('content="noindex,follow"'), "404 page must be noindex");
@@ -310,6 +345,7 @@ const htmlPages = [
   ...episodes.map((episode, index) => ({ path: `/manga/${episode.id}/`, html: mangaPages[index] })),
   { path: "/about/", html: about },
   ...(booksEnabled ? [{ path: "/books/", html: booksPage }] : []),
+  ...(favoritesEnabled ? [{ path: "/favorites/", html: favoritesPage }] : []),
   { path: "/editorial-policy/", html: policy },
   { path: "/404.html", html: notFound }
 ];
@@ -485,10 +521,10 @@ for (const post of allSocialPosts) {
     }
   }
 }
-expect(allSocialPosts.length === 12, `Expected 12 social post sets, got ${allSocialPosts.length}`);
-expect(socialSlides === 57, `Expected 57 social slides, got ${socialSlides}`);
+expect(allSocialPosts.length === 15, `Expected 15 social post sets, got ${allSocialPosts.length}`);
+expect(socialSlides === 69, `Expected 69 social slides, got ${socialSlides}`);
 const publishedSocialPosts = allSocialPosts.filter((post) => post.status === "published").length;
-expect(publishedSocialPosts === 10, `Expected 10 published social posts, got ${publishedSocialPosts}`);
+expect(publishedSocialPosts === 13, `Expected 13 published social posts, got ${publishedSocialPosts}`);
 
 if (failures.length) {
   console.error("Site check failed:");
