@@ -472,7 +472,7 @@ function renderHome() {
         <p class="hero-copy">本を読み、気になった言葉を一つずつほどく。</p>
         <p class="hero-description">核酸、栄養、健康食品。植井寛が本と公的な資料をたどり、図と文章でやさしく紹介します。</p>
         <div class="button-row">
-          <a class="button primary" href="/articles/kakusan-toha/">最初の記事を読む</a>
+          <a class="button primary" href="/articles/kakusan-toha/">核酸の基本から読む</a>
           <a class="button secondary" href="/about/">このラボについて</a>
         </div>
         <div class="hero-tags" aria-label="発信方法">
@@ -811,7 +811,7 @@ function renderIngredient(ingredient) {
 
         <section class="ingredient-first-seen" aria-labelledby="first-seen-title">
           <div><span>最初の紹介</span><time datetime="${escapeHtml(ingredient.firstIntroduced)}">${escapeHtml(formatJapaneseDate(ingredient.firstIntroduced))}</time></div>
-          <div><h2 id="first-seen-title">${escapeHtml(ingredient.firstLabel)}</h2><a class="text-link" href="${escapeHtml(ingredient.firstPath)}">この言葉を紹介したページを読む</a></div>
+          <div><h2 id="first-seen-title">${escapeHtml(ingredient.firstLabel)}</h2><a class="text-link" href="${escapeHtml(ingredient.firstPath)}">${escapeHtml(ingredient.firstLabel)}を読む</a></div>
         </section>
 
         <section class="sources ingredient-sources" aria-labelledby="ingredient-sources-title">
