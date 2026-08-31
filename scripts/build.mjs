@@ -867,8 +867,9 @@ function renderComparison(rows) {
     </div>`;
 }
 
-function renderConceptFlow(items, note = "", title = "要点を、順番に見てみる") {
+function renderConceptFlow(items, note = "", title = "要点を、順番に見てみる", layout = "sequence") {
   if (!items?.length) return "";
+  const layoutClass = layout === "parallel" ? " concept-map-parallel" : "";
   const steps = items.map(([eyebrow, title, text], index) => `
     <li>
       <span class="concept-step-number">${String(index + 1).padStart(2, "0")}</span>
@@ -879,7 +880,7 @@ function renderConceptFlow(items, note = "", title = "要点を、順番に見�
       </div>
     </li>`).join("");
   return `
-    <section class="concept-map" aria-labelledby="concept-map-title">
+    <section class="concept-map${layoutClass}" aria-labelledby="concept-map-title">
       <p class="eyebrow">STUDY MAP</p>
       <h2 id="concept-map-title">${escapeHtml(title)}</h2>
       <ol>${steps}</ol>
@@ -892,6 +893,10 @@ function renderArticle(article) {
   const articleBody = article.sections.map((section) => `
     <section>
       <h2>${escapeHtml(section.title)}</h2>
+      ${section.image ? `<figure class="article-section-image${section.imageFit === "contain" ? " article-section-image--contain" : ""}">
+        <img src="${escapeHtml(section.image)}" width="1200" height="800" alt="${escapeHtml(section.imageAlt ?? "")}" loading="lazy">
+        ${section.caption ? `<figcaption>${escapeHtml(section.caption)}</figcaption>` : ""}
+      </figure>` : ""}
       ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
       ${section.link ? `<a class="article-inline-link" href="${escapeHtml(section.link.href)}">${escapeHtml(section.link.label)}<span aria-hidden="true">→</span></a>` : ""}
     </section>`).join("");
@@ -937,13 +942,13 @@ function renderArticle(article) {
           <ul>${article.summary.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>
         </section>
 
-        ${renderConceptFlow(article.conceptFlow, article.conceptNote, article.conceptTitle)}
+        ${renderConceptFlow(article.conceptFlow, article.conceptNote, article.conceptTitle, article.conceptLayout)}
         ${renderComparison(article.comparison)}
         <div class="article-body">${articleBody}</div>
 
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">主な情報源</h2>
-          <p>公開日・更新日に確認した一次資料です。外部サイトへ移動します。</p>
+          <p>記事を書くときに確認した資料です。外部サイトへ移動します。</p>
           <ol>${sources}</ol>
         </section>
 
