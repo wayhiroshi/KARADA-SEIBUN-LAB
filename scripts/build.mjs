@@ -472,7 +472,7 @@ function renderHome() {
         <p class="hero-copy">本を読み、気になった言葉を一つずつほどく。</p>
         <p class="hero-description">核酸、栄養、健康食品。植井寛が本と公的な資料をたどり、図と文章でやさしく紹介します。</p>
         <div class="button-row">
-          <a class="button primary" href="/articles/kakusan-toha/">最初の記事を読む</a>
+          <a class="button primary" href="/articles/kakusan-toha/">核酸の基本から読む</a>
           <a class="button secondary" href="/about/">このラボについて</a>
         </div>
         <div class="hero-tags" aria-label="発信方法">
@@ -811,7 +811,7 @@ function renderIngredient(ingredient) {
 
         <section class="ingredient-first-seen" aria-labelledby="first-seen-title">
           <div><span>最初の紹介</span><time datetime="${escapeHtml(ingredient.firstIntroduced)}">${escapeHtml(formatJapaneseDate(ingredient.firstIntroduced))}</time></div>
-          <div><h2 id="first-seen-title">${escapeHtml(ingredient.firstLabel)}</h2><a class="text-link" href="${escapeHtml(ingredient.firstPath)}">この言葉を紹介したページを読む</a></div>
+          <div><h2 id="first-seen-title">${escapeHtml(ingredient.firstLabel)}</h2><a class="text-link" href="${escapeHtml(ingredient.firstPath)}">${escapeHtml(ingredient.firstLabel)}を読む</a></div>
         </section>
 
         <section class="sources ingredient-sources" aria-labelledby="ingredient-sources-title">
@@ -867,8 +867,9 @@ function renderComparison(rows) {
     </div>`;
 }
 
-function renderConceptFlow(items, note = "", title = "要点を、順番に見てみる") {
+function renderConceptFlow(items, note = "", title = "要点を、順番に見てみる", layout = "sequence") {
   if (!items?.length) return "";
+  const layoutClass = layout === "parallel" ? " concept-map-parallel" : "";
   const steps = items.map(([eyebrow, title, text], index) => `
     <li>
       <span class="concept-step-number">${String(index + 1).padStart(2, "0")}</span>
@@ -879,7 +880,7 @@ function renderConceptFlow(items, note = "", title = "要点を、順番に見�
       </div>
     </li>`).join("");
   return `
-    <section class="concept-map" aria-labelledby="concept-map-title">
+    <section class="concept-map${layoutClass}" aria-labelledby="concept-map-title">
       <p class="eyebrow">STUDY MAP</p>
       <h2 id="concept-map-title">${escapeHtml(title)}</h2>
       <ol>${steps}</ol>
@@ -892,6 +893,10 @@ function renderArticle(article) {
   const articleBody = article.sections.map((section) => `
     <section>
       <h2>${escapeHtml(section.title)}</h2>
+      ${section.image ? `<figure class="article-section-image${section.imageFit === "contain" ? " article-section-image--contain" : ""}">
+        <img src="${escapeHtml(section.image)}" width="1200" height="800" alt="${escapeHtml(section.imageAlt ?? "")}" loading="lazy">
+        ${section.caption ? `<figcaption>${escapeHtml(section.caption)}</figcaption>` : ""}
+      </figure>` : ""}
       ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
       ${section.link ? `<a class="article-inline-link" href="${escapeHtml(section.link.href)}">${escapeHtml(section.link.label)}<span aria-hidden="true">→</span></a>` : ""}
     </section>`).join("");
@@ -937,13 +942,13 @@ function renderArticle(article) {
           <ul>${article.summary.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>
         </section>
 
-        ${renderConceptFlow(article.conceptFlow, article.conceptNote, article.conceptTitle)}
+        ${renderConceptFlow(article.conceptFlow, article.conceptNote, article.conceptTitle, article.conceptLayout)}
         ${renderComparison(article.comparison)}
         <div class="article-body">${articleBody}</div>
 
         <section class="sources" aria-labelledby="sources-title">
           <h2 id="sources-title">主な情報源</h2>
-          <p>公開日・更新日に確認した一次資料です。外部サイトへ移動します。</p>
+          <p>記事を書くときに確認した資料です。外部サイトへ移動します。</p>
           <ol>${sources}</ol>
         </section>
 

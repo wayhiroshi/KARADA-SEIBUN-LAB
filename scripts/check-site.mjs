@@ -109,6 +109,7 @@ expect(home.includes("40代からの、やさしい学び直し"), "Home hero co
 expect(home.includes("知りたい言葉を、ひとつずつ"), "Home learning rhythm is missing");
 expect(home.includes("learning-together-v2.webp"), "Home hero image is missing");
 expect(home.includes("植井寛"), "Home author identity is missing");
+expect(home.includes('href="/articles/kakusan-toha/">核酸の基本から読む</a>'), "Home nucleic-acid guide link must use descriptive anchor text");
 expect((home.match(/class="article-card"/g) ?? []).length === Math.min(6, Math.max(articles.length - 1, 0)), "Home latest articles must be limited to 6 cards");
 expect((home.match(/class="topic-nav-card"/g) ?? []).length >= 5, "Home topic navigation is missing");
 expect(home.includes('data-analytics-location="home_social_card"'), "Home Instagram card is missing");
@@ -154,6 +155,7 @@ for (const [index, ingredient] of ingredients.entries()) {
   expect(html.includes(`<h1>${ingredient.name}</h1>`), `Ingredient title missing: ${ingredient.slug}`);
   expect(html.includes(`作成日</dt><dd><time datetime="${ingredient.created}"`), `Ingredient created date missing: ${ingredient.slug}`);
   expect(html.includes(`最終更新日</dt><dd><time datetime="${ingredient.updated}"`), `Ingredient updated date missing: ${ingredient.slug}`);
+  expect(html.includes(`>${ingredient.firstLabel}を読む</a>`), `Ingredient first-introduction link must use descriptive anchor text: ${ingredient.slug}`);
   expect(html.includes('"@type":"DefinedTerm"'), `Ingredient DefinedTerm structured data missing: ${ingredient.slug}`);
   expect(html.includes('"@type":"BreadcrumbList"'), `Ingredient BreadcrumbList structured data missing: ${ingredient.slug}`);
   expect((html.match(/class="ingredient-fact-card"/g) ?? []).length === 3, `Ingredient visual fact cards must be 3: ${ingredient.slug}`);

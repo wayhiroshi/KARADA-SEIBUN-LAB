@@ -2300,6 +2300,10 @@ a {
   transform: translateY(-50%);
 }
 
+.concept-map-parallel li::after {
+  display: none;
+}
+
 .concept-step-number {
   display: grid;
   width: 32px;
@@ -2401,6 +2405,47 @@ a {
 
 .article-body p + p {
   margin-top: 18px;
+}
+
+.article-section-image {
+  margin: 0 0 24px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 77, 61, 0.12);
+  border-radius: 20px;
+  background: #fbf6e9;
+  box-shadow: 0 14px 34px rgba(43, 65, 52, 0.08);
+}
+
+.article-section-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.article-section-image--contain {
+  padding: clamp(20px, 5vw, 44px);
+  background: #fffdf8;
+}
+
+.article-section-image--contain img {
+  width: min(100%, 510px);
+  margin-inline: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.article-section-image--contain figcaption {
+  margin: clamp(18px, 4vw, 28px) calc(clamp(20px, 5vw, 44px) * -1) calc(clamp(20px, 5vw, 44px) * -1);
+}
+
+.article-section-image figcaption {
+  padding: 12px 16px 14px;
+  color: #596159;
+  background: rgba(255, 252, 245, 0.96);
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 .table-scroll {
@@ -2962,6 +3007,11 @@ tbody tr:last-child td {
   .article-hero-image {
     margin-inline: -10px;
     border-radius: 18px;
+  }
+
+  .article-section-image {
+    margin-inline: -4px;
+    border-radius: 16px;
   }
 
   .profile-hero {
