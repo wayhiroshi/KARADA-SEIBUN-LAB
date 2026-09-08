@@ -11,6 +11,7 @@
     "prepare:brand": "node scripts/prepare-brand-assets.mjs",
     "render:logos": "node scripts/render-logo-concepts.mjs",
     "render:social": "node scripts/prepare-brand-assets.mjs && node scripts/render-social.mjs",
+    "render:social:nucleic-acid-campaign": "node scripts/render-nucleic-acid-campaign.mjs",
     "render:social:dna-baseball": "node scripts/render-dna-baseball.mjs",
     "render:article:cell-dna": "node scripts/render-cell-dna.mjs",
     "render:article:gene-dna": "node scripts/render-gene-dna.mjs",

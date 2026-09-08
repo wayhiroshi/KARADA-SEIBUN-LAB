@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-08-nucleic-acid-quick-guide",
+  "instagramUrl": "",
+  "status": "ready",
+  "articleSlug": "articles",
+  "articleUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev/articles/",
+  "campaignUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev/articles/?utm_source=instagram&utm_medium=social&utm_campaign=nucleic_acid_basics_202609&utm_content=quick_guide",
+  "caption": "核酸、DNA、RNA、ヌクレオチド。\n似た名前が続くと、頭の中で迷子になりませんか？\n\n最初に関係だけ整理すると、ぐっと読みやすくなります。\n\n核酸は、DNAとRNAをまとめた名前。\nヌクレオチドは、そのDNAやRNAを組み立てる小さな部品です。\nそしてヌクレオシドは、ヌクレオチドからリン酸を外した組み合わせ。\n\n4枚で、名前の地図を作りました。\n詳しい図解はプロフィールのリンクからどうぞ。\n\n#からだ成分ラボ #核酸 #DNA #RNA #ヌクレオチド #学び直し",
+  "voiceScript": "核酸、DNA、RNA、ヌクレオチド。似た名前が続くと迷いますよね。核酸はDNAとRNAをまとめた名前。ヌクレオチドは、その核酸をつくる小さな部品です。まずはこの関係が分かれば、次の記事が読みやすくなります。",
+  "slides": [
+    { "eyebrow": "30秒で整理", "title": "核酸の名前、\n迷子になっていませんか？", "body": "最初に関係だけつかむと、\nぐっと読みやすくなります。", "visual": "cover-map" },
+    { "eyebrow": "大きな仲間の名前", "title": "核酸の仲間は\nDNAとRNA", "body": "まずは、この二つをまとめた\n呼び名だと覚えます。", "visual": "family" },
+    { "eyebrow": "小さな部品", "title": "核酸をつくるのが\nヌクレオチド", "body": "リン酸・糖・塩基の三つが\n一組になっています。", "visual": "three-parts" },
+    { "eyebrow": "今日の地図", "title": "名前の関係が分かると、\n記事がもっと面白くなる", "body": "気になる言葉から、\n一つずつ見ていきましょう。", "visual": "answer" }
+  ]
+}
