@@ -128,11 +128,14 @@ expect(articleIndex.includes('id="topic-nucleic-acid-basics"'), "Nucleic-acid to
 expect(articleIndex.includes('"@type":"ItemList"'), "Article index ItemList structured data is missing");
 expect(articleIndex.includes('"@type":"BreadcrumbList"'), "Article index BreadcrumbList structured data is missing");
 expect(articleIndex.includes("核酸はじめてガイド"), "Beginner guide heading is missing");
+expect(articleIndex.includes("核酸の名前を、30秒で整理"), "Nucleic-acid quick reference heading is missing");
+expect((articleIndex.match(/data-analytics-location="nucleic_acid_quick_reference"/g) ?? []).length === 4, "Nucleic-acid quick reference must contain 4 tracked links");
 expect((articleIndex.match(/data-analytics-location="beginner_guide"/g) ?? []).length === 6, "Beginner guide must contain 6 tracked article links");
 expect([
   "kakusan-toha",
   "what-is-a-nucleotide",
   "dna-rna-nucleotide",
+  "nucleotide-vs-nucleoside",
   "dna-doko-ni-aru",
   "dna-mrna-transcription"
 ].every((slug) => articleIndex.includes(`href="/articles/${slug}/"`)), "Beginner guide article path is missing");
@@ -523,8 +526,8 @@ for (const post of allSocialPosts) {
     }
   }
 }
-expect(allSocialPosts.length === 15, `Expected 15 social post sets, got ${allSocialPosts.length}`);
-expect(socialSlides === 69, `Expected 69 social slides, got ${socialSlides}`);
+expect(allSocialPosts.length === 18, `Expected 18 social post sets, got ${allSocialPosts.length}`);
+expect(socialSlides === 81, `Expected 81 social slides, got ${socialSlides}`);
 const publishedSocialPosts = allSocialPosts.filter((post) => post.status === "published").length;
 expect(publishedSocialPosts === 13, `Expected 13 published social posts, got ${publishedSocialPosts}`);
 
