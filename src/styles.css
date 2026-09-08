@@ -2029,6 +2029,81 @@ a {
   margin-bottom: 52px;
 }
 
+.nucleic-acid-quick-reference {
+  margin: 0 0 34px;
+  padding: clamp(26px, 4vw, 42px);
+  border-radius: 28px;
+  color: #fff;
+  background: linear-gradient(135deg, #315f49 0%, #47785d 58%, #72906d 100%);
+  box-shadow: 0 18px 46px rgba(42, 82, 60, 0.16);
+}
+
+.quick-reference-heading {
+  max-width: 720px;
+}
+
+.quick-reference-heading .eyebrow {
+  color: #f5d8c6;
+}
+
+.quick-reference-heading h2 {
+  margin: 0;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-size: clamp(25px, 4vw, 36px);
+  line-height: 1.45;
+}
+
+.quick-reference-heading > p:last-child {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.8;
+}
+
+.quick-reference-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.quick-reference-card {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  min-height: 116px;
+  padding: 18px 52px 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.quick-reference-card:hover,
+.quick-reference-card:focus-visible {
+  background: rgba(255, 255, 255, 0.17);
+  transform: translateY(-2px);
+}
+
+.quick-reference-card strong {
+  font-size: 18px;
+}
+
+.quick-reference-card span:not(.quick-reference-arrow) {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.quick-reference-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  font-size: 22px;
+  transform: translateY(-50%);
+}
+
 .beginner-guide {
   display: grid;
   grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
@@ -2704,6 +2779,14 @@ tbody tr:last-child td {
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 24px 18px;
+  }
+
+  .quick-reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-reference-card {
+    min-height: 0;
   }
 
   .learning-rhythm ol {

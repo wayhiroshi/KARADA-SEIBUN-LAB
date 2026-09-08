@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-12-nucleotide-structure",
+  "instagramUrl": "",
+  "status": "ready",
+  "articleSlug": "what-is-a-nucleotide",
+  "articleUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev/articles/what-is-a-nucleotide/",
+  "campaignUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev/articles/what-is-a-nucleotide/?utm_source=instagram&utm_medium=social&utm_campaign=nucleic_acid_basics_202609&utm_content=nucleotide_structure",
+  "caption": "DNAやRNAを、どこまで小さく見ていけるでしょう。\n\n長い鎖を一粒ずつに分けると、ヌクレオチドという小さな部品にたどり着きます。\nその一粒は、リン酸・糖・塩基の三つで一組。\n\nビーズのようにつながり、塩基の並び順が情報になります。\n構造が分かると、DNAやRNAが急に「形のあるもの」に見えてきます。\n\n詳しい図解はプロフィールのリンクからどうぞ。\n\n#からだ成分ラボ #ヌクレオチド #核酸の構造 #DNA #RNA #生命科学",
+  "voiceScript": "DNAやRNAを小さく見ていくと、ヌクレオチドという部品にたどり着きます。一粒はリン酸、糖、塩基の三つで一組。これがビーズのようにつながり、塩基の並び順が情報になります。",
+  "slides": [
+    { "eyebrow": "小さく見てみる", "title": "DNAとRNAは、\n何でできている？", "body": "長い鎖を一粒ずつに分けると、\n小さな部品が見えてきます。", "visual": "cover-chain" },
+    { "eyebrow": "部品の名前", "title": "一粒が\nヌクレオチド", "body": "DNAやRNAを組み立てる\n基本の部品です。", "visual": "beads" },
+    { "eyebrow": "一粒の中を見る", "title": "リン酸・糖・塩基の\n三つで一組", "body": "小さな一粒にも、\nきちんとした構造があります。", "visual": "three-parts" },
+    { "eyebrow": "今日わかったこと", "title": "一粒ずつがつながり、\nDNAとRNAになる", "body": "塩基の並び順が、\n情報を担います。", "visual": "answer" }
+  ]
+}

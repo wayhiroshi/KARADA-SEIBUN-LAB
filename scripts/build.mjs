@@ -60,6 +60,28 @@ const beginnerGuide = [
   ...step,
   article: articles.find((article) => article.slug === step.slug)
 }));
+const nucleicAcidQuickReference = [
+  {
+    slug: "kakusan-toha",
+    term: "核酸",
+    note: "DNAとRNAをまとめた、分子の仲間の名前です。"
+  },
+  {
+    slug: "what-is-a-nucleotide",
+    term: "ヌクレオチド",
+    note: "リン酸・糖・塩基からできた、核酸の小さな部品です。"
+  },
+  {
+    slug: "nucleotide-vs-nucleoside",
+    term: "ヌクレオシド",
+    note: "糖と塩基の組み合わせ。ヌクレオチドからリン酸を外した形です。"
+  },
+  {
+    slug: "dna-rna-nucleotide",
+    term: "DNAとRNA",
+    note: "使う糖や塩基、形、得意な仕事に違いがあります。"
+  }
+];
 const articleTopicDefinitions = [
   {
     id: "nucleic-acid-basics",
@@ -617,6 +639,12 @@ function renderArticleIndex() {
             <span class="guide-step-arrow" aria-hidden="true">→</span>
           </a>
         </li>`).join("");
+  const quickReferenceItems = nucleicAcidQuickReference.map((item) => `
+        <a class="quick-reference-card" href="/articles/${escapeHtml(item.slug)}/" data-analytics-event="learning_path_click" data-analytics-location="nucleic_acid_quick_reference" data-content-id="${escapeHtml(item.slug)}">
+          <strong>${escapeHtml(item.term)}</strong>
+          <span>${escapeHtml(item.note)}</span>
+          <span class="quick-reference-arrow" aria-hidden="true">→</span>
+        </a>`).join("");
   const topicSections = articleTopics.map((topic) => `
       <section class="article-topic-group" id="topic-${escapeHtml(topic.id)}" aria-labelledby="topic-${escapeHtml(topic.id)}-title">
         <div class="article-topic-heading">
@@ -633,11 +661,19 @@ function renderArticleIndex() {
         <h1>核酸と成分の記事</h1>
         <p>気になる成分や研究を、基礎からゆっくり確かめるための記事です。</p>
       </header>
+      <section class="nucleic-acid-quick-reference" aria-labelledby="nucleic-acid-quick-reference-title">
+        <div class="quick-reference-heading">
+          <p class="eyebrow">QUICK GUIDE</p>
+          <h2 id="nucleic-acid-quick-reference-title">核酸の名前を、30秒で整理</h2>
+          <p>似た言葉も、親子関係が分かるとすっきりします。気になる名前から詳しい記事へ進めます。</p>
+        </div>
+        <div class="quick-reference-grid">${quickReferenceItems}</div>
+      </section>
       <section class="beginner-guide" aria-labelledby="beginner-guide-title">
         <div class="beginner-guide-intro">
           <p class="eyebrow">START HERE</p>
           <h2 id="beginner-guide-title">核酸はじめてガイド</h2>
-          <p>「どれから読めばいい？」と迷ったら、この5本を順番にどうぞ。小さな部品から体の中での働きまで、一段ずつつながります。</p>
+          <p>「どれから読めばいい？」と迷ったら、この6本を順番にどうぞ。小さな部品から体の中での働きまで、一段ずつつながります。</p>
         </div>
         <ol>${guideItems}</ol>
       </section>

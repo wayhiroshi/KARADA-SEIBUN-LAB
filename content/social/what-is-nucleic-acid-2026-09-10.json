@@ -1,0 +1,16 @@
+{
+  "id": "2026-09-10-what-is-nucleic-acid",
+  "instagramUrl": "",
+  "status": "ready",
+  "articleSlug": "kakusan-toha",
+  "articleUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev/articles/kakusan-toha/",
+  "campaignUrl": "https://karada-seibun-lab.way-hiroshi-66.workers.dev/articles/kakusan-toha/?utm_source=instagram&utm_medium=social&utm_campaign=nucleic_acid_basics_202609&utm_content=what_is_nucleic_acid",
+  "caption": "「核酸」って、特別な一つの成分名だと思っていました。\n\n調べてみると、核酸はDNAとRNAをまとめた名前。\n本棚に小説と図鑑が並ぶように、同じ仲間の中に役割の違う二つがいるイメージです。\n\nDNAは情報を長く保ち、RNAはその情報を使う場面で活躍します。\n難しそうな言葉も、まず家族関係から見ると親しみやすくなります。\n\n詳しい図解はプロフィールのリンクからどうぞ。\n\n#からだ成分ラボ #核酸とは #DNA #RNA #からだのしくみ #学び直し",
+  "voiceScript": "核酸って、一つの特別な成分名だと思っていませんか。実は、DNAとRNAをまとめた仲間の名前です。DNAは情報を長く保ち、RNAはその情報を使う場面で活躍します。まずは二つの家族だと分かれば十分です。",
+  "slides": [
+    { "eyebrow": "言葉の入口", "title": "「核酸」って、\n一つの成分名？", "body": "難しそうな名前を、\n家族関係から見てみます。", "visual": "cover-question" },
+    { "eyebrow": "先に答えると", "title": "核酸は、\nDNAとRNAの総称", "body": "役割の違う二つをまとめた\n仲間の名前です。", "visual": "family" },
+    { "eyebrow": "得意な仕事", "title": "保つDNA、\n使う場面で働くRNA", "body": "同じ核酸でも、\n得意な役割が違います。", "visual": "roles" },
+    { "eyebrow": "今日わかったこと", "title": "核酸には、\nDNAとRNAがある", "body": "この関係を入口に、\n一つずつ見ていきましょう。", "visual": "answer" }
+  ]
+}
