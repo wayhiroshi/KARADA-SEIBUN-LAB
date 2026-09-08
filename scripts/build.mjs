@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
+import { createGlossaryRenderer } from "./glossary-links.mjs";
 
 const root = process.cwd();
 const dist = path.join(root, process.env.BUILD_DIR || "dist");
@@ -13,6 +14,7 @@ const allArticles = JSON.parse(await readFile(path.join(root, "content", "articl
 const includeDrafts = process.env.INCLUDE_DRAFTS === "1";
 const articles = allArticles.filter((article) => !article.draft || includeDrafts);
 const ingredients = JSON.parse(await readFile(path.join(root, "content", "ingredients.json"), "utf8"));
+const renderGlossaryText = createGlossaryRenderer(ingredients, escapeHtml);
 const mangaCast = JSON.parse(await readFile(path.join(root, "content", "manga-cast.json"), "utf8"));
 const books = JSON.parse(await readFile(path.join(root, "content", "books.json"), "utf8"));
 const favorites = JSON.parse(await readFile(path.join(root, "content", "favorites.json"), "utf8"));
@@ -38,6 +40,11 @@ const beginnerGuide = [
     slug: "dna-rna-nucleotide",
     label: "DNAとRNAを見分ける",
     note: "よく似た二つの違いを、形と役割から比べます。"
+  },
+  {
+    slug: "nucleotide-vs-nucleoside",
+    label: "名前が似た二つを見分ける",
+    note: "ヌクレオチドとヌクレオシドの違いを、リン酸に注目して整理します。"
   },
   {
     slug: "dna-doko-ni-aru",
@@ -692,6 +699,7 @@ function renderIngredientIndexCard(ingredient) {
       <div class="ingredient-timeline-copy">
         <p class="ingredient-kind">${escapeHtml(ingredient.kind)}</p>
         <h2><a href="/ingredients/${escapeHtml(ingredient.slug)}/">${escapeHtml(ingredient.name)}</a></h2>
+        ${ingredient.englishName ? `<p class="ingredient-english" lang="en">${escapeHtml(ingredient.englishName)}</p>` : ""}
         <p>${escapeHtml(ingredient.summary)}</p>
         <dl class="ingredient-dates">
           <div><dt>作成日</dt><dd><time datetime="${escapeHtml(ingredient.created)}">${escapeHtml(formatJapaneseDate(ingredient.created))}</time></dd></div>
@@ -783,6 +791,7 @@ function renderIngredient(ingredient) {
             <p class="ingredient-kind">${escapeHtml(ingredient.kind)}</p>
             <h1>${escapeHtml(ingredient.name)}</h1>
             <p class="ingredient-reading">${escapeHtml(ingredient.reading)}</p>
+            ${ingredient.englishName ? `<p class="ingredient-english" lang="en">${escapeHtml(ingredient.englishName)}</p>` : ""}
             <p class="ingredient-answer">${escapeHtml(ingredient.summary)}</p>
             <dl class="ingredient-dates prominent">
               <div><dt>作成日</dt><dd><time datetime="${escapeHtml(ingredient.created)}">${escapeHtml(formatJapaneseDate(ingredient.created))}</time></dd></div>
@@ -897,11 +906,11 @@ function renderArticle(article) {
         <img src="${escapeHtml(section.image)}" width="1200" height="800" alt="${escapeHtml(section.imageAlt ?? "")}" loading="lazy">
         ${section.caption ? `<figcaption>${escapeHtml(section.caption)}</figcaption>` : ""}
       </figure>` : ""}
-      ${section.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+      ${(() => { const seen = new Set(); return section.paragraphs.map((paragraph) => `<p>${renderGlossaryText(paragraph, seen)}</p>`).join(""); })()}
       ${section.link ? `<a class="article-inline-link" href="${escapeHtml(section.link.href)}">${escapeHtml(section.link.label)}<span aria-hidden="true">→</span></a>` : ""}
     </section>`).join("");
   const sources = article.sources.map((source) => `
-    <li><a href="${escapeHtml(source.url)}" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`).join("");
+    <li><a href="${escapeHtml(source.url)}" rel="noopener noreferrer">${escapeHtml(source.label)}</a>${source.note ? `<p>${escapeHtml(source.note)}</p>` : ""}</li>`).join("");
   const specifiedRelated = (article.relatedSlugs ?? [])
     .map((slug) => articles.find((candidate) => candidate.slug === slug))
     .filter(Boolean);

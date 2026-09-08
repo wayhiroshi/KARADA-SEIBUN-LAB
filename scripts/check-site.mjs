@@ -128,7 +128,7 @@ expect(articleIndex.includes('id="topic-nucleic-acid-basics"'), "Nucleic-acid to
 expect(articleIndex.includes('"@type":"ItemList"'), "Article index ItemList structured data is missing");
 expect(articleIndex.includes('"@type":"BreadcrumbList"'), "Article index BreadcrumbList structured data is missing");
 expect(articleIndex.includes("核酸はじめてガイド"), "Beginner guide heading is missing");
-expect((articleIndex.match(/data-analytics-location="beginner_guide"/g) ?? []).length === 5, "Beginner guide must contain 5 tracked article links");
+expect((articleIndex.match(/data-analytics-location="beginner_guide"/g) ?? []).length === 6, "Beginner guide must contain 6 tracked article links");
 expect([
   "kakusan-toha",
   "what-is-a-nucleotide",
