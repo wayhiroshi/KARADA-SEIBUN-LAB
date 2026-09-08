@@ -1,5 +1,666 @@
 [
   {
+    "slug": "nucleoside",
+    "name": "ヌクレオシド",
+    "englishName": "Nucleoside",
+    "reading": "ぬくれおしど",
+    "shortLabel": "NUCLEOSIDE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-28",
+    "firstLabel": "記事「食べた核酸は、体の中でどう使われるの？」",
+    "firstPath": "/articles/how-the-body-uses-dietary-nucleic-acids/",
+    "summary": "塩基と糖が結び付いた、核酸の材料の一つです。",
+    "lead": "ヌクレオチドと名前がよく似ています。見分ける目印はリン酸。ヌクレオシドには、リン酸が付いていません。",
+    "visualTitle": "塩基と糖で一組",
+    "visualItems": [
+      "塩基",
+      "糖",
+      "リン酸なし"
+    ],
+    "facts": [
+      [
+        "どんな形？",
+        "塩基に、リボースまたはデオキシリボースという糖が結び付いています。"
+      ],
+      [
+        "ヌクレオチドとの関係",
+        "ここへリン酸が一つ以上付くと、ヌクレオチドになります。名前を区別すると、材料の状態を読み分けられます。"
+      ],
+      [
+        "身近な例は？",
+        "アデノシンはヌクレオシドの一つです。ATPの名前にある「アデノシン」も、この分子を指します。"
+      ]
+    ],
+    "related": [
+      "ヌクレオシドは、ヌクレオチドを用意する再利用の道にも登場します。"
+    ],
+    "sources": [
+      [
+        "Cold Spring Harbor：ヌクレオチドの代謝",
+        "https://cshperspectives.cshlp.org/content/13/7/a040592.full"
+      ]
+    ]
+  },
+  {
+    "slug": "phosphate",
+    "name": "リン酸",
+    "englishName": "Phosphate",
+    "reading": "りんさん",
+    "shortLabel": "PHOSPHATE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "核酸やATPの構造に組み込まれ、体の中で受け渡される部品です。",
+    "lead": "DNAやRNAの図に出てくるリン酸は、糖と交互につながって鎖の骨組みを作ります。ATPにも含まれています。",
+    "visualTitle": "核酸とATPに共通する部品",
+    "visualItems": [
+      "DNA",
+      "RNA",
+      "ATP"
+    ],
+    "facts": [
+      [
+        "リンとは違う？",
+        "リンは元素の名前です。体内では主に、リンに酸素が結び付いたリン酸の形で存在します。"
+      ],
+      [
+        "付けたり外したりする理由",
+        "リン酸の付き方が変わると、分子の性質も変わります。細胞は酵素を使って、この付け外しを行います。"
+      ],
+      [
+        "食事とのつながり",
+        "魚、肉、卵、乳製品、豆などにはリンが含まれます。取り込まれたリンは、骨や細胞などで使われます。"
+      ]
+    ],
+    "related": [
+      "ヌクレオシドにリン酸が付くと、ヌクレオチドになります。"
+    ],
+    "sources": [
+      [
+        "NIH：リンの役割",
+        "https://ods.od.nih.gov/factsheets/Phosphorus-HealthProfessional/"
+      ],
+      [
+        "NCBI Bookshelf：細胞をつくる化学成分",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ]
+    ]
+  },
+  {
+    "slug": "nucleobase",
+    "name": "塩基",
+    "englishName": "Nucleobase",
+    "reading": "えんき",
+    "shortLabel": "BASE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「核酸とは、何のこと？」",
+    "firstPath": "/articles/kakusan-toha/",
+    "summary": "DNAやRNAで、情報の「文字」にあたる部品です。",
+    "lead": "DNAのA・T・G・Cは、四種類の塩基を表しています。どの順番で並ぶかが、情報になります。",
+    "visualTitle": "DNAの四つの文字",
+    "visualItems": [
+      "A",
+      "T",
+      "G・C"
+    ],
+    "facts": [
+      [
+        "文字の正体",
+        "Aはアデニン、Tはチミン、Gはグアニン、Cはシトシンです。RNAではTの代わりにU（ウラシル）が使われます。"
+      ],
+      [
+        "核酸のどの部分？",
+        "塩基に糖が結び付くとヌクレオシド、さらにリン酸が付くとヌクレオチドになります。"
+      ],
+      [
+        "並び方が情報になる",
+        "同じ文字でも、順番が変われば言葉が変わります。DNAでも塩基の並びが情報を担います。"
+      ]
+    ],
+    "related": [
+      "ここでいう塩基は、核酸を構成する塩基のことです。"
+    ],
+    "sources": [
+      [
+        "NCBI Bookshelf：細胞をつくる化学成分",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ]
+    ]
+  },
+  {
+    "slug": "ribose",
+    "name": "リボース",
+    "englishName": "Ribose",
+    "reading": "りぼーす",
+    "shortLabel": "RIBOSE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "RNAやATPの部品になる、小さな糖です。",
+    "lead": "糖は、甘いものやエネルギー源としてだけ登場するわけではありません。リボースは、分子の骨組みを支える材料です。",
+    "visualTitle": "RNAとATPの中にある糖",
+    "visualItems": [
+      "糖",
+      "RNA",
+      "ATP"
+    ],
+    "facts": [
+      [
+        "どこにある？",
+        "RNAを作るヌクレオチドには、リボースが含まれています。ATPもリボースを含むヌクレオチドです。"
+      ],
+      [
+        "DNAの糖との違い",
+        "DNAに使われる糖はデオキシリボースです。リボースより酸素原子が一つ少ない構造をしています。"
+      ],
+      [
+        "どんな糖？",
+        "五つの炭素原子を持つ糖で、五炭糖と呼ばれます。RNAの一つひとつの部品に含まれています。"
+      ]
+    ],
+    "related": [
+      "RNAの正式名「リボ核酸」の「リボ」は、リボースに由来します。"
+    ],
+    "sources": [
+      [
+        "NCBI Bookshelf：細胞をつくる化学成分",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ]
+    ]
+  },
+  {
+    "slug": "deoxyribose",
+    "name": "デオキシリボース",
+    "englishName": "Deoxyribose",
+    "reading": "でおきしりぼーす",
+    "shortLabel": "DEOXYRIBOSE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "DNAの骨組みを作る糖です。",
+    "lead": "DNAの長い鎖では、デオキシリボースとリン酸が交互につながっています。その糖に、情報を表す塩基が結び付いています。",
+    "visualTitle": "DNAを支える骨組み",
+    "visualItems": [
+      "糖",
+      "リン酸",
+      "塩基"
+    ],
+    "facts": [
+      [
+        "名前の手がかり",
+        "リボースに比べて酸素原子が一つ少ない糖です。「デオキシ」という名前は、この違いを表しています。"
+      ],
+      [
+        "RNAでは何を使う？",
+        "RNAはリボースを使います。DNAとRNAは、骨組みに使う糖にも違いがあります。"
+      ],
+      [
+        "塩基とのつながり",
+        "A・T・G・Cにあたる塩基は、この糖に結び付いています。糖とリン酸の骨組みに、情報を担う塩基が並びます。"
+      ]
+    ],
+    "related": [
+      "DNAの正式名「デオキシリボ核酸」は、この糖の名前とつながっています。"
+    ],
+    "sources": [
+      [
+        "NCBI Bookshelf：細胞をつくる化学成分",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ]
+    ]
+  },
+  {
+    "slug": "amino-acid",
+    "name": "アミノ酸",
+    "englishName": "Amino acid",
+    "reading": "あみのさん",
+    "shortLabel": "AMINO ACID",
+    "kind": "栄養・体の用語",
+    "group": "molecule",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-28",
+    "firstLabel": "記事「食べた核酸は、体の中でどう使われるの？」",
+    "firstPath": "/articles/how-the-body-uses-dietary-nucleic-acids/",
+    "summary": "タンパク質を組み立てる、小さな材料です。",
+    "lead": "魚や卵などのタンパク質は、消化で小さく分かれます。吸収されたアミノ酸は、体が必要とするタンパク質などを作るために使われます。",
+    "visualTitle": "小さな材料からタンパク質へ",
+    "visualItems": [
+      "アミノ酸",
+      "つながる",
+      "タンパク質"
+    ],
+    "facts": [
+      [
+        "どのくらい種類がある？",
+        "人のタンパク質を作る基本のアミノ酸は20種類です。並び方や数によって、できるタンパク質が変わります。"
+      ],
+      [
+        "必須アミノ酸とは？",
+        "体内で必要な量を作れず、食事から取る必要があるアミノ酸です。「必須」は、食事から補う必要があることを表します。"
+      ],
+      [
+        "体のどこへ行く？",
+        "小腸で吸収されたアミノ酸は血液に入り、まず肝臓へ運ばれます。体の各所でも材料として使われます。"
+      ]
+    ],
+    "related": [
+      "アミノ酸が部品なら、タンパク質はその部品が長くつながって形を作ったものです。"
+    ],
+    "sources": [
+      [
+        "NHGRI：Amino-Acids",
+        "https://www.genome.gov/genetics-glossary/Amino-Acids"
+      ],
+      [
+        "NIDDK：消化器の仕組み",
+        "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
+      ]
+    ]
+  },
+  {
+    "slug": "protein",
+    "name": "タンパク質",
+    "englishName": "Protein",
+    "reading": "たんぱくしつ",
+    "shortLabel": "PROTEIN",
+    "kind": "栄養・体の用語",
+    "group": "molecule",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "アミノ酸がつながってできた、体の材料にも働き手にもなる分子です。",
+    "lead": "タンパク質の仕事は、筋肉を作ることだけではありません。体の構造を支えたり、物を運んだり、化学反応を進めたりしています。",
+    "visualTitle": "体を支える、運ぶ、働く",
+    "visualItems": [
+      "構造",
+      "運搬",
+      "酵素"
+    ],
+    "facts": [
+      [
+        "何からできている？",
+        "アミノ酸が鎖のようにつながり、折りたたまれて立体的な形を作ります。その形が働きと深く関係しています。"
+      ],
+      [
+        "食べた後は？",
+        "食べ物のタンパク質は消化で小さく分けられます。体は吸収した材料を使い、自分に必要なタンパク質を組み立てます。"
+      ],
+      [
+        "身近な食品では？",
+        "肉、魚、卵、乳製品、大豆製品などに含まれています。食事で取るタンパク質も、アミノ酸からできています。"
+      ]
+    ],
+    "related": [
+      "消化などを助ける酵素も、多くはタンパク質です。"
+    ],
+    "sources": [
+      [
+        "NHGRI：Protein",
+        "https://www.genome.gov/genetics-glossary/Protein"
+      ],
+      [
+        "NIDDK：消化器の仕組み",
+        "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
+      ]
+    ],
+    "aliases": [
+      "たんぱく質",
+      "蛋白質"
+    ]
+  },
+  {
+    "slug": "enzyme",
+    "name": "酵素",
+    "englishName": "Enzyme",
+    "reading": "こうそ",
+    "shortLabel": "ENZYME",
+    "kind": "栄養・体の用語",
+    "group": "molecule",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-21",
+    "firstLabel": "記事「サラシアがダイエット茶に入っているのは、なぜ？」",
+    "firstPath": "/articles/is-salacia-an-ingredient/",
+    "summary": "体の中の化学反応を、進みやすくする働き手です。",
+    "lead": "食べ物を分解するときも、細胞が材料を組み立てるときも、酵素が働きます。それぞれの酵素に、得意な相手と反応があります。",
+    "visualTitle": "反応を助ける働き手",
+    "visualItems": [
+      "分解",
+      "組み立て",
+      "受け渡し"
+    ],
+    "facts": [
+      [
+        "何でできている？",
+        "多くの酵素はタンパク質です。相手となる物質と結び付き、特定の反応を速めます。"
+      ],
+      [
+        "消化酵素とは？",
+        "消化に関わる酵素のことです。でんぷんやタンパク質などを、吸収につながる小さな材料へ分けます。"
+      ],
+      [
+        "相手によって担当が違う",
+        "でんぷんを分解する酵素と、タンパク質を分解する酵素は別です。酵素ごとに、受け持つ反応が決まっています。"
+      ]
+    ],
+    "related": [
+      "酵素は、核酸の鎖を切ったり、材料へリン酸を付けたりする反応にも関わります。"
+    ],
+    "sources": [
+      [
+        "NCBI Bookshelf：細胞をつくる化学成分",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ],
+      [
+        "NIDDK：消化器の仕組み",
+        "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
+      ]
+    ]
+  },
+  {
+    "slug": "glucose",
+    "name": "ブドウ糖",
+    "englishName": "Glucose",
+    "reading": "ぶどうとう",
+    "shortLabel": "GLUCOSE",
+    "kind": "栄養・体の用語",
+    "group": "molecule",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-29",
+    "firstLabel": "記事「食べたものは、体の中で何に分かれるの？」",
+    "firstPath": "/articles/what-does-food-break-down-into/",
+    "summary": "体がエネルギー源として使う、単糖の一つです。",
+    "lead": "ごはんやパンのでんぷんは、消化を経てブドウ糖になります。ブドウ糖は小腸から吸収され、血液で運ばれます。",
+    "visualTitle": "食事から体のエネルギーへ",
+    "visualItems": [
+      "でんぷん",
+      "ブドウ糖",
+      "血液"
+    ],
+    "facts": [
+      [
+        "単糖って何？",
+        "糖の最も小さな単位のことです。ブドウ糖のほかに、果糖やガラクトースなどがあります。"
+      ],
+      [
+        "血糖との関係",
+        "血液中のブドウ糖を血糖と呼びます。その濃度を表す数字が血糖値です。"
+      ],
+      [
+        "吸収された後は？",
+        "血液に入ったブドウ糖は、まず肝臓へ運ばれます。体で使われるほか、必要に応じて蓄えられます。"
+      ]
+    ],
+    "related": [
+      "でんぷんは、多数のブドウ糖がつながったものです。"
+    ],
+    "sources": [
+      [
+        "NIDDK：消化器の仕組み",
+        "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
+      ]
+    ],
+    "aliases": [
+      "グルコース"
+    ]
+  },
+  {
+    "slug": "gene",
+    "name": "遺伝子",
+    "englishName": "Gene",
+    "reading": "いでんし",
+    "shortLabel": "GENE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "DNAの中にある、タンパク質や働くRNAを作る情報のまとまりです。",
+    "lead": "DNAを長い本にたとえるなら、遺伝子はその中の意味を持つ章にあたります。DNA全体と、その一部にある遺伝子を分けると、関係が見えてきます。",
+    "visualTitle": "DNAの中の情報のまとまり",
+    "visualItems": [
+      "DNA",
+      "遺伝子",
+      "RNA"
+    ],
+    "facts": [
+      [
+        "DNAと同じもの？",
+        "DNAは分子の名前、遺伝子はそのDNAにある情報の区間を指す言葉です。"
+      ],
+      [
+        "細胞によって使い方が違う",
+        "皮膚や筋肉などの細胞は、必要な遺伝子を使って働きます。持っているDNAがほぼ同じでも、使う情報の組み合わせが違います。"
+      ],
+      [
+        "RNAとも関係がある？",
+        "遺伝子の情報はRNAへ写されます。そのRNA自体が働く場合と、タンパク質を作るために使われる場合があります。"
+      ]
+    ],
+    "related": [
+      "遺伝子の英語はgeneです。DNAという略称とは別の言葉です。"
+    ],
+    "sources": [
+      [
+        "NHGRI：Gene",
+        "https://www.genome.gov/genetics-glossary/Gene"
+      ]
+    ]
+  },
+  {
+    "slug": "chromosome",
+    "name": "染色体",
+    "englishName": "Chromosome",
+    "reading": "せんしょくたい",
+    "shortLabel": "CHROMOSOME",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-06",
+    "firstLabel": "記事「DNAは体のどこにあるの？」",
+    "firstPath": "/articles/dna-doko-ni-aru/",
+    "summary": "長いDNAがタンパク質とともに整理されたものです。",
+    "lead": "とても長いDNAも、細胞の中ではきちんと収まっています。DNAを巻き付け、折りたたんでまとめるタンパク質が、その収納を支えています。",
+    "visualTitle": "DNAを整理して収める",
+    "visualItems": [
+      "DNA",
+      "タンパク質",
+      "染色体"
+    ],
+    "facts": [
+      [
+        "人には何本ある？",
+        "人の一般的な体細胞の核には23対、合計46本の染色体があります。精子や卵子では23本です。"
+      ],
+      [
+        "遺伝子はどこにある？",
+        "染色体を構成するDNAの中に、数多くの遺伝子があります。染色体、DNA、遺伝子は、大きさの違う階層の言葉です。"
+      ],
+      [
+        "いつもXの形？",
+        "よく見るX形は、DNAが複製され、細胞分裂に向けて凝縮した姿です。いつもその形をしているわけではありません。"
+      ]
+    ],
+    "related": [
+      "核は収納場所、染色体は整理された束、DNAはその中の長い糸、と考えると位置関係をつかめます。"
+    ],
+    "sources": [
+      [
+        "NHGRI：Chromosome",
+        "https://www.genome.gov/genetics-glossary/Chromosome"
+      ]
+    ]
+  },
+  {
+    "slug": "mitochondria",
+    "name": "ミトコンドリア",
+    "englishName": "Mitochondria",
+    "reading": "みとこんどりあ",
+    "shortLabel": "MITOCHONDRIA",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-06",
+    "firstLabel": "記事「DNAは体のどこにあるの？」",
+    "firstPath": "/articles/dna-doko-ni-aru/",
+    "summary": "細胞の中で、エネルギーの受け渡しに使うATPを作る場所の一つです。",
+    "lead": "ミトコンドリアは、細胞の中にある小さな器官です。食べ物から得た材料を利用し、細胞の仕事に必要なATPを作ります。",
+    "visualTitle": "細胞の中のATPづくり",
+    "visualItems": [
+      "細胞",
+      "ATP",
+      "独自のDNA"
+    ],
+    "facts": [
+      [
+        "どこにある？",
+        "人の多くの細胞の中にあります。成熟した赤血球のように、ミトコンドリアを持たない細胞もあります。"
+      ],
+      [
+        "DNAもあるの？",
+        "核にあるDNAとは別に、ミトコンドリア自身の小さなDNAがあります。DNAは核だけにあるわけではありません。"
+      ],
+      [
+        "数は同じ？",
+        "細胞の種類や状態によって数が変わります。エネルギーを多く使う細胞には、多くのミトコンドリアがあります。"
+      ]
+    ],
+    "related": [
+      "ATPはエネルギーを受け渡す分子、ミトコンドリアはそれを作る場所の一つです。"
+    ],
+    "sources": [
+      [
+        "NHGRI：Mitochondria",
+        "https://www.genome.gov/genetics-glossary/Mitochondria"
+      ]
+    ]
+  },
+  {
+    "slug": "salvage-pathway",
+    "name": "サルベージ経路",
+    "englishName": "Salvage pathway",
+    "reading": "さるべーじけいろ",
+    "shortLabel": "SALVAGE",
+    "kind": "核酸・細胞の用語",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-08-28",
+    "firstLabel": "記事「食べた核酸は、体の中でどう使われるの？」",
+    "firstPath": "/articles/how-the-body-uses-dietary-nucleic-acids/",
+    "summary": "塩基やヌクレオシドを回収し、ヌクレオチドへ組み直す道です。",
+    "lead": "細胞は、材料を一から作るだけでなく、使える部品をもう一度利用します。この再利用の仕組みを、サルベージ経路と呼びます。",
+    "visualTitle": "使える部品を、もう一度",
+    "visualItems": [
+      "回収",
+      "組み直す",
+      "再利用"
+    ],
+    "facts": [
+      [
+        "何を回収する？",
+        "核酸などの分解で生まれた塩基やヌクレオシドが材料になります。酵素の働きで、ヌクレオチドへ戻します。"
+      ],
+      [
+        "新しく作る道との関係",
+        "糖やアミノ酸などから新しく作る道もあります。細胞は、新規合成と再利用を組み合わせて材料を用意します。"
+      ],
+      [
+        "どこで行われる？",
+        "実際に部品を組み直すのは細胞です。肝臓だけでなく、体のさまざまな組織で再利用が行われています。"
+      ]
+    ],
+    "related": [
+      "「サルベージ」は回収という意味です。核酸の材料を回収して使う道、と覚えると分かりやすくなります。"
+    ],
+    "sources": [
+      [
+        "Cold Spring Harbor：ヌクレオチドの代謝",
+        "https://cshperspectives.cshlp.org/content/13/7/a040592.full"
+      ]
+    ]
+  },
+  {
+    "slug": "atp",
+    "name": "ATP",
+    "englishName": "Adenosine triphosphate",
+    "aliases": [
+      "アデノシン三リン酸"
+    ],
+    "reading": "エーティーピー（アデノシン三リン酸）",
+    "shortLabel": "ATP",
+    "kind": "エネルギーを受け渡す分子",
+    "group": "nucleic",
+    "created": "2026-09-06",
+    "updated": "2026-09-06",
+    "firstIntroduced": "2026-09-06",
+    "firstLabel": "記事「ヌクレオチドとヌクレオシド、何が違うの？」",
+    "firstPath": "/articles/nucleotide-vs-nucleoside/",
+    "summary": "細胞がエネルギーを受け渡すときに使う、ヌクレオチドの一つです。",
+    "lead": "筋肉を動かすときも、細胞が材料を組み立てるときも、ATPが働いています。食べ物から得たエネルギーを、細胞のさまざまな仕事へつなぐ分子です。",
+    "visualTitle": "アデノシンに、三つのリン酸",
+    "visualItems": [
+      "アデニン",
+      "リボース",
+      "リン酸 × 3"
+    ],
+    "facts": [
+      [
+        "何の略？",
+        "アデノシン三リン酸の英語名を略したものです。塩基のアデニン、糖のリボース、三つのリン酸からできています。"
+      ],
+      [
+        "どんな仕事？",
+        "ATPからADPとリン酸ができる反応などを、細胞は筋肉の運動や物質の合成に結び付けて利用します。"
+      ],
+      [
+        "核酸の材料との関係",
+        "ATPはヌクレオチドの一つです。酵素の働きで、ヌクレオシドなどへリン酸を渡す役割も担います。"
+      ]
+    ],
+    "related": [
+      "ATPは細胞の中で使われ、食べ物などから得たエネルギーを利用して再び作られます。",
+      "ヌクレオチドは、DNAやRNAの材料以外にも働いています。ATPはその身近な例です。"
+    ],
+    "sources": [
+      [
+        "NCBI Bookshelf：The Chemical Components of a Cell",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ],
+      [
+        "人のヌクレオシドキナーゼとリン酸の受け渡し",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7126524/"
+      ]
+    ]
+  },
+  {
     "slug": "salacia",
     "name": "サラシア",
     "reading": "さらしあ",
@@ -14,16 +675,38 @@
     "summary": "複数の種を含む、植物の属名です。",
     "lead": "健康食品で見かける「サラシア」は、一つの化学成分ではなく、サラシア属に属する植物をまとめた呼び方です。",
     "visualTitle": "一つではなく、植物のグループ",
-    "visualItems": ["属名", "複数の植物種", "つる性植物"],
-    "facts": [
-      ["何の名前？", "生物の分類で、近い植物をまとめる「属」の名前です。"],
-      ["一つの植物？", "サラシア・レティキュラータなど、複数の植物が含まれます。"],
-      ["食品では？", "使われる植物種や加工方法によって、素材の中身は異なります。"]
+    "visualItems": [
+      "属名",
+      "複数の植物種",
+      "つる性植物"
     ],
-    "related": ["コタラヒムブツは、サラシア・レティキュラータを指すシンハラ語の呼び名です。", "サラシアは大きな分類名、コタラヒムブツはその中の一種を指す呼び名です。"],
+    "facts": [
+      [
+        "何の名前？",
+        "生物の分類で、近い植物をまとめる「属」の名前です。"
+      ],
+      [
+        "一つの植物？",
+        "サラシア・レティキュラータなど、複数の植物が含まれます。"
+      ],
+      [
+        "食品では？",
+        "使われる植物種や加工方法によって、素材の中身は異なります。"
+      ]
+    ],
+    "related": [
+      "コタラヒムブツは、サラシア・レティキュラータを指すシンハラ語の呼び名です。",
+      "サラシアは大きな分類名、コタラヒムブツはその中の一種を指す呼び名です。"
+    ],
     "sources": [
-      ["国立健康・栄養研究所：サラシア素材情報", "https://hfnet.nibn.go.jp/material-infodb/material-data/%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%B3%E3%82%AC%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AD/"],
-      ["食品安全委員会：コタラエキスに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"]
+      [
+        "国立健康・栄養研究所：サラシア素材情報",
+        "https://hfnet.nibn.go.jp/material-infodb/material-data/%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%B3%E3%82%AC%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AD/"
+      ],
+      [
+        "食品安全委員会：コタラエキスに係る食品健康影響評価",
+        "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"
+      ]
     ]
   },
   {
@@ -41,21 +724,44 @@
     "summary": "スリランカで、サラシア・レティキュラータを指す呼び名です。",
     "lead": "コタラヒムブツは、サラシア属の植物「サラシア・レティキュラータ」のシンハラ語名です。サラシアという大きな植物グループの中の一種に当たります。",
     "visualTitle": "属名・学名・現地の呼び名",
-    "visualItems": ["サラシア属", "S. reticulata", "コタラヒムブツ"],
-    "facts": [
-      ["何の名前？", "シンハラ語で、サラシア・レティキュラータを指します。"],
-      ["サラシアとの関係", "サラシアは属名、サラシア・レティキュラータはその中の一種です。"],
-      ["どこで親しまれている？", "スリランカでは、ハーブティーやおかゆなどに使われる食材として知られています。"]
+    "visualItems": [
+      "サラシア属",
+      "S. reticulata",
+      "コタラヒムブツ"
     ],
-    "related": ["「サラシア属 ＞ サラシア・レティキュラータ」という分類関係です。", "コタラヒムブツは、この植物を指す現地の呼び名です。"],
+    "facts": [
+      [
+        "何の名前？",
+        "シンハラ語で、サラシア・レティキュラータを指します。"
+      ],
+      [
+        "サラシアとの関係",
+        "サラシアは属名、サラシア・レティキュラータはその中の一種です。"
+      ],
+      [
+        "どこで親しまれている？",
+        "スリランカでは、ハーブティーやおかゆなどに使われる食材として知られています。"
+      ]
+    ],
+    "related": [
+      "「サラシア属 ＞ サラシア・レティキュラータ」という分類関係です。",
+      "コタラヒムブツは、この植物を指す現地の呼び名です。"
+    ],
     "sources": [
-      ["食品安全委員会：コタラエキスに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"],
-      ["国立健康・栄養研究所：サラシア素材情報", "https://hfnet.nibn.go.jp/material-infodb/material-data/%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%B3%E3%82%AC%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AD/" ]
+      [
+        "食品安全委員会：コタラエキスに係る食品健康影響評価",
+        "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"
+      ],
+      [
+        "国立健康・栄養研究所：サラシア素材情報",
+        "https://hfnet.nibn.go.jp/material-infodb/material-data/%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%B3%E3%82%AC%E3%80%81%E3%82%B5%E3%83%A9%E3%82%B7%E3%82%A2%E3%83%BB%E3%82%AD/"
+      ]
     ]
   },
   {
     "slug": "dnj",
     "name": "DNJ",
+    "englishName": "1-Deoxynojirimycin",
     "reading": "ディーエヌジェー（1-デオキシノジリマイシン）",
     "shortLabel": "DNJ",
     "kind": "成分",
@@ -68,16 +774,38 @@
     "summary": "桑の葉などに含まれる、イミノ糖の一種です。",
     "lead": "DNJは「1-デオキシノジリマイシン」の略称です。桑の葉を構成する成分の一つで、桑葉そのものの名前ではありません。",
     "visualTitle": "桑葉に含まれる成分",
-    "visualItems": ["桑の葉", "含まれる", "DNJ"],
-    "facts": [
-      ["正式名称", "1-デオキシノジリマイシンを略して、DNJと呼びます。"],
-      ["どんな成分？", "糖に似た構造をもつ「イミノ糖」の一種です。"],
-      ["桑葉との関係", "桑葉は植物素材、DNJはその中に含まれる成分です。"]
+    "visualItems": [
+      "桑の葉",
+      "含まれる",
+      "DNJ"
     ],
-    "related": ["桑の葉には、DNJ以外にもさまざまな成分が含まれます。", "そのため、「桑葉」と「DNJ」は同じ階層の言葉ではありません。"],
+    "facts": [
+      [
+        "正式名称",
+        "1-デオキシノジリマイシンを略して、DNJと呼びます。"
+      ],
+      [
+        "どんな成分？",
+        "糖に似た構造をもつ「イミノ糖」の一種です。"
+      ],
+      [
+        "桑葉との関係",
+        "桑葉は植物素材、DNJはその中に含まれる成分です。"
+      ]
+    ],
+    "related": [
+      "桑の葉には、DNJ以外にもさまざまな成分が含まれます。",
+      "そのため、「桑葉」と「DNJ」は同じ階層の言葉ではありません。"
+    ],
     "sources": [
-      ["PubMed：桑葉イミノ糖とDNJの総説", "https://pubmed.ncbi.nlm.nih.gov/34658276/"],
-      ["PubMed：1-Deoxynojirimycin and its Derivatives", "https://pubmed.ncbi.nlm.nih.gov/31942844/"]
+      [
+        "PubMed：桑葉イミノ糖とDNJの総説",
+        "https://pubmed.ncbi.nlm.nih.gov/34658276/"
+      ],
+      [
+        "PubMed：1-Deoxynojirimycin and its Derivatives",
+        "https://pubmed.ncbi.nlm.nih.gov/31942844/"
+      ]
     ]
   },
   {
@@ -95,21 +823,44 @@
     "summary": "DNAとRNAをまとめた呼び名です。",
     "lead": "DNAとRNAは、どちらも「核酸」と呼ばれる物質の仲間です。",
     "visualTitle": "核酸の中にDNAとRNA",
-    "visualItems": ["核酸", "DNA", "RNA"],
-    "facts": [
-      ["何をまとめた名前？", "DNAとRNAをまとめて核酸と呼びます。"],
-      ["共通点は？", "どちらも、ヌクレオチドという小さな単位が連なってできています。"],
-      ["役割は同じ？", "DNAは情報を保ち、RNAは種類によって情報を運ぶ、反応を助けるなどの役割を担います。"]
+    "visualItems": [
+      "核酸",
+      "DNA",
+      "RNA"
     ],
-    "related": ["DNAとRNAは、同じ核酸の仲間です。", "使われる糖や塩基の一部は、DNAとRNAで異なります。"],
+    "facts": [
+      [
+        "何をまとめた名前？",
+        "DNAとRNAをまとめて核酸と呼びます。"
+      ],
+      [
+        "共通点は？",
+        "どちらも、ヌクレオチドという小さな単位が連なってできています。"
+      ],
+      [
+        "役割は同じ？",
+        "DNAは情報を保ち、RNAは種類によって情報を運ぶ、反応を助けるなどの役割を担います。"
+      ]
+    ],
+    "related": [
+      "DNAとRNAは、同じ核酸の仲間です。",
+      "使われる糖や塩基の一部は、DNAとRNAで異なります。"
+    ],
     "sources": [
-      ["NCBI Bookshelf：The Chemical Components of a Cell", "https://www.ncbi.nlm.nih.gov/books/NBK26883/"],
-      ["米国国立ヒトゲノム研究所：DNA Fact Sheet", "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"]
+      [
+        "NCBI Bookshelf：The Chemical Components of a Cell",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ],
+      [
+        "米国国立ヒトゲノム研究所：DNA Fact Sheet",
+        "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"
+      ]
     ]
   },
   {
     "slug": "dna",
     "name": "DNA",
+    "englishName": "Deoxyribonucleic acid",
     "reading": "ディーエヌエー（デオキシリボ核酸）",
     "shortLabel": "DNA",
     "kind": "核酸",
@@ -122,21 +873,45 @@
     "summary": "遺伝情報を記録する核酸です。",
     "lead": "DNAは、遺伝情報を長く保存する分子です。遺伝子は、その長いDNAの中にある情報のまとまりです。",
     "visualTitle": "A・T・G・Cの並びが情報になる",
-    "visualItems": ["A", "T", "G", "C"],
-    "facts": [
-      ["どう記録する？", "A・T・G・Cという四種類の塩基の並びで情報を記録します。"],
-      ["どこにある？", "人では、DNAの大部分が細胞核の染色体に収められています。"],
-      ["遺伝子との関係", "遺伝子は、長いDNAの一部にある情報のまとまりです。"]
+    "visualItems": [
+      "A",
+      "T",
+      "G",
+      "C"
     ],
-    "related": ["DNAと遺伝子は、同じ意味ではありません。", "たんぱく質をつくるときは、遺伝子の情報がmRNAへ写されます。"],
+    "facts": [
+      [
+        "どう記録する？",
+        "A・T・G・Cという四種類の塩基の並びで情報を記録します。"
+      ],
+      [
+        "どこにある？",
+        "人では、DNAの大部分が細胞核の染色体に収められています。"
+      ],
+      [
+        "遺伝子との関係",
+        "遺伝子は、長いDNAの一部にある情報のまとまりです。"
+      ]
+    ],
+    "related": [
+      "DNAと遺伝子は、同じ意味ではありません。",
+      "たんぱく質をつくるときは、遺伝子の情報がmRNAへ写されます。"
+    ],
     "sources": [
-      ["米国国立ヒトゲノム研究所：DNA Fact Sheet", "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"],
-      ["米国国立ヒトゲノム研究所：Gene", "https://www.genome.gov/genetics-glossary/Gene"]
+      [
+        "米国国立ヒトゲノム研究所：DNA Fact Sheet",
+        "https://www.genome.gov/about-genomics/fact-sheets/Deoxyribonucleic-Acid-Fact-Sheet"
+      ],
+      [
+        "米国国立ヒトゲノム研究所：Gene",
+        "https://www.genome.gov/genetics-glossary/Gene"
+      ]
     ]
   },
   {
     "slug": "rna",
     "name": "RNA",
+    "englishName": "Ribonucleic acid",
     "reading": "アールエヌエー（リボ核酸）",
     "shortLabel": "RNA",
     "kind": "核酸",
@@ -149,16 +924,38 @@
     "summary": "種類によって、情報を運ぶ、反応を助けるなど、異なる役割を担う核酸です。",
     "lead": "RNAには、mRNA、tRNA、rRNAなど多くの種類があり、それぞれ役割が異なります。",
     "visualTitle": "役割の異なるRNA",
-    "visualItems": ["mRNA", "tRNA", "rRNA"],
-    "facts": [
-      ["DNAとの違い", "使われる糖と塩基の一部がDNAとは異なり、多くは一本鎖です。"],
-      ["mRNAの役割", "たんぱく質をつくるための情報を運びます。"],
-      ["tRNAとrRNAの役割", "tRNAは材料となるアミノ酸を運び、rRNAはリボソームを形づくって反応を助けます。"]
+    "visualItems": [
+      "mRNA",
+      "tRNA",
+      "rRNA"
     ],
-    "related": ["RNAも、ヌクレオチドが連なってできています。", "mRNAは、役割の異なる多くのRNAのうちの一つです。"],
+    "facts": [
+      [
+        "DNAとの違い",
+        "使われる糖と塩基の一部がDNAとは異なり、多くは一本鎖です。"
+      ],
+      [
+        "mRNAの役割",
+        "たんぱく質をつくるための情報を運びます。"
+      ],
+      [
+        "tRNAとrRNAの役割",
+        "tRNAは材料となるアミノ酸を運び、rRNAはリボソームを形づくって反応を助けます。"
+      ]
+    ],
+    "related": [
+      "RNAも、ヌクレオチドが連なってできています。",
+      "mRNAは、役割の異なる多くのRNAのうちの一つです。"
+    ],
     "sources": [
-      ["米国国立ヒトゲノム研究所：RNA Fact Sheet", "https://www.genome.gov/about-genomics/educational-resources/fact-sheets/ribonucleic-acid-fact-sheet"],
-      ["米国国立ヒトゲノム研究所：Messenger RNA", "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"]
+      [
+        "米国国立ヒトゲノム研究所：RNA Fact Sheet",
+        "https://www.genome.gov/about-genomics/educational-resources/fact-sheets/ribonucleic-acid-fact-sheet"
+      ],
+      [
+        "米国国立ヒトゲノム研究所：Messenger RNA",
+        "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"
+      ]
     ]
   },
   {
@@ -176,21 +973,44 @@
     "summary": "DNAやRNAをつくる小さな単位です。",
     "lead": "DNAとRNAは、ヌクレオチドが数多くつながった長い鎖です。",
     "visualTitle": "三つの部分で一単位",
-    "visualItems": ["塩基", "糖", "リン酸"],
-    "facts": [
-      ["何でできる？", "一つのヌクレオチドは、塩基、糖、リン酸からできています。"],
-      ["核酸との関係", "ヌクレオチドが数多く連なると、DNAやRNAになります。"],
-      ["情報になる部分", "DNAやRNAでは、塩基の並びが情報を表します。"]
+    "visualItems": [
+      "塩基",
+      "糖",
+      "リン酸"
     ],
-    "related": ["DNAとRNAでは、使われる糖や塩基の一部が異なります。", "それぞれの違いを保ちながら、どちらもヌクレオチドの鎖としてできています。"],
+    "facts": [
+      [
+        "何でできる？",
+        "一つのヌクレオチドは、塩基、糖、リン酸からできています。"
+      ],
+      [
+        "核酸との関係",
+        "ヌクレオチドが数多く連なると、DNAやRNAになります。"
+      ],
+      [
+        "情報になる部分",
+        "DNAやRNAでは、塩基の並びが情報を表します。"
+      ]
+    ],
+    "related": [
+      "DNAとRNAでは、使われる糖や塩基の一部が異なります。",
+      "それぞれの違いを保ちながら、どちらもヌクレオチドの鎖としてできています。"
+    ],
     "sources": [
-      ["米国国立ヒトゲノム研究所：Nucleotide", "https://www.genome.gov/genetics-glossary/Nucleotide"],
-      ["NCBI Bookshelf：The Chemical Components of a Cell", "https://www.ncbi.nlm.nih.gov/books/NBK26883/"]
+      [
+        "米国国立ヒトゲノム研究所：Nucleotide",
+        "https://www.genome.gov/genetics-glossary/Nucleotide"
+      ],
+      [
+        "NCBI Bookshelf：The Chemical Components of a Cell",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26883/"
+      ]
     ]
   },
   {
     "slug": "mrna",
     "name": "mRNA",
+    "englishName": "Messenger RNA",
     "reading": "メッセンジャーアールエヌエー",
     "shortLabel": "mRNA",
     "kind": "RNAの一種",
@@ -203,16 +1023,38 @@
     "summary": "たんぱく質をつくるための情報を、DNAからリボソームへ運ぶRNAです。",
     "lead": "人の細胞では、mRNAは核の中でDNAから写し取られ、細胞質にあるリボソームへ移動します。",
     "visualTitle": "DNAの情報をリボソームへ",
-    "visualItems": ["DNA", "mRNA", "リボソーム"],
-    "facts": [
-      ["mは何の略？", "messenger（メッセンジャー）の頭文字です。"],
-      ["どうつくられる？", "遺伝子のDNA配列をもとに、RNAとして写し取られます。"],
-      ["どこで使われる？", "リボソームがmRNAの並びを読み、たんぱく質を組み立てます。"]
+    "visualItems": [
+      "DNA",
+      "mRNA",
+      "リボソーム"
     ],
-    "related": ["DNAからRNAの写しをつくる過程を「転写」と呼びます。", "mRNAを読み取ってたんぱく質をつくる過程を「翻訳」と呼びます。"],
+    "facts": [
+      [
+        "mは何の略？",
+        "messenger（メッセンジャー）の頭文字です。"
+      ],
+      [
+        "どうつくられる？",
+        "遺伝子のDNA配列をもとに、RNAとして写し取られます。"
+      ],
+      [
+        "どこで使われる？",
+        "リボソームがmRNAの並びを読み、たんぱく質を組み立てます。"
+      ]
+    ],
+    "related": [
+      "DNAからRNAの写しをつくる過程を「転写」と呼びます。",
+      "mRNAを読み取ってたんぱく質をつくる過程を「翻訳」と呼びます。"
+    ],
     "sources": [
-      ["米国国立ヒトゲノム研究所：Messenger RNA", "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"],
-      ["米国国立ヒトゲノム研究所：Transcription", "https://www.genome.gov/genetics-glossary/Transcription"]
+      [
+        "米国国立ヒトゲノム研究所：Messenger RNA",
+        "https://www.genome.gov/genetics-glossary/Messenger-RNA-mRNA"
+      ],
+      [
+        "米国国立ヒトゲノム研究所：Transcription",
+        "https://www.genome.gov/genetics-glossary/Transcription"
+      ]
     ]
   },
   {
@@ -230,16 +1072,38 @@
     "summary": "サラシア属の植物に含まれる成分の一つです。",
     "lead": "サラシノールは、サラシア属の植物から見つかった成分です。糖質を小さく分ける消化酵素との関係が研究されています。",
     "visualTitle": "サラシアの中にある成分",
-    "visualItems": ["サラシア", "含まれる", "消化酵素との関係"],
-    "facts": [
-      ["何に含まれる？", "サラシア属の植物に含まれています。"],
-      ["何が調べられている？", "糖質を小さく分けるα-グルコシダーゼという消化酵素との関係です。"],
-      ["サラシアとの違い", "サラシアは植物のグループ名、サラシノールはその植物に含まれる成分名です。"]
+    "visualItems": [
+      "サラシア",
+      "含まれる",
+      "消化酵素との関係"
     ],
-    "related": ["サラシノールとコタラノールは、どちらもサラシア属の植物から見つかった成分です。", "植物素材の名前と、その中に含まれる成分の名前を分けると、表示を読みやすくなります。"],
+    "facts": [
+      [
+        "何に含まれる？",
+        "サラシア属の植物に含まれています。"
+      ],
+      [
+        "何が調べられている？",
+        "糖質を小さく分けるα-グルコシダーゼという消化酵素との関係です。"
+      ],
+      [
+        "サラシアとの違い",
+        "サラシアは植物のグループ名、サラシノールはその植物に含まれる成分名です。"
+      ]
+    ],
+    "related": [
+      "サラシノールとコタラノールは、どちらもサラシア属の植物から見つかった成分です。",
+      "植物素材の名前と、その中に含まれる成分の名前を分けると、表示を読みやすくなります。"
+    ],
     "sources": [
-      ["食品安全委員会：サラシア由来サラシノールに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=202&retrievalId=kya20191024085"],
-      ["Nutrients：サラシア・キネンシス抽出物を用いたランダム化比較試験", "https://pubmed.ncbi.nlm.nih.gov/33370165/"]
+      [
+        "食品安全委員会：サラシア由来サラシノールに係る食品健康影響評価",
+        "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=202&retrievalId=kya20191024085"
+      ],
+      [
+        "Nutrients：サラシア・キネンシス抽出物を用いたランダム化比較試験",
+        "https://pubmed.ncbi.nlm.nih.gov/33370165/"
+      ]
     ]
   },
   {
@@ -257,21 +1121,44 @@
     "summary": "サラシア・レティキュラータから見つかった成分です。",
     "lead": "コタラノールは、サラシア属の一種であるサラシア・レティキュラータから見つかった成分です。糖質を小さく分ける消化酵素との関係が研究されています。",
     "visualTitle": "植物の名前から成分の名前へ",
-    "visualItems": ["S. reticulata", "含まれる", "コタラノール"],
-    "facts": [
-      ["どこから見つかった？", "サラシア・レティキュラータという植物から見つかりました。"],
-      ["何が調べられている？", "糖質を小さく分けるα-グルコシダーゼという消化酵素との関係です。"],
-      ["コタラヒムブツとの違い", "コタラヒムブツは植物を指す呼び名、コタラノールはその植物から見つかった成分名です。"]
+    "visualItems": [
+      "S. reticulata",
+      "含まれる",
+      "コタラノール"
     ],
-    "related": ["コタラヒムブツとコタラノールは名前が似ていますが、植物の呼び名と成分名という違いがあります。", "サラシノールも、サラシア属の植物に含まれる成分の一つです。"],
+    "facts": [
+      [
+        "どこから見つかった？",
+        "サラシア・レティキュラータという植物から見つかりました。"
+      ],
+      [
+        "何が調べられている？",
+        "糖質を小さく分けるα-グルコシダーゼという消化酵素との関係です。"
+      ],
+      [
+        "コタラヒムブツとの違い",
+        "コタラヒムブツは植物を指す呼び名、コタラノールはその植物から見つかった成分名です。"
+      ]
+    ],
+    "related": [
+      "コタラヒムブツとコタラノールは名前が似ていますが、植物の呼び名と成分名という違いがあります。",
+      "サラシノールも、サラシア属の植物に含まれる成分の一つです。"
+    ],
     "sources": [
-      ["Chemical and Pharmaceutical Bulletin：サラシア・レティキュラータから得られたコタラノールの研究", "https://www.jstage.jst.go.jp/article/cpb1958/46/8/46_8_1339/_article"],
-      ["食品安全委員会：コタラエキスに係る食品健康影響評価", "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"]
+      [
+        "Chemical and Pharmaceutical Bulletin：サラシア・レティキュラータから得られたコタラノールの研究",
+        "https://www.jstage.jst.go.jp/article/cpb1958/46/8/46_8_1339/_article"
+      ],
+      [
+        "食品安全委員会：コタラエキスに係る食品健康影響評価",
+        "https://www.fsc.go.jp/fsciis/attachedFile/download?fileId=201&retrievalId=kya20120123101"
+      ]
     ]
   },
   {
     "slug": "dha",
     "name": "DHA",
+    "englishName": "Docosahexaenoic acid",
     "reading": "ディーエイチエー（ドコサヘキサエン酸）",
     "shortLabel": "DHA",
     "kind": "脂肪酸",
@@ -284,16 +1171,38 @@
     "summary": "魚などの脂に含まれる、オメガ3脂肪酸の一つです。",
     "lead": "DHAはドコサヘキサエン酸の略称です。DNAと名前はよく似ていますが、DHAは核酸ではなく脂肪酸です。",
     "visualTitle": "魚の脂に含まれる脂肪酸",
-    "visualItems": ["魚", "オメガ3", "脂肪酸"],
-    "facts": [
-      ["何の略？", "ドコサヘキサエン酸の英語名を短くした呼び方です。"],
-      ["どんな成分？", "オメガ3脂肪酸に分類される脂肪酸です。"],
-      ["DNAとの違い", "DNAは遺伝情報を持つ核酸、DHAは脂の仲間である脂肪酸です。"]
+    "visualItems": [
+      "魚",
+      "オメガ3",
+      "脂肪酸"
     ],
-    "related": ["DHAとEPAは、どちらも魚や魚介類に含まれるオメガ3脂肪酸です。", "DNAとDHAは略称が似ていますが、物質の種類が異なります。"],
+    "facts": [
+      [
+        "何の略？",
+        "ドコサヘキサエン酸の英語名を短くした呼び方です。"
+      ],
+      [
+        "どんな成分？",
+        "オメガ3脂肪酸に分類される脂肪酸です。"
+      ],
+      [
+        "DNAとの違い",
+        "DNAは遺伝情報を持つ核酸、DHAは脂の仲間である脂肪酸です。"
+      ]
+    ],
+    "related": [
+      "DHAとEPAは、どちらも魚や魚介類に含まれるオメガ3脂肪酸です。",
+      "DNAとDHAは略称が似ていますが、物質の種類が異なります。"
+    ],
     "sources": [
-      ["米国国立衛生研究所サプリメント局：Omega-3 Fatty Acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"],
-      ["厚生労働省 e-ヘルスネット：不飽和脂肪酸", "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"]
+      [
+        "米国国立衛生研究所サプリメント局：Omega-3 Fatty Acids",
+        "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      ],
+      [
+        "厚生労働省 e-ヘルスネット：不飽和脂肪酸",
+        "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"
+      ]
     ]
   },
   {
@@ -311,16 +1220,38 @@
     "summary": "DHA、EPA、ALAなどを含む脂肪酸のグループです。",
     "lead": "オメガ3脂肪酸は、一つの成分だけを指す名前ではありません。DHA、EPA、ALAなど、構造に共通点を持つ脂肪酸をまとめた呼び名です。",
     "visualTitle": "オメガ3の中にDHAなどがある",
-    "visualItems": ["DHA", "EPA", "ALA"],
-    "facts": [
-      ["一つの成分？", "DHA、EPA、ALAなどをまとめたグループ名です。"],
-      ["どこに含まれる？", "DHAとEPAは魚や魚介類、ALAは亜麻仁油やえごま油などに含まれます。"],
-      ["DHAとの関係", "DHAは、オメガ3脂肪酸という大きなグループの一員です。"]
+    "visualItems": [
+      "DHA",
+      "EPA",
+      "ALA"
     ],
-    "related": ["DHAとEPAは主に魚や魚介類から、ALAは一部の植物油などから取れます。", "オメガ3脂肪酸は脂の仲間で、DNAやRNAのような核酸とは異なります。"],
+    "facts": [
+      [
+        "一つの成分？",
+        "DHA、EPA、ALAなどをまとめたグループ名です。"
+      ],
+      [
+        "どこに含まれる？",
+        "DHAとEPAは魚や魚介類、ALAは亜麻仁油やえごま油などに含まれます。"
+      ],
+      [
+        "DHAとの関係",
+        "DHAは、オメガ3脂肪酸という大きなグループの一員です。"
+      ]
+    ],
+    "related": [
+      "DHAとEPAは主に魚や魚介類から、ALAは一部の植物油などから取れます。",
+      "オメガ3脂肪酸は脂の仲間で、DNAやRNAのような核酸とは異なります。"
+    ],
     "sources": [
-      ["米国国立衛生研究所サプリメント局：Omega-3 Fatty Acids", "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"],
-      ["厚生労働省 e-ヘルスネット：不飽和脂肪酸", "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"]
+      [
+        "米国国立衛生研究所サプリメント局：Omega-3 Fatty Acids",
+        "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/"
+      ],
+      [
+        "厚生労働省 e-ヘルスネット：不飽和脂肪酸",
+        "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"
+      ]
     ]
   }
 ]

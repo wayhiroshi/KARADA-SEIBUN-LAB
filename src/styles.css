@@ -3417,6 +3417,20 @@ tbody tr:last-child td {
   font-size: 13px;
 }
 
+.ingredient-timeline-copy > .ingredient-english,
+.ingredient-detail-copy > .ingredient-english {
+  margin: 0 0 16px;
+  color: #626960;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.ingredient-reading:has(+ .ingredient-english) {
+  margin-bottom: 4px;
+}
+
 .ingredient-answer {
   max-width: 30rem;
   margin: 0 0 26px;
