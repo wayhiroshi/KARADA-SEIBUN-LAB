@@ -323,6 +323,20 @@ expect(booksPage.includes('data-analytics-event="affiliate_click"'), "Affiliate 
 expect(robots.includes("Allow: /"), "robots.txt must allow crawling");
 expect(robots.includes(`Sitemap: ${site.siteUrl}/sitemap.xml`), "robots.txt sitemap URL is missing");
 expect(!robots.includes("Disallow: /"), "robots.txt must not block the site");
+const latestArticleUpdated = articles.reduce(
+  (latest, article) => article.updated > latest ? article.updated : latest,
+  site.updated
+);
+const latestIngredientUpdated = ingredients.reduce(
+  (latest, ingredient) => ingredient.updated > latest ? ingredient.updated : latest,
+  site.updated
+);
+const latestSiteContentUpdated = latestArticleUpdated > latestIngredientUpdated
+  ? latestArticleUpdated
+  : latestIngredientUpdated;
+expect(sitemap.includes(`<loc>${site.siteUrl}/</loc><lastmod>${latestSiteContentUpdated}</lastmod>`), "Home sitemap date must follow the latest public content update");
+expect(sitemap.includes(`<loc>${site.siteUrl}/articles/</loc><lastmod>${latestArticleUpdated}</lastmod>`), "Article index sitemap date must follow the latest article update");
+expect(sitemap.includes(`<loc>${site.siteUrl}/ingredients/</loc><lastmod>${latestIngredientUpdated}</lastmod>`), "Ingredient index sitemap date must follow the latest ingredient update");
 for (const pagePath of ["/", "/articles/", "/ingredients/", ...(booksEnabled ? ["/books/"] : []), ...(favoritesEnabled ? ["/favorites/"] : []), "/manga/", "/manga/001/", "/manga/002/", "/manga/003/", "/about/", "/editorial-policy/"]) {
   expect(sitemap.includes(`<loc>${new URL(pagePath, `${site.siteUrl}/`)}</loc>`), `Sitemap path missing: ${pagePath}`);
 }
