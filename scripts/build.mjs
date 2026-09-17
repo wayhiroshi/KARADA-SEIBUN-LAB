@@ -14,6 +14,17 @@ const allArticles = JSON.parse(await readFile(path.join(root, "content", "articl
 const includeDrafts = process.env.INCLUDE_DRAFTS === "1";
 const articles = allArticles.filter((article) => !article.draft || includeDrafts);
 const ingredients = JSON.parse(await readFile(path.join(root, "content", "ingredients.json"), "utf8"));
+const latestArticleUpdated = articles.reduce(
+  (latest, article) => article.updated > latest ? article.updated : latest,
+  site.updated
+);
+const latestIngredientUpdated = ingredients.reduce(
+  (latest, ingredient) => ingredient.updated > latest ? ingredient.updated : latest,
+  site.updated
+);
+const latestSiteContentUpdated = latestArticleUpdated > latestIngredientUpdated
+  ? latestArticleUpdated
+  : latestIngredientUpdated;
 const renderGlossaryText = createGlossaryRenderer(ingredients, escapeHtml);
 const mangaCast = JSON.parse(await readFile(path.join(root, "content", "manga-cast.json"), "utf8"));
 const books = JSON.parse(await readFile(path.join(root, "content", "books.json"), "utf8"));
@@ -617,6 +628,7 @@ function renderHome() {
       alternateName: `${site.siteName} ${site.byline}`,
       url: absoluteUrl("/"),
       description: site.description,
+      dateModified: latestSiteContentUpdated,
       author: {
         "@type": "Person",
         name: site.authorName,
@@ -694,6 +706,7 @@ function renderArticleIndex() {
       name: "核酸と成分の記事",
       url: absoluteUrl("/articles/"),
       description: "核酸と健康食品の成分表示、研究を読み解く記事一覧",
+      dateModified: latestArticleUpdated,
       mainEntity: {
         "@type": "ItemList",
         itemListElement: articles.map((article, index) => ({
@@ -1466,15 +1479,15 @@ for (const [index, item] of episodes.entries()) {
 await writePage("404.html", render404());
 
 const sitemapEntries = [
-  { path: "/", lastmod: site.updated },
-  { path: "/articles/", lastmod: site.updated },
+  { path: "/", lastmod: latestSiteContentUpdated },
+  { path: "/articles/", lastmod: latestArticleUpdated },
   ...articles.map((article) => ({
     path: `/articles/${article.slug}/`,
     lastmod: article.updated,
     image: article.image,
     imageTitle: article.title
   })),
-  { path: "/ingredients/", lastmod: ingredients.reduce((latest, item) => item.updated > latest ? item.updated : latest, site.updated) },
+  { path: "/ingredients/", lastmod: latestIngredientUpdated },
   ...ingredients.map((ingredient) => ({ path: `/ingredients/${ingredient.slug}/`, lastmod: ingredient.updated })),
   { path: "/manga/", lastmod: site.updated },
   ...episodes.map((item) => ({ path: `/manga/${item.id}/`, lastmod: site.updated })),
