@@ -1253,5 +1253,217 @@
         "https://kennet.mhlw.go.jp/information/information/dictionary/food/ye-031.html"
       ]
     ]
+  },
+  {
+    "slug": "trna",
+    "name": "tRNA",
+    "englishName": "Transfer RNA",
+    "reading": "ティーアールエヌエー（転移RNA）",
+    "shortLabel": "tRNA",
+    "kind": "RNAの一種",
+    "group": "nucleic",
+    "created": "2026-09-11",
+    "updated": "2026-09-11",
+    "firstIntroduced": "2026-09-10",
+    "firstLabel": "記事「RNAは、体の中で何をしているの？」",
+    "firstPath": "/articles/what-does-rna-do-in-cells/",
+    "summary": "タンパク質の材料となるアミノ酸を、リボソームへ運ぶRNAです。",
+    "lead": "タンパク質は、アミノ酸を決まった順番につないでつくります。tRNAは、その順番に合う材料を届ける役目です。",
+    "visualTitle": "情報に合うアミノ酸を届ける",
+    "visualItems": [
+      "RNAの仲間",
+      "アミノ酸",
+      "運ぶ"
+    ],
+    "facts": [
+      [
+        "tは何の略？",
+        "transfer（移す・運ぶ）に由来します。日本語では転移RNAと呼びます。"
+      ],
+      [
+        "何を運ぶ？",
+        "一つのtRNAにアミノ酸が結び付き、タンパク質を組み立てるリボソームへ運ばれます。"
+      ],
+      [
+        "順番はどう合わせる？",
+        "tRNAには、mRNAの並びと対応する部分があります。その対応を使って、必要なアミノ酸を順番に並べます。"
+      ]
+    ],
+    "related": [
+      "mRNAが運ぶのは情報、tRNAが運ぶのはアミノ酸です。どちらもRNAですが、受け持つ仕事が違います。"
+    ],
+    "relatedTerms": [
+      "rna",
+      "mrna",
+      "ribosome"
+    ],
+    "articleSlugs": [
+      "what-does-rna-do-in-cells"
+    ],
+    "sources": [
+      [
+        "NHGRI：Transfer RNA",
+        "https://www.genome.gov/genetics-glossary/Transfer-RNA-tRNA"
+      ]
+    ],
+    "aliases": [
+      "転移RNA",
+      "トランスファーRNA"
+    ],
+    "diagramSteps": [
+      [
+        "tRNAにアミノ酸が付く",
+        "タンパク質の材料を運ぶ準備"
+      ],
+      [
+        "リボソームへ運ぶ",
+        "mRNAの並びに合う場所へ"
+      ],
+      [
+        "アミノ酸がつながる",
+        "タンパク質の鎖が伸びる"
+      ]
+    ]
+  },
+  {
+    "slug": "rrna",
+    "name": "rRNA",
+    "englishName": "Ribosomal RNA",
+    "reading": "アールアールエヌエー（リボソームRNA）",
+    "shortLabel": "rRNA",
+    "kind": "RNAの一種",
+    "group": "nucleic",
+    "created": "2026-09-11",
+    "updated": "2026-09-11",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "リボソームの中心部分をつくり、アミノ酸をつなぐ反応を担うRNAです。",
+    "lead": "RNAの仕事は、情報や材料を運ぶことだけではありません。rRNAは、タンパク質を組み立てる装置そのものを支えています。",
+    "visualTitle": "組み立てる装置の中心を担う",
+    "visualItems": [
+      "RNAの仲間",
+      "リボソーム",
+      "つなぐ"
+    ],
+    "facts": [
+      [
+        "rは何の略？",
+        "ribosomal（リボソームの）に由来します。リボソームを構成するRNAという意味です。"
+      ],
+      [
+        "何と一緒に働く？",
+        "rRNAとタンパク質が集まって、リボソームをつくります。rRNAはその形と働きの中心を担います。"
+      ],
+      [
+        "組み立てでの役割",
+        "リボソームの中では、rRNAがアミノ酸同士をつなぐ反応を担います。材料を届けるtRNAと協力して、タンパク質の鎖を伸ばします。"
+      ]
+    ],
+    "related": [
+      "rRNAはRNAの一種。リボソームは、rRNAとタンパク質でできた装置全体の名前です。"
+    ],
+    "relatedTerms": [
+      "rna",
+      "ribosome",
+      "trna"
+    ],
+    "articleSlugs": [
+      "what-does-rna-do-in-cells"
+    ],
+    "sources": [
+      [
+        "NCBI Bookshelf：RNAからタンパク質へ",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26829/"
+      ],
+      [
+        "NHGRI：RNAの構造と種類",
+        "https://www.genome.gov/genetics-glossary/Ribonucleic-Acid-RNA"
+      ]
+    ],
+    "aliases": [
+      "リボソームRNA"
+    ],
+    "diagramSteps": [
+      [
+        "rRNA ＋ タンパク質",
+        "リボソームをつくる"
+      ],
+      [
+        "アミノ酸をつなぐ",
+        "rRNAが反応の中心を担う"
+      ]
+    ]
+  },
+  {
+    "slug": "ribosome",
+    "name": "リボソーム",
+    "englishName": "Ribosome",
+    "reading": "りぼそーむ",
+    "shortLabel": "リボソーム",
+    "kind": "細胞の中の構造",
+    "group": "nucleic",
+    "created": "2026-09-11",
+    "updated": "2026-09-11",
+    "firstIntroduced": "2026-07-27",
+    "firstLabel": "記事「DNAとRNAは、何が違うの？」",
+    "firstPath": "/articles/dna-rna-nucleotide/",
+    "summary": "mRNAの情報を読み、アミノ酸をつないでタンパク質をつくる細胞内の装置です。",
+    "lead": "タンパク質を組み立てる小さな作業場が、リボソームです。mRNAが伝える順番に沿って、tRNAが運んだアミノ酸をつなぎます。",
+    "visualTitle": "情報と材料が集まる、小さな作業場",
+    "visualItems": [
+      "mRNAを読む",
+      "アミノ酸をつなぐ",
+      "タンパク質"
+    ],
+    "facts": [
+      [
+        "何でできている？",
+        "rRNAとタンパク質からできています。大きい部分と小さい部分が組み合わさって働きます。"
+      ],
+      [
+        "何を読み取る？",
+        "mRNAに並ぶ情報を読み取り、アミノ酸をつなぐ順番を決めます。"
+      ],
+      [
+        "RNAとの関係",
+        "mRNAは情報、tRNAは材料を運び、リボソームのrRNAはつなぐ反応を担います。この分担でタンパク質がつくられます。"
+      ]
+    ],
+    "related": [
+      "リボソームは一つの成分の名前ではなく、複数の分子が集まって働く装置の名前です。"
+    ],
+    "relatedTerms": [
+      "rrna",
+      "mrna",
+      "trna"
+    ],
+    "articleSlugs": [
+      "what-does-rna-do-in-cells"
+    ],
+    "sources": [
+      [
+        "NHGRI：Ribosome",
+        "https://www.genome.gov/genetics-glossary/Ribosome"
+      ],
+      [
+        "NCBI Bookshelf：RNAからタンパク質へ",
+        "https://www.ncbi.nlm.nih.gov/books/NBK26829/"
+      ]
+    ],
+    "diagramSteps": [
+      [
+        "mRNA",
+        "組み立てる順番の情報"
+      ],
+      [
+        "リボソーム",
+        "tRNAが運ぶアミノ酸をつなぐ"
+      ],
+      [
+        "タンパク質",
+        "アミノ酸の鎖ができる"
+      ]
+    ]
   }
 ]
