@@ -114,7 +114,28 @@ const articleTopicDefinitions = [
     symbol: "食品",
     title: "身近な食品から探す",
     description: "粉ミルクなどの表示から、核酸との接点を見つけます。",
-    categories: ["身近なところで見つける核酸"]
+    categories: ["身近なところで見つける核酸", "身近な食品の核酸", "名前が似ている成分"]
+  },
+  {
+    id: "amino-acids",
+    symbol: "栄養",
+    title: "アミノ酸とたんぱく質",
+    description: "うま味や食品の表示から、アミノ酸の役割を知ります。",
+    categories: ["アミノ酸を知る"]
+  },
+  {
+    id: "body-and-nutrients",
+    symbol: "体内",
+    title: "食べた成分のゆくえ",
+    description: "消化、吸収、材料の再利用を一つずつたどります。",
+    categories: ["核酸を体の仕組みから知る", "体の仕組みを基礎から知る"]
+  },
+  {
+    id: "everyday-ingredients",
+    symbol: "成分",
+    title: "身近な成分の疑問",
+    description: "いつもの食品や愛用品に書かれた成分を調べます。",
+    categories: ["愛用品から学ぶ成分", "愛用している製品を調べる", "成分のこぼれ話"]
   },
   {
     id: "read-research",
@@ -128,7 +149,7 @@ const articleTopicDefinitions = [
     symbol: "選ぶ",
     title: "健康情報と向き合う",
     description: "成分表示やダイエットの目的から、自分の判断軸を考えます。",
-    categories: ["成分と表示の読み方", "ダイエットを考える"]
+    categories: ["成分と表示の読み方", "成分の言葉を読み解く", "ダイエットを考える", "ダイエットと成分", "ダイエットを続ける", "サプリと栄養を考える"]
   }
 ];
 const knownTopicCategories = new Set(articleTopicDefinitions.flatMap((topic) => topic.categories));
@@ -971,6 +992,13 @@ function renderArticle(article) {
     .filter((candidate) => candidate.slug !== article.slug && !specifiedRelated.includes(candidate))
     .sort((a, b) => Number(b.category === article.category) - Number(a.category === article.category));
   const related = [...specifiedRelated, ...fallbackRelated].slice(0, 3);
+  const topic = articleTopics.find((candidate) => candidate.id !== "other" && candidate.articles.includes(article));
+  const topicReading = topic ? `
+      <nav class="topic-reading" aria-labelledby="topic-reading-title">
+        <h2 id="topic-reading-title">${escapeHtml(topic.title)}</h2>
+        <ul>${topic.articles.filter((item) => item !== article).map((item) => `<li><a href="/articles/${escapeHtml(item.slug)}/" data-analytics-event="topic_navigation_click" data-analytics-location="article_topic" data-content-id="${escapeHtml(item.slug)}">${escapeHtml(item.title)}</a></li>`).join("")}</ul>
+        <a class="text-link" href="/articles/#topic-${escapeHtml(topic.id)}">このテーマの記事一覧へ</a>
+      </nav>` : "";
 
   const body = `
     <div class="article-container">
@@ -1017,6 +1045,8 @@ function renderArticle(article) {
       </article>
 
       ${authorCard(true)}
+
+      ${topicReading}
 
       <section class="related-articles" aria-labelledby="related-title">
         <h2 id="related-title">続けて読む</h2>
