@@ -1,0 +1,10 @@
+.amino-beads { margin: 1.4rem 0 2rem; padding: clamp(1rem, 4vw, 2rem); border: 1px solid #dfded2; border-radius: 22px; background: #fffdf8; }
+.amino-beads-row + .amino-beads-row { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid #e7e3d9; }
+.amino-beads-row > p { margin: 0 0 .8rem; font-size: .95rem; font-weight: 700; color: #344f43; }
+.amino-beads-chain { display: flex; align-items: center; gap: clamp(3px, 1vw, 9px); width: fit-content; max-width: 100%; position: relative; }
+.amino-beads-chain::before { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: #9c9d87; }
+.amino-bead { position: relative; display: grid; place-items: center; width: clamp(22px, 5.5vw, 38px); aspect-ratio: 1; flex: 0 0 auto; border-radius: 50%; font: 700 clamp(12px, 3vw, 15px)/1 system-ui, sans-serif; border: 1px solid #0001; }
+.amino-bead-a { background: #d9e8dc; color: #284c37; }
+.amino-bead-b { background: #f1dad5; color: #714134; }
+.amino-bead-c { background: #f5e6b9; color: #685018; }
+.amino-beads figcaption { margin-top: 1.4rem; color: #5b6058; font-size: .85rem; line-height: 1.8; }
