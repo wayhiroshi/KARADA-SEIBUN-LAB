@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
+import { renderAminoBeads } from "./amino-beads.mjs";
 import path from "node:path";
 import { createGlossaryRenderer } from "./glossary-links.mjs";
 
@@ -241,7 +242,8 @@ function pageShell({
   image = site.authorImage,
   imageAlt = `${site.siteName} ${site.byline}`,
   structuredData = [],
-  bodyClass = ""
+  bodyClass = "",
+  extraStyles = []
 }) {
   const pageTitle = pathName === "/" ? `${site.siteName} ${site.byline}` : `${title}｜${site.siteName}`;
   const canonical = absoluteUrl(pathName);
@@ -278,7 +280,7 @@ function pageShell({
   <title>${escapeHtml(pageTitle)}</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css?v=${stylesVersion}">
-  <script src="/app.js" defer></script>
+  <script src="/app.js" defer></script>${extraStyles.length ? "\n  " + extraStyles.map(href => `<link rel="stylesheet" href="${escapeHtml(href)}">`).join("\n  ") : ""}
   ${schemaMarkup}
   ${analyticsMarkup()}
 </head>
@@ -925,7 +927,7 @@ function renderComparison(rows) {
     </div>`;
 }
 
-function renderConceptFlow(items, note = "", title = "要点を、順番に見てみる", layout = "sequence") {
+function renderConceptFlow(items, note = "", title = "要点を、順番に見てみる", layout = "sequence", headingId = "concept-map-title") {
   if (!items?.length) return "";
   const layoutClass = layout === "parallel" ? " concept-map-parallel" : "";
   const steps = items.map(([eyebrow, title, text], index) => `
@@ -938,9 +940,9 @@ function renderConceptFlow(items, note = "", title = "要点を、順番に見�
       </div>
     </li>`).join("");
   return `
-    <section class="concept-map${layoutClass}" aria-labelledby="concept-map-title">
+    <section class="concept-map${layoutClass}" aria-labelledby="${escapeHtml(headingId)}">
       <p class="eyebrow">STUDY MAP</p>
-      <h2 id="concept-map-title">${escapeHtml(title)}</h2>
+      <h2 id="${escapeHtml(headingId)}">${escapeHtml(title)}</h2>
       <ol>${steps}</ol>
       ${note ? `<p class="concept-note">${escapeHtml(note)}</p>` : ""}
     </section>`;
@@ -948,14 +950,16 @@ function renderConceptFlow(items, note = "", title = "要点を、順番に見�
 
 function renderArticle(article) {
   const pathName = `/articles/${article.slug}/`;
-  const articleBody = article.sections.map((section) => `
+  const articleBody = article.sections.map((section, sectionIndex) => `
     <section>
-      <h2>${escapeHtml(section.title)}</h2>
+      <h2>${escapeHtml(section.title)}</h2>${section.beadDiagram ? "\n      " + renderAminoBeads() : ""}
       ${section.image ? `<figure class="article-section-image${section.imageFit === "contain" ? " article-section-image--contain" : ""}">
         <img src="${escapeHtml(section.image)}" width="1200" height="800" alt="${escapeHtml(section.imageAlt ?? "")}" loading="lazy">
         ${section.caption ? `<figcaption>${escapeHtml(section.caption)}</figcaption>` : ""}
       </figure>` : ""}
       ${(() => { const seen = new Set(); return section.paragraphs.map((paragraph) => `<p>${renderGlossaryText(paragraph, seen)}</p>`).join(""); })()}
+      ${renderConceptFlow(section.flow, section.flowNote, section.flowTitle, "sequence", `article-flow-${sectionIndex}`)}
+      ${renderComparison(section.comparison)}
       ${section.link ? `<a class="article-inline-link" href="${escapeHtml(section.link.href)}">${escapeHtml(section.link.label)}<span aria-hidden="true">→</span></a>` : ""}
     </section>`).join("");
   const sources = article.sources.map((source) => `
@@ -1071,6 +1075,7 @@ function renderArticle(article) {
     image: article.image || site.authorImage,
     imageAlt: article.imageAlt || `からだ成分ラボ 執筆者 ${site.authorName}`,
     bodyClass: "article-page",
+    extraStyles: article.sections.some(section => section.beadDiagram) ? ["/assets/articles/how-amino-acids-make-different-proteins/beads.css"] : [],
     structuredData: [articleSchema, breadcrumbSchema]
   });
 }

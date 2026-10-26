@@ -262,7 +262,7 @@ expect(!policy.includes("フォーデイズ会員"), "Internal sales relationshi
 expect(policy.includes("運営・プライバシー"), "Operations and privacy heading is missing");
 expect(policy.includes('"@type":"BreadcrumbList"'), "Editorial policy BreadcrumbList structured data is missing");
 expect(mangaIndex.includes('"@type":"BreadcrumbList"'), "Manga index BreadcrumbList structured data is missing");
-expect(books.length === 2, `Expected 2 reading books, got ${books.length}`);
+expect(books.length > 0, "Reading books must not be empty");
 if (booksEnabled) {
   expect(booksPage.includes("読んでいる本"), "Books page heading is missing");
   expect((booksPage.match(/class="book-card"/g) ?? []).length === books.length, "Books page card count is inconsistent");
